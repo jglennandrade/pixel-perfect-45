@@ -8,6 +8,9 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingCTA from "@/components/FloatingCTA";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import teamPhoto from "@/assets/team-photo.jpg";
+import badgeWorkersComp from "@/assets/badge-workers-comp.png";
+import badgeGoogle from "@/assets/badge-google.png";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -188,29 +191,36 @@ const TwoPaths = () => (
 const WhyDarwin = () => (
   <section className="bg-dark-alt py-20 px-6">
     <div className="max-w-5xl mx-auto">
-      <ScrollReveal>
-        <p className="font-dm text-[11px] text-cta tracking-[4px] uppercase mb-4">WHY DARWIN</p>
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <h2 className="font-bebas text-warm-white text-4xl md:text-6xl tracking-wider leading-tight mb-10">
-          With Bigger Firms, You Are Just a Number.
-        </h2>
-      </ScrollReveal>
-      <ScrollReveal delay={0.15}>
-        <div className="bg-card border border-card-border border-l-[3px] border-l-cta p-8 mb-10">
-          <p className="font-serif italic text-warm-white text-xl md:text-[22px] leading-relaxed">
-            "When you call my office, you get ME — not an operator, not a paralegal who screens calls. You get Darwin."
-          </p>
-          <p className="font-dm text-xs text-muted-text mt-4">— Darwin F. Johnson, Founder & Managing Attorney</p>
+      <div className="grid md:grid-cols-[1fr_auto] gap-10 items-start mb-10">
+        <div>
+          <ScrollReveal>
+            <p className="font-dm text-[11px] text-cta tracking-[4px] uppercase mb-4">WHY DARWIN</p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <h2 className="font-bebas text-warm-white text-4xl md:text-6xl tracking-wider leading-tight mb-10">
+              With Bigger Firms, You Are Just a Number.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.15}>
+            <div className="bg-card border border-card-border border-l-[3px] border-l-cta p-8">
+              <p className="font-serif italic text-warm-white text-xl md:text-[22px] leading-relaxed">
+                "When you call my office, you get ME — not an operator, not a paralegal who screens calls. You get Darwin."
+              </p>
+              <p className="font-dm text-xs text-muted-text mt-4">— Darwin F. Johnson, Founder & Managing Attorney</p>
+            </div>
+          </ScrollReveal>
         </div>
-      </ScrollReveal>
-      <div className="grid md:grid-cols-3 gap-8">
+        <ScrollReveal delay={0.2} direction="right" className="hidden md:block">
+          <img src={teamPhoto} alt="Darwin F. Johnson and his legal team" className="w-72 h-auto rounded-sm border-2 border-card-border" />
+        </ScrollReveal>
+      </div>
+      <div className="grid md:grid-cols-3 gap-8 mb-10">
         {[
           { stat: "PERSONAL ACCESS", desc: "Darwin answers the phone himself. Every time." },
           { stat: "$250M+", desc: "Recovered for Georgia workers and accident victims." },
           { stat: "$0 UPFRONT", desc: "No fee unless we win your case. Zero risk to you." },
         ].map((b, i) => (
-          <ScrollReveal key={i} delay={0.2 + i * 0.1}>
+          <ScrollReveal key={i} delay={0.25 + i * 0.1}>
             <div>
               <div className="font-bebas text-3xl text-cta tracking-wider">{b.stat}</div>
               <p className="font-dm text-base text-body-text mt-2">{b.desc}</p>
@@ -218,6 +228,13 @@ const WhyDarwin = () => (
           </ScrollReveal>
         ))}
       </div>
+      {/* Trust badges */}
+      <ScrollReveal delay={0.4}>
+        <div className="flex items-center justify-center gap-8 opacity-70">
+          <img src={badgeWorkersComp} alt="Workers' Comp Lawyers Badge" className="h-16 w-auto" />
+          <img src={badgeGoogle} alt="Google Reviews Badge" className="h-16 w-auto" />
+        </div>
+      </ScrollReveal>
     </div>
   </section>
 );
