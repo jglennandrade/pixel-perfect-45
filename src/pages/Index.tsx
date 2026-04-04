@@ -8,6 +8,9 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingCTA from "@/components/FloatingCTA";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import teamPhoto from "@/assets/team-photo.jpg";
+import badgeWorkersComp from "@/assets/badge-workers-comp.png";
+import badgeGoogle from "@/assets/badge-google.png";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
