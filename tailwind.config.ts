@@ -62,6 +62,8 @@ export default {
         cta: "hsl(var(--cta))",
         "cta-hover": "hsl(var(--cta-hover))",
         "proof-bar": "hsl(var(--proof-bar))",
+        gold: "hsl(var(--gold))",
+        "gold-hover": "hsl(var(--gold-hover))",
       },
       borderRadius: {
         lg: "var(--radius)",

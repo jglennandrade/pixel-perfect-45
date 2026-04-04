@@ -47,6 +47,8 @@
     --cta: 19 83% 50%;
     --cta-hover: 19 83% 42%;
     --proof-bar: 19 83% 50%;
+    --gold: 40 72% 52%;
+    --gold-hover: 40 72% 44%;
   }
 }
 
@@ -68,7 +70,7 @@
 
 @layer components {
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    @apply px-4 sm:px-6 lg:px-8 py-20 md:py-28;
   }
   .container-max {
     @apply max-w-6xl mx-auto;
@@ -117,8 +119,36 @@
   .cta-btn-outline:active {
     transform: scale(0.97);
   }
+
+  /* Section gradient transition */
+  .section-gradient-top {
+    position: relative;
+  }
+  .section-gradient-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, hsl(var(--bg-dark)), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Editorial divider */
+  .editorial-divider {
+    width: 60px;
+    height: 2px;
+    background: hsl(var(--cta));
+  }
 }
 
 @keyframes shimmer {
   100% { left: 150%; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
