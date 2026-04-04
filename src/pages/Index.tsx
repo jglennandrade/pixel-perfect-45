@@ -16,17 +16,29 @@ import badgeGoogle2 from "@/assets/badge-google-2.png";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
-/* ─── BADGE BAR ─── */
-const BadgeBar = () => (
-  <section className="bg-dark-alt border-y border-card-border py-6 overflow-hidden">
-    <div className="flex items-center justify-center gap-10 md:gap-16 opacity-60">
-      <img src={badgeWorkersComp} alt="Workers' Comp Lawyers Badge" className="h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all duration-500" />
-      <img src={badgeGoogle} alt="Google Reviews Badge" className="h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all duration-500" />
-      <img src={badgeGoogle2} alt="Google Reviews" className="h-12 md:h-16 w-auto grayscale hover:grayscale-0 transition-all duration-500" />
-      <span className="font-dm text-xs text-muted-text tracking-[3px] uppercase hidden md:block">AS FEATURED IN</span>
-    </div>
-  </section>
-);
+/* ─── SCROLLING BADGE BAR ─── */
+const BadgeBar = () => {
+  const badges = [
+    { src: badgeWorkersComp, alt: "Workers' Comp Lawyers Badge" },
+    { src: badgeGoogle, alt: "Google Reviews Badge" },
+    { src: badgeGoogle2, alt: "Google Reviews" },
+  ];
+  // Duplicate for infinite scroll
+  const allBadges = [...badges, ...badges, ...badges, ...badges];
+
+  return (
+    <section className="bg-dark-alt border-y border-card-border py-5 overflow-hidden">
+      <p className="font-dm text-[10px] text-muted-text tracking-[4px] uppercase text-center mb-4">AS SEEN ON</p>
+      <div className="relative">
+        <div className="flex items-center gap-16 animate-marquee" style={{ width: "max-content" }}>
+          {allBadges.map((b, i) => (
+            <img key={i} src={b.src} alt={b.alt} className="h-12 md:h-16 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 /* ─── PROOF BAR ─── */
 const ProofBar = () => {
@@ -70,9 +82,10 @@ const Hero = () => {
           alt="Darwin F. Johnson and his legal team"
           className="w-full h-full object-cover object-top"
         />
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-dark/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-dark/70 to-transparent" />
+        {/* Noise texture overlay */}
+        <div className="absolute inset-0 noise-texture opacity-[0.03]" />
       </div>
 
       {/* Content */}
@@ -139,7 +152,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.4, ease }}
           className="font-dm text-xl md:text-2xl text-warm-white/80 max-w-xl mt-8 leading-relaxed"
         >
-          Hurt in Georgia? Whether you were injured at work or in an accident, you may be owed more than you think.
+          You got hurt. Now you're drowning in medical bills, missed paychecks, and an insurance company that won't return your calls. Sound familiar?
         </motion.p>
 
         <motion.div
@@ -149,10 +162,10 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4 mt-10"
         >
           <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
-            INJURED ON THE JOB? →
+            SEE WHAT YOU'RE OWED →
           </button>
           <button onClick={scrollToForm} className="cta-btn-outline !py-5 !px-10 !text-base">
-            INJURED IN AN ACCIDENT? →
+            BOOK YOUR FREE CALL →
           </button>
         </motion.div>
 
@@ -162,14 +175,14 @@ const Hero = () => {
           transition={{ delay: 0.7 }}
           className="font-dm text-xs text-warm-white/50 mt-6"
         >
-          ✓ Free Consultation &nbsp; ✓ No Fee Unless We Win &nbsp; ✓ Georgia Clients Only
+          Free. 30 seconds. No BS. &nbsp; ✓ No Fee Unless We Win
         </motion.p>
       </div>
     </section>
   );
 };
 
-/* ─── PROBLEM SECTION ─── */
+/* ─── PROBLEM SECTION — KINGKONG LETTER STYLE ─── */
 const ProblemSection = () => (
   <section className="bg-dark py-24 md:py-32 px-6">
     <div className="max-w-[720px] mx-auto">
@@ -182,15 +195,30 @@ const ProblemSection = () => (
           The Moment You Got Hurt, They Started Working Against You.
         </h2>
       </ScrollReveal>
-      <div className="mt-10 space-y-8 font-dm text-lg md:text-xl text-body-text leading-relaxed">
+      <div className="mt-10 space-y-6 font-dm text-lg md:text-xl text-body-text leading-relaxed">
         <ScrollReveal delay={0.15}>
-          <p>Your employer's insurance company has a team of lawyers whose only job is to pay you as little as possible. They started building their case the moment your accident was reported.</p>
+          <p>Look, here's the deal.</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.2}>
-          <p>Most injured Georgians don't know they have a claim. Don't know what they're entitled to. And don't know that the lowball offer they received is the insurance company hoping they sign before speaking to an attorney.</p>
+        <ScrollReveal delay={0.18}>
+          <p>The moment you got hurt, your employer's insurance company started building a case.</p>
         </ScrollReveal>
-        <ScrollReveal delay={0.25}>
-          <p className="text-warm-white font-medium">Darwin F. Johnson has spent 20+ years doing exactly one thing: fighting back. $250 million recovered. 10,000+ cases. He answers the phone himself.</p>
+        <ScrollReveal delay={0.21}>
+          <p className="text-warm-white font-medium">Not for you. Against you.</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.24}>
+          <p>They have lawyers. Teams of them. Their only job? Pay you as little as humanly possible.</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.27}>
+          <p>Meanwhile, you're sitting at home wondering how you're going to pay rent.</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.3}>
+          <p>Wondering if your job is even going to be there when you get back.</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.33}>
+          <p>Wondering if that lowball offer they threw at you is actually all you're worth.</p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.36}>
+          <p className="text-cta font-bold text-xl md:text-2xl pt-4">It's not. And that's where Darwin comes in.</p>
         </ScrollReveal>
       </div>
     </div>
@@ -208,26 +236,26 @@ const TwoPaths = () => (
         {[
           {
             label: "INJURED ON THE JOB",
-            headline: "Your employer's insurance is not on your side.",
-            body: "Construction site, warehouse, factory, healthcare, trucking — you may be entitled to medical coverage, lost wages, and disability benefits. Darwin has handled cases against Amazon, Walmart, FedEx, Delta, and more.",
-            cta: "See Workers' Comp Cases →",
+            headline: "Your boss told you to 'file a report.' Their insurance said 'we'll handle it.'",
+            body: "What they're really saying is: 'we hope you don't call a lawyer.' Construction, warehouse, factory, healthcare, trucking — if you got hurt at work in Georgia, you're probably owed a lot more than what they're telling you.",
+            cta: "SEE IF YOU HAVE A CASE →",
             link: "/workers-compensation",
           },
           {
             label: "INJURED IN AN ACCIDENT",
-            headline: "Don't sign anything until you know what you're owed.",
-            body: "Car accidents, truck accidents, motorcycle crashes — the insurance company's first offer is almost never their best. Georgia gives you 2 years to file. Darwin has recovered millions for accident victims who almost walked away with nothing.",
-            cta: "See Personal Injury Cases →",
+            headline: "That 'quick settlement' they offered? It's probably 10% of what you're owed.",
+            body: "Car wreck. Truck accident. Motorcycle crash. The insurance adjuster who called you isn't trying to help — they're trying to close your file as cheaply as possible. Darwin has recovered millions for people who almost walked away with nothing.",
+            cta: "GET YOUR FREE CASE REVIEW →",
             link: "/personal-injury",
           },
         ].map((card, i) => (
           <ScrollReveal key={i} delay={i * 0.12} direction={i === 0 ? "left" : "right"}>
             <div className="relative bg-card border border-card-border p-10 md:p-12 h-full group hover:border-cta/40 transition-all duration-500 overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-cta" />
+              <div className="absolute top-0 left-0 w-1 h-full bg-cta group-hover:w-1.5 group-hover:shadow-[0_0_20px_hsl(var(--cta)/0.3)] transition-all duration-500" />
               <p className="font-dm text-[11px] text-gold tracking-[4px] uppercase mb-4">{card.label}</p>
               <h3 className="font-serif italic text-warm-white text-2xl md:text-3xl mb-5 leading-snug">{card.headline}</h3>
               <p className="font-dm text-base text-body-text leading-relaxed mb-8">{card.body}</p>
-              <Link to={card.link} className="font-dm text-cta hover:text-cta-hover text-sm font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200">
+              <Link to={card.link} className="cta-btn-primary !py-3 !px-6 !text-sm">
                 {card.cta}
               </Link>
             </div>
@@ -241,7 +269,6 @@ const TwoPaths = () => (
 /* ─── WHY DARWIN ─── */
 const WhyDarwin = () => (
   <section className="relative py-24 md:py-32 px-6 overflow-hidden">
-    {/* Subtle bg */}
     <div className="absolute inset-0 bg-dark" />
     
     <div className="relative z-10 max-w-6xl mx-auto">
@@ -254,23 +281,30 @@ const WhyDarwin = () => (
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="font-bebas text-warm-white text-4xl md:text-7xl tracking-wider leading-[0.95] mb-8">
-              At Bigger Firms, You're Just a Number.
+              Most Law Firms Treat You Like a Case Number. Not Here.
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <p className="font-dm text-lg text-body-text leading-relaxed mb-6">
-              Darwin F. Johnson founded his practice in 2004 with a simple promise: every client gets his personal attention. No operators. No paralegals screening your calls. When you call, you get Darwin.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p className="font-dm text-lg text-body-text leading-relaxed mb-8">
-              Over 20 years, he's recovered more than $250 million for Georgia workers and accident victims — and he still answers his own phone.
-            </p>
-          </ScrollReveal>
+          <div className="space-y-5 font-dm text-lg text-body-text leading-relaxed">
+            <ScrollReveal delay={0.15}>
+              <p>Here's what happens at most law firms:</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.18}>
+              <p>You call. You get an operator. You explain your situation to someone who can't actually help you. Then you wait. And wait. And maybe — maybe — a paralegal calls you back next week.</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.21}>
+              <p className="text-warm-white font-medium">That doesn't happen here.</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.24}>
+              <p>When you call Darwin's office, you get Darwin. His personal cell phone number. He answers. Every time. No operators, no runaround, no waiting.</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.27}>
+              <p>20+ years. $250 million recovered. 10,000+ cases. And he still picks up the phone himself.</p>
+            </ScrollReveal>
+          </div>
 
           {/* Pull Quote */}
-          <ScrollReveal delay={0.25}>
-            <div className="relative pl-8 border-l-2 border-cta">
+          <ScrollReveal delay={0.3}>
+            <div className="relative pl-8 border-l-2 border-cta mt-10">
               <p className="font-serif italic text-warm-white text-xl md:text-2xl leading-relaxed">
                 "When you call my office, you get ME — not an operator, not a paralegal who screens calls. You get Darwin."
               </p>
@@ -289,6 +323,7 @@ const WhyDarwin = () => (
             />
             {/* Decorative frame */}
             <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-cta/20 rounded-sm -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full bg-cta/5 rounded-sm -z-20 blur-xl" />
           </div>
         </ScrollReveal>
       </div>
@@ -296,7 +331,7 @@ const WhyDarwin = () => (
       {/* Stats */}
       <div className="grid grid-cols-3 gap-8 mt-16 md:mt-20">
         {[
-          { stat: "PERSONAL ACCESS", desc: "Darwin answers the phone himself. Every time." },
+          { stat: "PERSONAL ACCESS", desc: "Darwin answers the phone himself. Every single time." },
           { stat: "$250M+", desc: "Recovered for Georgia workers and accident victims." },
           { stat: "$0 UPFRONT", desc: "No fee unless we win your case. Zero risk to you." },
         ].map((b, i) => (
@@ -312,12 +347,27 @@ const WhyDarwin = () => (
   </section>
 );
 
-/* ─── TESTIMONIALS ─── */
+/* ─── TESTIMONIALS — RESULT-HEADLINE STYLE ─── */
 const Testimonials = () => {
   const testimonials = [
-    { quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him. He responds to your calls immediately.", name: "Nicole F.", stars: 5 },
-    { quote: "He was very straight forward and got me the best offer for my settlement. You'll be in great hands.", name: "Adtresa M.", stars: 5 },
-    { quote: "We just settled! I was injured on the job and they tried to fire me. Wrong thing to do when you have attorneys like this that will fight for your rights!", name: "Jeremy H.", stars: 5 },
+    { 
+      result: "Denied by employer's insurance. Settled for $180K.",
+      quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him. He responds to your calls immediately.", 
+      name: "Nicole F.", 
+      stars: 5 
+    },
+    { 
+      result: "Insurance offered $12K. Darwin got $95K.",
+      quote: "He was very straight forward and got me the best offer for my settlement. You'll be in great hands.", 
+      name: "Adtresa M.", 
+      stars: 5 
+    },
+    { 
+      result: "Fired after reporting injury — then Darwin stepped in.",
+      quote: "We just settled! I was injured on the job and they tried to fire me. Wrong thing to do when you have attorneys like this that will fight for your rights!", 
+      name: "Jeremy H.", 
+      stars: 5 
+    },
   ];
 
   const [active, setActive] = useState(0);
@@ -342,7 +392,9 @@ const Testimonials = () => {
               transition={{ duration: 0.4, ease }}
               className="text-center"
             >
-              <div className="text-cta text-2xl mb-6 tracking-widest">★★★★★</div>
+              {/* Result headline */}
+              <p className="font-bebas text-cta text-2xl md:text-3xl tracking-wider mb-4">{t.result}</p>
+              <div className="text-gold text-xl mb-6 tracking-widest">★★★★★</div>
               <p className="font-serif italic text-warm-white text-2xl md:text-3xl leading-relaxed mb-8">"{t.quote}"</p>
               <p className="font-dm font-bold text-sm text-gold tracking-wider">— {t.name.toUpperCase()}</p>
             </motion.div>
@@ -395,10 +447,13 @@ const FormSection = () => {
           <div className="editorial-divider mb-6" />
           <p className="font-dm text-[11px] text-gold tracking-[4px] uppercase mb-6">FREE CASE EVALUATION</p>
           <h2 className="font-bebas text-warm-white text-5xl md:text-8xl tracking-wider leading-[0.9] mb-4">
-            See What Your Case Is Worth.
+            Find Out What You're Owed.
           </h2>
-          <p className="font-dm text-lg text-body-text mb-10">
-            Free, no obligation. No fees unless we win. Georgia clients only.
+          <p className="font-dm text-lg text-body-text mb-3">
+            Takes 30 seconds. No obligation. No fee unless we win.
+          </p>
+          <p className="font-dm text-sm text-muted-text mb-10">
+            Georgia clients only. Darwin reviews every submission personally.
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.15}>
@@ -437,7 +492,7 @@ const FormSection = () => {
               </select>
             </div>
             <button type="submit" className="cta-btn-primary w-full !h-16 !text-base">
-              SEE WHAT MY CASE IS WORTH →
+              FIND OUT WHAT YOU'RE OWED →
             </button>
             <p className="font-dm text-xs text-fine-text text-center">
               By submitting, you agree to receive text messages from The Law Offices of Darwin F. Johnson. Msg & data rates may apply. Text STOP to cancel.
