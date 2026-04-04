@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Phone } from "lucide-react";
 import darwinLogo from "@/assets/darwin-logo.png";
 
-const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/workers-compensation", label: "Workers' Comp" },
+const menuLinks = [
+  { to: "/workers-compensation", label: "Workers' Compensation" },
   { to: "/personal-injury", label: "Personal Injury" },
-  { to: "/book-a-call", label: "Book a Call" },
 ];
 
 const Header = () => {
@@ -15,11 +14,19 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  const [hidden, setHidden] = useState(false);
+  const [lastY, setLastY] = useState(0);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 10);
+      setHidden(y > 100 && y > lastY); // hide when scrolling down past hero
+      setLastY(y);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [lastY]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -33,69 +40,65 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6 transition-all duration-300 ${
-          scrolled ? "bg-dark/95 backdrop-blur-md border-b border-card-border" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-[72px] flex items-center justify-between px-5 md:px-10 transition-all duration-500 ${
+          hidden ? "-translate-y-full" : "translate-y-0"
+        } ${
+          scrolled
+            ? "bg-navy/95 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,0.15)]"
+            : "bg-transparent"
         }`}
       >
-        {/* Logo */}
-        <Link to="/" className="relative z-50">
-          <img src={darwinLogo} alt="Darwin F. Johnson" className="h-6 md:h-7 w-auto" />
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`font-dm text-sm tracking-wide transition-colors duration-200 relative ${
-                location.pathname === link.to
-                  ? "text-cta font-bold"
-                  : "text-warm-white/70 hover:text-warm-white"
-              }`}
-            >
-              {link.label}
-              {location.pathname === link.to && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute -bottom-1 left-0 right-0 h-[2px] bg-cta"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
-                />
-              )}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Desktop Phone */}
+        {/* LEFT — Phone icon + number */}
         <a
           href="tel:4045212667"
-          className="hidden md:block font-dm font-bold text-cta text-sm"
+          className="flex items-center gap-2 group"
         >
-          404-521-2667
+          <span className="w-8 h-8 rounded-full bg-cta flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Phone size={14} className="text-white" />
+          </span>
+          <span className="hidden sm:block font-dm font-bold text-white text-sm tracking-wide group-hover:text-cta transition-colors">
+            404-521-2667
+          </span>
         </a>
 
-        {/* Mobile Hamburger */}
+        {/* CENTER — Logo */}
+        <Link to="/" className="absolute left-1/2 -translate-x-1/2 z-50">
+          <img
+            src={darwinLogo}
+            alt="Darwin F. Johnson"
+            className="h-6 md:h-7 w-auto brightness-100"
+          />
+        </Link>
+
+        {/* RIGHT — "menu" text + hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden relative z-50 w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+          className="relative z-50 flex items-center gap-3"
           aria-label="Toggle menu"
         >
-          <motion.span
-            animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-[2px] bg-warm-white"
-          />
-          <motion.span
-            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-[2px] bg-warm-white"
-          />
-          <motion.span
-            animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-[2px] bg-warm-white"
-          />
+          <span className="hidden sm:block font-dm text-sm text-white/70 tracking-wide">
+            {menuOpen ? "close" : "menu"}
+          </span>
+          <div className="w-7 h-7 flex flex-col items-end justify-center gap-[5px]">
+            <motion.span
+              animate={menuOpen ? { rotate: 45, y: 7, width: "100%" } : { rotate: 0, y: 0, width: "100%" }}
+              className="block h-[2px] bg-white origin-center"
+              style={{ width: "100%" }}
+            />
+            <motion.span
+              animate={menuOpen ? { opacity: 0, width: "100%" } : { opacity: 1, width: "70%" }}
+              className="block h-[2px] bg-white"
+            />
+            <motion.span
+              animate={menuOpen ? { rotate: -45, y: -7, width: "100%" } : { rotate: 0, y: 0, width: "100%" }}
+              className="block h-[2px] bg-white origin-center"
+              style={{ width: "100%" }}
+            />
+          </div>
         </button>
       </header>
 
-      {/* Mobile Full-Screen Overlay */}
+      {/* Full-Screen Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -103,36 +106,57 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark/98 backdrop-blur-lg flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-navy flex flex-col items-center justify-center"
           >
-            <nav className="flex flex-col items-center gap-6">
-              {navLinks.map((link, i) => (
+            <nav className="flex flex-col items-center gap-8">
+              {menuLinks.map((link, i) => (
                 <motion.div
                   key={link.to}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: i * 0.08, duration: 0.3 }}
+                  transition={{ delay: i * 0.1, duration: 0.3 }}
                 >
                   <Link
                     to={link.to}
-                    className={`font-bebas text-4xl tracking-wider transition-colors ${
-                      location.pathname === link.to ? "text-cta" : "text-warm-white"
+                    className={`font-bebas text-5xl md:text-7xl tracking-wider transition-colors ${
+                      location.pathname === link.to ? "text-cta" : "text-white hover:text-cta"
                     }`}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: navLinks.length * 0.08, duration: 0.3 }}
-                className="mt-6"
+                transition={{ delay: menuLinks.length * 0.1, duration: 0.3 }}
+                className="mt-4"
               >
-                <a href="tel:4045212667" className="cta-btn-primary !text-lg !px-10 !py-5">
-                  CALL 404-521-2667
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setTimeout(() => {
+                      document.getElementById("form-section")?.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }}
+                  className="cta-btn-primary !text-lg !px-10 !py-5"
+                >
+                  FREE CASE REVIEW →
+                </button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="flex items-center gap-2 mt-4"
+              >
+                <Phone size={16} className="text-cta" />
+                <a href="tel:4045212667" className="font-dm text-white/60 text-sm hover:text-cta transition-colors">
+                  404-521-2667
                 </a>
               </motion.div>
             </nav>

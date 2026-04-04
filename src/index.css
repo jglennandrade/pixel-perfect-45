@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 30 14% 95%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 30 14% 95%;
+    --card: 0 0% 97%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 30 14% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
     --primary: 19 83% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 7%;
-    --secondary-foreground: 30 14% 95%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 0 0% 16%;
-    --muted-foreground: 30 4% 40%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 45%;
 
     --accent: 19 83% 50%;
     --accent-foreground: 0 0% 100%;
@@ -30,25 +30,39 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
     --ring: 19 83% 50%;
 
-    --radius: 3px;
+    --radius: 4px;
 
-    /* Custom tokens */
-    --bg-dark: 0 0% 4%;
-    --bg-alt: 0 0% 7%;
-    --card-border: 0 0% 16%;
-    --text-warm: 30 14% 95%;
-    --text-body: 30 4% 67%;
-    --text-muted: 0 0% 40%;
-    --text-fine: 0 0% 33%;
+    /* ─── KingKong-inspired light palette ─── */
+    --bg-light: 0 0% 100%;
+    --bg-off: 30 10% 97%;
+    --bg-warm: 30 15% 95%;
+    --bg-dark: 0 0% 6%;
+    --bg-dark-alt: 0 0% 9%;
+
+    --text-dark: 0 0% 8%;
+    --text-body: 0 0% 30%;
+    --text-muted: 0 0% 50%;
+    --text-fine: 0 0% 65%;
+    --text-light: 0 0% 100%;
+
+    --card-border: 0 0% 90%;
+    --card-border-hover: 0 0% 80%;
+
     --cta: 19 83% 50%;
-    --cta-hover: 19 83% 42%;
-    --proof-bar: 19 83% 50%;
+    --cta-hover: 19 90% 44%;
+    --cta-glow: 19 83% 50%;
+
     --gold: 40 72% 52%;
     --gold-hover: 40 72% 44%;
+
+    /* Navy blue from logo */
+    --navy: 220 55% 28%;
+    --navy-light: 220 45% 38%;
+    --navy-dark: 220 60% 18%;
   }
 }
 
@@ -60,6 +74,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -76,11 +92,13 @@
     @apply max-w-6xl mx-auto;
   }
 
+  /* ─── CTA BUTTONS — KingKong bold style ─── */
   .cta-btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold font-dm tracking-[1px] rounded-sm transition-all duration-200 ease-out;
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold font-dm tracking-[2px] uppercase transition-all duration-300 ease-out;
     background: hsl(var(--cta));
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 4px 14px hsla(var(--cta) / 0.35);
+    color: hsl(var(--text-light));
+    border-radius: 4px;
+    box-shadow: 0 4px 14px hsla(var(--cta-glow) / 0.3);
     position: relative;
     overflow: hidden;
   }
@@ -91,61 +109,129 @@
     left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
   }
   .cta-btn-primary:hover::before {
     animation: shimmer 0.7s ease-out forwards;
   }
   .cta-btn-primary:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsla(var(--cta-glow) / 0.4);
     background: hsl(var(--cta-hover));
-    box-shadow: 0 6px 20px hsla(var(--cta) / 0.45);
   }
   .cta-btn-primary:active {
-    transform: scale(0.97);
+    transform: translateY(0) scale(0.98);
+  }
+
+  .cta-btn-dark {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold font-dm tracking-[2px] uppercase transition-all duration-300 ease-out;
+    background: hsl(var(--bg-dark));
+    color: hsl(var(--text-light));
+    border-radius: 4px;
+  }
+  .cta-btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsla(0 0% 0% / 0.2);
+    background: hsl(0 0% 15%);
   }
 
   .cta-btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold font-dm tracking-[1px] rounded-sm transition-all duration-200 ease-out border;
-    border-color: hsl(var(--cta));
-    color: hsl(var(--cta));
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold font-dm tracking-[2px] uppercase transition-all duration-300 ease-out;
+    border: 2px solid hsl(var(--bg-dark));
+    color: hsl(var(--text-dark));
+    border-radius: 4px;
     background: transparent;
   }
   .cta-btn-outline:hover {
-    background: hsl(var(--cta));
-    color: hsl(var(--primary-foreground));
-    transform: scale(1.02);
-  }
-  .cta-btn-outline:active {
-    transform: scale(0.97);
+    background: hsl(var(--bg-dark));
+    color: hsl(var(--text-light));
+    transform: translateY(-2px);
   }
 
-  /* Section gradient transition */
-  .section-gradient-top {
+  .cta-btn-outline-light {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold font-dm tracking-[2px] uppercase transition-all duration-300 ease-out;
+    border: 2px solid hsl(var(--text-light));
+    color: hsl(var(--text-light));
+    border-radius: 4px;
+    background: transparent;
+  }
+  .cta-btn-outline-light:hover {
+    background: hsl(var(--text-light));
+    color: hsl(var(--text-dark));
+    transform: translateY(-2px);
+  }
+
+  .cta-pulse {
+    animation: ctaPulse 3s ease-in-out infinite;
+  }
+
+  /* ─── EDITORIAL DIVIDER ─── */
+  .editorial-divider {
+    width: 60px;
+    height: 3px;
+    background: hsl(var(--cta));
+    border-radius: 2px;
+  }
+  .editorial-divider-dark {
+    width: 60px;
+    height: 3px;
+    background: hsl(var(--text-light));
+    border-radius: 2px;
+  }
+
+  /* ─── CARD STYLES ─── */
+  .card-base {
+    background: hsl(var(--bg-light));
+    border: 1px solid hsl(var(--card-border));
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .card-base:hover {
+    border-color: hsl(var(--card-border-hover));
+    box-shadow: 0 12px 40px hsla(0 0% 0% / 0.08);
+  }
+
+  .card-lift {
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .card-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px hsla(0 0% 0% / 0.12);
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .section-divider {
     position: relative;
   }
-  .section-gradient-top::before {
+  .section-divider::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom, hsl(var(--bg-dark)), transparent);
-    pointer-events: none;
-    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 1100px);
+    height: 1px;
+    background: hsl(var(--card-border));
   }
 
-  /* Editorial divider */
-  .editorial-divider {
-    width: 60px;
-    height: 2px;
-    background: hsl(var(--cta));
+  /* ─── TYPOGRAPHY ─── */
+  .text-deck {
+    @apply font-dm text-xl md:text-2xl leading-relaxed;
+    color: hsl(var(--text-body));
+  }
+  .text-pull {
+    @apply font-serif italic text-2xl md:text-3xl leading-relaxed;
   }
 }
 
+/* ─── KEYFRAMES ─── */
 @keyframes shimmer {
   100% { left: 150%; }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 14px hsla(var(--cta-glow) / 0.3), 0 0 0 0 hsla(var(--cta-glow) / 0.15); }
+  50% { box-shadow: 0 4px 14px hsla(var(--cta-glow) / 0.3), 0 0 0 8px hsla(var(--cta-glow) / 0); }
 }
 
 @keyframes marquee {
@@ -154,10 +240,5 @@
 }
 
 .animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-
-.noise-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 128px 128px;
+  animation: marquee 50s linear infinite;
 }
