@@ -216,10 +216,12 @@ const HeroAndVideo = () => {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="w-full h-full object-cover"
-            onLoadedMetadata={(e) => {
-              e.currentTarget.currentTime = 10;
+            ref={(el) => {
+              if (el) {
+                el.currentTime = 10;
+              }
             }}
           >
             <source src="/mainstage-hero-bg.mp4" type="video/mp4" />
