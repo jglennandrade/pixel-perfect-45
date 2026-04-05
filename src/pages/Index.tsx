@@ -1286,16 +1286,15 @@ const CaseResults = () => {
       <div className="relative overflow-hidden">
         <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
           {[...cases, ...cases].map((c, i) => (
-            <div key={i} className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group">
-              {/* Background image */}
-              <img
-                src={c.img}
-                alt={c.industry}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
+            <div
+              key={i}
+              className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group"
+              style={{
+                backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15)), url(${c.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
 
               {/* Top content */}
               <div className="relative z-10 p-7 h-full flex flex-col justify-between">
