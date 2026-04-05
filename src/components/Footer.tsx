@@ -8,19 +8,6 @@ const scrollToForm = () => {
 const Footer = () => {
   return (
     <footer className="bg-dark text-white">
-      {/* Top CTA strip */}
-      <div className="border-b border-white/10 py-10 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="font-bebas text-3xl md:text-5xl tracking-wider mb-4">
-            Ready to Find Out What You're Owed?
-          </p>
-          <p className="font-dm text-white/60 mb-6">Free case review. No obligation. No fee unless we win.</p>
-          <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-10">
-            GET MY FREE CASE REVIEW →
-          </button>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-14">
         <div className="grid md:grid-cols-4 gap-10">
           {/* Brand */}

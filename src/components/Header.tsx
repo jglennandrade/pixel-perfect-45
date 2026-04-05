@@ -5,8 +5,8 @@ import { Phone } from "lucide-react";
 import darwinLogo from "@/assets/darwin-logo.png";
 
 const menuLinks = [
-  { id: "workers-comp-section", label: "Workers' Compensation" },
-  { id: "personal-injury-section", label: "Personal Injury" },
+  { id: "quiz-section", label: "Workers' Compensation" },
+  { id: "quiz-section", label: "Personal Injury" },
 ];
 
 const Header = () => {
@@ -16,16 +16,43 @@ const Header = () => {
   const [hidden, setHidden] = useState(false);
   const [lastY, setLastY] = useState(0);
 
+  const [scrollUpStart, setScrollUpStart] = useState<number | null>(null);
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 10);
-      setHidden(y > 100 && y > lastY); // hide when scrolling down past hero
+
+      // Near top: always show, reset
+      if (y < 100) {
+        setHidden(false);
+        setScrollUpStart(null);
+      }
+      // Scrolling down: hide, reset scroll-up tracking
+      else if (y > lastY) {
+        setHidden(true);
+        setScrollUpStart(null);
+      }
+      // Scrolling up: track how much they've scrolled up
+      else if (y < lastY) {
+        if (scrollUpStart === null) {
+          // Just started scrolling up — mark the starting point
+          setScrollUpStart(y);
+        } else {
+          // Show navbar once they've scrolled up 5% of viewport height
+          const threshold = window.innerHeight * 0.80;
+          if (scrollUpStart - y >= threshold) {
+            setHidden(false);
+          }
+        }
+      }
+
       setLastY(y);
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [lastY]);
+  }, [lastY, scrollUpStart]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";

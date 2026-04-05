@@ -58,14 +58,14 @@ export default function DamagesBlock({
               <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center mb-5">
                 <span className="text-2xl">💰</span>
               </div>
-              <p className="font-bebas text-3xl text-white tracking-wider mb-2">ECONOMIC DAMAGES</p>
-              <p className="font-dm text-sm text-white/40 mb-6">The tangible costs — things with receipts.</p>
+              <p className="font-bebas text-3xl text-white tracking-wider mb-2">WHAT IT COST YOU</p>
+              <p className="font-dm text-sm text-white/40 mb-6">Money out of your pocket — stuff with receipts.</p>
               <div className="space-y-4">
                 {[
-                  { item: "Medical Expenses", detail: "Past + future — surgeries, PT, medication. Could be $100K+" },
-                  { item: "Lost Wages", detail: "Every paycheck you missed while recovering" },
-                  { item: "Lost Earning Capacity", detail: "If you can't return to your old job or work at the same level" },
-                  { item: "Property Damage", detail: "Vehicle repairs, equipment, anything destroyed" },
+                  { item: "Medical Bills", detail: "Past and future. Surgeries, therapy, medication. Can add up to $100K+." },
+                  { item: "Missed Paychecks", detail: "Every day you couldn't work while hurt." },
+                  { item: "Can't Work Like Before", detail: "If your injury stops you from doing your old job — or working at all." },
+                  { item: "Damaged Stuff", detail: "Your car, your gear, anything broken in the accident." },
                 ].map((d, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="text-cta font-bold text-lg mt-0.5">✓</span>
@@ -84,14 +84,14 @@ export default function DamagesBlock({
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-5">
                 <span className="text-2xl">💔</span>
               </div>
-              <p className="font-bebas text-3xl text-white tracking-wider mb-2">NON-ECONOMIC DAMAGES</p>
-              <p className="font-dm text-sm text-white/40 mb-6">The human costs — often worth more than the bills.</p>
+              <p className="font-bebas text-3xl text-white tracking-wider mb-2">WHAT IT TOOK FROM YOU</p>
+              <p className="font-dm text-sm text-white/40 mb-6">The stuff that doesn't show up on a bill — but often matters most.</p>
               <div className="space-y-4">
                 {[
-                  { item: "Pain & Suffering", detail: "Physical pain from your injuries — this can be substantial" },
-                  { item: "Emotional Distress", detail: "Anxiety, depression, PTSD, sleepless nights" },
-                  { item: "Loss of Enjoyment", detail: "Can't play with your kids, exercise, or do what you love" },
-                  { item: "Loss of Consortium", detail: "Impact on your marriage and closest relationships" },
+                  { item: "The Physical Pain", detail: "Every ache, every sleepless night from your injuries." },
+                  { item: "Stress & Anxiety", detail: "The mental toll. Depression, PTSD, constant worry." },
+                  { item: "Missing Out on Life", detail: "Can't play with your kids, hit the gym, or do what you love." },
+                  { item: "Strain on Your Family", detail: "How this is hurting your marriage and the people closest to you." },
                 ].map((d, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="text-white font-bold text-lg mt-0.5">✓</span>
