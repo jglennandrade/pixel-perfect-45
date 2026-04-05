@@ -1,14 +1,16 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import DamagesBlock from "@/components/DamagesBlock";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingCTA from "@/components/FloatingCTA";
 import MobileStickyBar from "@/components/MobileStickyBar";
 import darwinHeadshot from "@/assets/darwin-headshot.jpg";
+import djMonogram from "@/assets/dj-monogram.png";
 import badgeExpertise from "@/assets/badge-expertise-color.png";
 import badgeAvvo from "@/assets/badge-avvo.webp";
 import badgeGoogleColor from "@/assets/badge-google-color.png";
@@ -377,12 +379,12 @@ const Offerings = () => (
   <section className="bg-white py-20 md:py-32 px-6">
     <div className="max-w-6xl mx-auto">
       <ScrollReveal>
-        <p className="font-dm text-xs text-text-muted tracking-[4px] uppercase mb-4 text-center">TWO PATHS. ONE MISSION.</p>
+        <p className="font-dm text-xs text-text-muted tracking-[4px] uppercase mb-4 text-center">PICK THE ONE THAT HAPPENED TO YOU</p>
         <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
           How Were You Hurt?
         </h2>
         <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
-          One of these is why you can't sleep at night.<br />
+          Pick the one that happened to you.<br />
           Either way, Darwin has made it right 10,000+ times.
         </p>
       </ScrollReveal>
@@ -390,39 +392,78 @@ const Offerings = () => (
       <StaggerContainer stagger={0.15} className="grid md:grid-cols-2 gap-6">
         {[
           {
+            number: "01",
             label: "INJURED ON THE JOB",
             headline: "WORKERS' COMP",
             desc: "Hurt at work in Georgia? Construction, warehouse, factory, healthcare, trucking — if you got injured on the clock, you're probably owed a lot more than what they're offering you.",
-            cta: "Get Started",
-            link: "/workers-compensation",
+            path: "wc",
             stars: "4.9 stars out of 10,000+ cases",
+            accent: "cta", // orange
           },
           {
+            number: "02",
             label: "INJURED IN AN ACCIDENT",
             headline: "PERSONAL INJURY",
             desc: "Car wreck, truck accident, motorcycle crash? That insurance adjuster who called isn't trying to help — they're trying to close your file cheap. Don't sign anything until you talk to Darwin.",
-            cta: "Get Started",
-            link: "/personal-injury",
+            path: "pi",
             stars: "4.9 stars · $250M+ recovered",
+            accent: "gold", // gold
           },
         ].map((card, i) => (
           <StaggerItem key={i}>
-            <Link to={card.link} className="block h-full">
-              <div className="bg-navy rounded-xl p-8 md:p-12 h-full card-lift relative overflow-hidden group text-center">
-                <p className="font-dm text-xs text-cta tracking-[3px] uppercase font-bold mb-4">{card.label}</p>
-                <h3 className="font-bebas text-white text-6xl md:text-8xl tracking-wider leading-[0.85] mb-6">{card.headline}</h3>
-                <p className="font-dm text-lg md:text-xl text-white/60 leading-relaxed mb-8">{card.desc}</p>
+            <button
+              onClick={() => {
+                // Trigger the quiz with the selected path
+                window.dispatchEvent(new CustomEvent("startQuiz", { detail: { path: card.path } }));
+                setTimeout(() => {
+                  document.getElementById("quiz-section")?.scrollIntoView({ behavior: "smooth" });
+                }, 50);
+              }}
+              className="block h-full w-full text-left"
+            >
+              <div
+                className="rounded-2xl p-8 md:p-12 h-full card-lift relative overflow-hidden group"
+                style={{
+                  background: card.accent === "cta"
+                    ? "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 60% 12%) 60%, hsl(220 65% 8%) 100%)"
+                    : "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 60% 12%) 60%, hsl(220 65% 8%) 100%)"
+                }}
+              >
+                {/* Top accent bar */}
+                <div className={`absolute top-0 left-0 right-0 h-1 ${card.accent === "cta" ? "bg-cta" : "bg-gold"}`} />
 
-                <div className="bg-cta rounded-lg py-4 px-6 text-center group-hover:bg-cta-hover transition-colors">
-                  <span className="font-dm font-bold text-white text-base tracking-wide">See If I Qualify →</span>
-                </div>
+                {/* DJ monogram watermark — background decoration */}
+                <img
+                  src={djMonogram}
+                  alt=""
+                  className="absolute -top-8 -right-8 md:-top-12 md:-right-12 w-[220px] md:w-[340px] h-auto pointer-events-none select-none opacity-[0.08]"
+                />
 
-                <div className="flex flex-col items-center gap-1 mt-8">
-                  <span className="text-cta text-3xl tracking-[6px]">★★★★★</span>
-                  <span className="font-dm text-base text-white/60 mt-1">{card.stars}</span>
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <span className={`font-dm text-xs tracking-[3px] uppercase font-bold ${card.accent === "cta" ? "text-cta" : "text-gold"}`}>
+                      {card.number} / {card.label}
+                    </span>
+                  </div>
+                  <h3 className="font-bebas text-white text-6xl md:text-8xl tracking-wider leading-[0.85] mb-6">{card.headline}</h3>
+                  <p className="font-dm text-lg md:text-xl text-white/60 leading-relaxed mb-8">{card.desc}</p>
+
+                  <div className={`rounded-lg py-4 px-6 text-center transition-colors ${
+                    card.accent === "cta"
+                      ? "bg-cta group-hover:bg-cta-hover"
+                      : "bg-gold group-hover:bg-gold-hover"
+                  }`}>
+                    <span className="font-dm font-bold text-white text-base tracking-wide">CHECK MY CASE →</span>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-1 mt-8">
+                    <span className={`text-3xl tracking-[6px] ${card.accent === "cta" ? "text-cta" : "text-gold"}`}>★★★★★</span>
+                    <span className="font-dm text-base text-white/60 mt-1">{card.stars}</span>
+                  </div>
                 </div>
               </div>
-            </Link>
+            </button>
           </StaggerItem>
         ))}
       </StaggerContainer>
@@ -456,86 +497,100 @@ const Offerings = () => (
 );
 
 /* ═══════════════════════════════════════════════
-   4b. WORKERS' COMP DEEP DIVE
+   4b-V2. WORKERS' COMP DEEP DIVE — NEW VERSION
    ═══════════════════════════════════════════════ */
 const WorkersCompDeepDive = () => {
-  const [wcTab, setWcTab] = useState("industries");
+  const [wcTab, setWcTab] = useState("injuries");
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const tabData = {
-    industries: {
-      title: "Where Did You Get Hurt?",
-      desc: "Darwin has fought and won cases across every one of these industries in Georgia. If your workplace is on this list, he already knows the playbook your employer's insurance company is running.",
-      items: [
-        "Airport & Airline", "Construction", "Firefighter & EMT", "Grocery & Retail",
-        "Healthcare", "Industrial & Factories", "Law Enforcement", "Poultry Processing",
-        "Roofing", "Steelworker", "Power & Utilities", "Tree Services", "Trucking"
-      ],
-    },
-    employers: {
-      title: "Who Do You Work For?",
-      desc: "These companies have deep pockets and aggressive legal teams. Darwin has gone up against every single one — and he's recovered millions from them. Your employer doesn't scare us.",
-    },
-    injuries: {
-      title: "What's Hurting?",
-      desc: "If your injury is on this list, you almost certainly have a valid case. Workers' comp is a no-fault system — you don't need to prove your employer did anything wrong.",
-      items: [
-        "Back Injuries", "Brain Injuries", "Carpal Tunnel", "Crush Injuries",
-        "Head Injuries", "Hip Injuries", "Knee Injuries", "Neck Injuries",
-        "Paralysis", "Shoulder Injuries", "Spinal Cord Injuries", "Traumatic Brain Injury"
-      ],
-    },
-    qualify: {
-      title: "Do You Qualify?",
-      desc: "Check one box from each column. If you can — you likely have a valid workers' compensation claim. Darwin will confirm for free.",
-    },
+  const switchTab = (id: string) => {
+    setWcTab(id);
+    setTimeout(() => {
+      contentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
   };
 
-  const tabs = [
-    { id: "industries", label: "Industries We Serve", icon: "🏗️" },
-    { id: "employers", label: "Employers We've Beaten", icon: "🏢" },
-    { id: "injuries", label: "Injuries We Handle", icon: "🩺" },
-    { id: "qualify", label: "Do I Qualify?", icon: "✅" },
+  const injuries = [
+    "Back Injuries", "Brain Injuries", "Carpal Tunnel", "Crush Injuries",
+    "Head Injuries", "Hip Injuries", "Knee Injuries", "Neck Injuries",
+    "Paralysis", "Shoulder Injuries", "Spinal Cord Injuries", "Traumatic Brain Injury",
   ];
 
-  const current = tabData[wcTab as keyof typeof tabData];
+  const industries = [
+    "Airport & Airline", "Construction", "Firefighter & EMT", "Grocery & Retail",
+    "Healthcare", "Industrial & Factories", "Law Enforcement", "Poultry Processing",
+    "Roofing", "Steelworker", "Power & Utilities", "Tree Services", "Trucking",
+  ];
+
+  const tabs = [
+    {
+      id: "injuries",
+      label: "What's Hurting",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>,
+    },
+    {
+      id: "industries",
+      label: "Where You Got Hurt",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>,
+    },
+    {
+      id: "qualify",
+      label: "Do I Qualify?",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    },
+  ];
 
   return (
-    <section className="bg-off-white py-20 md:py-32 px-6">
+    <section id="workers-comp-section" className="bg-off-white py-20 md:py-32 px-6 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">WORKERS' COMPENSATION</p>
           <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
             Your Employer Has Lawyers.<br />Now You Do Too.
           </h2>
-          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-16">
+          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-8">
             No matter where you work, what happened, or how bad it is —<br className="hidden md:block" />
             Darwin has seen it, fought it, and won it.
           </p>
+
+          {/* Urgency strip */}
+          <div className="flex items-center justify-center gap-3 mb-16">
+            <div className="w-8 h-[2px] bg-cta" />
+            <p className="font-dm text-sm md:text-base font-bold text-cta tracking-wide uppercase">
+              You have 30 days. The insurance company is counting.
+            </p>
+            <div className="w-8 h-[2px] bg-cta" />
+          </div>
         </ScrollReveal>
 
-        {/* Vertical tabs layout */}
-        <ScrollReveal>
-          <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-10">
-            {/* Left — Tab navigation */}
-            <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 md:border-l-2 md:border-card-border">
+        {/* Tabs layout */}
+        <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-10 items-start">
+          {/* Left — Sticky tab navigation */}
+          <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 md:border-l-2 md:border-card-border md:sticky md:top-24 md:self-start">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setWcTab(tab.id)}
-                  className={`flex items-center gap-3 px-4 py-3.5 rounded-lg md:rounded-none md:rounded-r-lg text-left whitespace-nowrap md:whitespace-normal transition-all duration-300 flex-shrink-0 md:ml-[-2px] md:border-l-2 ${
+                  onClick={() => switchTab(tab.id)}
+                  className={`flex items-center gap-3 px-5 py-4 rounded-lg md:rounded-none md:rounded-r-lg text-left whitespace-nowrap md:whitespace-normal transition-all duration-300 flex-shrink-0 md:ml-[-2px] md:border-l-2 ${
                     wcTab === tab.id
-                      ? "bg-cta/10 text-cta font-bold md:border-l-cta"
-                      : "text-text-muted hover:text-text-dark hover:bg-white/50 md:border-l-transparent"
+                      ? "bg-cta/10 md:border-l-cta"
+                      : "hover:bg-white/50 md:border-l-transparent"
                   }`}
                 >
-                  <span className="text-xl">{tab.icon}</span>
-                  <span className="font-dm text-sm md:text-base">{tab.label}</span>
+                  <span className={`transition-colors ${wcTab === tab.id ? "text-cta" : "text-text-muted"}`}>
+                    {tab.icon}
+                  </span>
+                  <span className={`font-dm text-sm md:text-base font-bold ${
+                    wcTab === tab.id ? "text-text-dark" : "text-text-muted"
+                  }`}>
+                    {tab.label}
+                  </span>
                 </button>
               ))}
             </div>
 
             {/* Right — Tab content */}
-            <div className="min-h-[400px]">
+            <div ref={contentRef} className="min-h-[900px] scroll-mt-24">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={wcTab}
@@ -544,61 +599,93 @@ const WorkersCompDeepDive = () => {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider mb-3">{current.title}</h3>
-                  <p className="font-dm text-base md:text-lg text-text-body leading-relaxed mb-8 max-w-xl">{current.desc}</p>
-
-                  {/* Industries tab */}
-                  {wcTab === "industries" && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {tabData.industries.items.map((item, i) => (
-                        <div key={i} className="bg-white rounded-lg border border-card-border px-4 py-3 font-dm text-sm text-text-dark hover:border-cta hover:text-cta transition-colors cursor-default flex items-center gap-2">
-                          <span className="text-cta">→</span> {item}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Employers tab */}
-                  {wcTab === "employers" && (
-                    <div className="space-y-6">
-                      <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
-                        {[...row1Logos, ...row2Logos, ...row3Logos].map((logo, i) => (
-                          <div key={i} className="flex items-center justify-center p-3 bg-white rounded-lg border border-card-border hover:border-cta/30 hover:shadow-md transition-all">
-                            <img src={logo.src} alt={logo.alt} className="h-8 md:h-10 w-auto object-contain" />
+                  {/* Injuries tab — What's Hurting */}
+                  {wcTab === "injuries" && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-4xl md:text-6xl tracking-wider leading-[0.95] mb-3">What's Hurting?</h3>
+                      <p className="font-dm text-base md:text-lg text-text-body leading-relaxed mb-8 max-w-xl">
+                        If your injury is on this list, you almost certainly have a case.
+                      </p>
+                      <div className="bg-white rounded-xl border border-card-border overflow-hidden">
+                        {injuries.map((item, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-center gap-6 px-6 py-4 hover:bg-off-white transition-colors cursor-default ${
+                              i < injuries.length - 1 ? "border-b border-card-border" : ""
+                            }`}
+                          >
+                            <span className="font-bebas text-xl text-cta/40 tracking-wider w-8">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <span className="font-dm text-base font-medium text-text-dark flex-1">{item}</span>
+                            <span className="text-cta opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Injuries tab */}
-                  {wcTab === "injuries" && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {tabData.injuries.items.map((item, i) => (
-                        <div key={i} className="bg-white rounded-lg border border-card-border px-4 py-3 font-dm text-sm text-text-dark hover:border-cta hover:text-cta transition-colors cursor-default flex items-center gap-2">
-                          <span className="text-cta">→</span> {item}
-                        </div>
-                      ))}
+                  {/* Industries tab — Where You Got Hurt */}
+                  {wcTab === "industries" && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-4xl md:text-6xl tracking-wider leading-[0.95] mb-3">Where You Got Hurt</h3>
+                      <p className="font-dm text-base md:text-lg text-text-body leading-relaxed mb-8 max-w-xl">
+                        Darwin has fought and won cases across every one of these industries in Georgia.
+                      </p>
+                      <div className="bg-white rounded-xl border border-card-border overflow-hidden">
+                        {industries.map((item, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-center gap-6 px-6 py-4 hover:bg-off-white transition-colors cursor-default ${
+                              i < industries.length - 1 ? "border-b border-card-border" : ""
+                            }`}
+                          >
+                            <span className="font-bebas text-xl text-cta/40 tracking-wider w-8">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <span className="font-dm text-base font-medium text-text-dark flex-1">{item}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
 
-                  {/* Qualify tab */}
+                  {/* Qualify tab — Do I Qualify */}
                   {wcTab === "qualify" && (
                     <div>
-                      <div className="grid sm:grid-cols-2 gap-8 mb-8">
-                        <div className="bg-white rounded-lg border border-card-border p-6">
+                      <h3 className="font-bebas text-text-dark text-4xl md:text-6xl tracking-wider leading-[0.95] mb-3">Do I Qualify?</h3>
+                      <p className="font-dm text-base md:text-lg text-text-body leading-relaxed mb-8 max-w-xl">
+                        Check one box from each column. If you can — you likely have a valid claim.
+                      </p>
+                      <div className="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div className="bg-white rounded-xl border border-card-border p-6">
                           <p className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold mb-4">ON-THE-JOB INJURY</p>
                           {["Injury occurred while working", "Injured due to the job you perform", "Includes injuries during work travel"].map((t, i) => (
                             <p key={i} className="font-dm text-sm text-text-body mb-3 flex items-start gap-2"><span className="text-cta font-bold">✓</span> {t}</p>
                           ))}
                         </div>
-                        <div className="bg-white rounded-lg border border-card-border p-6">
+                        <div className="bg-white rounded-xl border border-card-border p-6">
                           <p className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold mb-4">EMPLOYMENT STATUS</p>
                           {["You are a legal employee (not contractor)", "Your employer has 3+ employees", "Full-time, part-time, or seasonal"].map((t, i) => (
                             <p key={i} className="font-dm text-sm text-text-body mb-3 flex items-start gap-2"><span className="text-cta font-bold">✓</span> {t}</p>
                           ))}
                         </div>
                       </div>
+
+                      {/* Testimonial callout — Jeremy H. */}
+                      <div className="bg-navy rounded-xl p-6 md:p-8 mb-8 relative overflow-hidden">
+                        <img src={djMonogram} alt="" className="absolute -top-6 -right-6 w-[180px] h-auto opacity-[0.06] pointer-events-none" />
+                        <div className="relative z-10">
+                          <span className="text-cta text-lg tracking-[4px]">★★★★★</span>
+                          <p className="font-serif italic text-white text-lg md:text-xl leading-relaxed mt-3 mb-4">
+                            "They tried to fire me after reporting my injury. Wrong thing to do when you have attorneys like this. Darwin made them pay."
+                          </p>
+                          <p className="font-dm font-bold text-cta text-sm tracking-wider">
+                            — JEREMY H., <span className="text-white/50 font-normal">Workers' Comp Client</span>
+                          </p>
+                        </div>
+                      </div>
+
                       <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-10">
                         I QUALIFY — GET MY FREE CASE REVIEW →
                       </button>
@@ -607,272 +694,51 @@ const WorkersCompDeepDive = () => {
                   )}
                 </motion.div>
               </AnimatePresence>
-            </div>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-};
 
-/* ═══════════════════════════════════════════════
-   4c. PERSONAL INJURY DEEP DIVE
-   ═══════════════════════════════════════════════ */
-
-const PersonalInjuryDeepDive = () => {
-  const [piTab, setPiTab] = useState("cases");
-
-  const piTabs = [
-    {
-      id: "cases",
-      name: "Cases We Handle",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>,
-    },
-    {
-      id: "deadline",
-      name: "Filing Deadline",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-    },
-    {
-      id: "process",
-      name: "How It Works",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>,
-    },
-  ];
-
-  const caseTypes = [
-    { icon: "🚗", name: "Car Accidents", desc: "Rear-ends, T-bones, hit-and-runs on I-285 and beyond." },
-    { icon: "🚛", name: "Truck Accidents", desc: "18-wheelers, delivery trucks, federal regulations." },
-    { icon: "🏍️", name: "Motorcycle Accidents", desc: "Cutting through bias to get you full compensation." },
-    { icon: "🧠", name: "Brain Injuries", desc: "Catastrophic cases requiring aggressive representation." },
-    { icon: "🦴", name: "Spinal Cord Injuries", desc: "Life-changing injuries. Darwin has recovered millions." },
-    { icon: "🚶", name: "Pedestrian Accidents", desc: "Hit while walking, jogging, or crossing the street." },
-    { icon: "⚕️", name: "Medical Malpractice", desc: "Surgical errors, misdiagnosis, medication mistakes." },
-    { icon: "🏢", name: "Premises Liability", desc: "Slip and falls, negligent security, unsafe properties." },
-    { icon: "💀", name: "Wrongful Death", desc: "Handled with care, compassion, and aggression." },
-    { icon: "🔥", name: "Catastrophic Injuries", desc: "When the stakes are highest, Darwin fights hardest." },
-  ];
-
-  return (
-    <section className="bg-white py-20 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        <ScrollReveal>
-          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">PERSONAL INJURY</p>
-          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
-            Injured In An Accident?<br />Here's What You're Owed.
-          </h2>
-          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
-            If someone else's negligence caused your injury, Georgia law says<br className="hidden md:block" />
-            you're entitled to a lot more than just medical bills.
-          </p>
-        </ScrollReveal>
-
-        {/* Horizontal tabs with icons */}
-        <ScrollReveal>
-          <div className="border-b border-card-border mb-8">
-            <div className="flex items-center gap-1 overflow-x-auto">
-              {piTabs.map((tab) => (
+              {/* Prev / Next navigation */}
+              <div className="flex items-center justify-between mt-10 pt-6 border-t border-card-border">
                 <button
-                  key={tab.id}
-                  onClick={() => setPiTab(tab.id)}
-                  className={`group flex items-center gap-2 py-3 px-4 border-b-2 transition-all duration-300 whitespace-nowrap ${
-                    piTab === tab.id
-                      ? "border-cta text-cta"
-                      : "border-transparent text-text-muted hover:text-text-dark hover:bg-off-white"
-                  }`}
+                  onClick={() => {
+                    const currentIndex = tabs.findIndex(t => t.id === wcTab);
+                    const prevIndex = currentIndex === 0 ? tabs.length - 1 : currentIndex - 1;
+                    switchTab(tabs[prevIndex].id);
+                  }}
+                  className="flex items-center gap-2 font-dm text-sm text-text-muted hover:text-text-dark transition-colors group"
                 >
-                  <span className={`transition-colors ${piTab === tab.id ? "text-cta" : "text-text-muted group-hover:text-text-dark"}`}>
-                    {tab.icon}
-                  </span>
-                  <span className="font-dm text-sm font-medium">{tab.name}</span>
+                  <span className="group-hover:-translate-x-1 transition-transform">←</span>
+                  <span>Previous</span>
                 </button>
-              ))}
+                <div className="flex items-center gap-2">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => switchTab(tab.id)}
+                      aria-label={`Go to ${tab.label}`}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        wcTab === tab.id ? "w-8 bg-cta" : "w-2 bg-card-border hover:bg-text-muted"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => {
+                    const currentIndex = tabs.findIndex(t => t.id === wcTab);
+                    const nextIndex = currentIndex === tabs.length - 1 ? 0 : currentIndex + 1;
+                    switchTab(tabs[nextIndex].id);
+                  }}
+                  className="flex items-center gap-2 font-dm text-sm font-bold text-cta hover:text-cta-hover transition-colors group"
+                >
+                  <span>Next</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+              </div>
             </div>
           </div>
-
-          {/* Tab content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={piTab}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="min-h-[350px]"
-            >
-              {/* Cases tab */}
-              {piTab === "cases" && (
-                <div>
-                  <p className="font-dm text-lg md:text-xl text-text-body mb-8 max-w-xl">
-                    Every case below has one thing in common: someone was careless, and you paid the price.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {caseTypes.map((c, i) => (
-                      <div key={i} className="flex items-start gap-4 bg-off-white rounded-lg border border-card-border p-5 hover:border-cta/30 transition-colors cursor-default">
-                        <span className="text-2xl flex-shrink-0 mt-0.5">{c.icon}</span>
-                        <div>
-                          <p className="font-dm font-bold text-text-dark text-sm">{c.name}</p>
-                          <p className="font-dm text-xs text-text-muted mt-1">{c.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Deadline tab */}
-              {piTab === "deadline" && (
-                <div className="max-w-2xl">
-                  <p className="font-dm text-lg md:text-xl text-text-body mb-8">
-                    Georgia has strict deadlines. Miss them and you lose your right to file — forever.
-                  </p>
-                  <div className="space-y-6">
-                    <div className="bg-off-white rounded-xl border border-card-border p-6 flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0">
-                        <span className="font-bebas text-cta text-xl">2Y</span>
-                      </div>
-                      <div>
-                        <p className="font-dm font-bold text-text-dark">2-Year Statute of Limitations</p>
-                        <p className="font-dm text-sm text-text-muted mt-1">You have two years from the date of injury to file a personal injury lawsuit in Georgia. After that — your case is gone.</p>
-                      </div>
-                    </div>
-                    <div className="bg-off-white rounded-xl border border-card-border p-6 flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-navy/10 flex items-center justify-center flex-shrink-0">
-                        <span className="font-bebas text-navy text-xl">⚠️</span>
-                      </div>
-                      <div>
-                        <p className="font-dm font-bold text-text-dark">Evidence Disappears Fast</p>
-                        <p className="font-dm text-sm text-text-muted mt-1">Surveillance footage gets deleted. Witnesses forget details. Medical records change. The sooner Darwin gets involved, the stronger your case.</p>
-                      </div>
-                    </div>
-                    <div className="bg-off-white rounded-xl border border-card-border p-6 flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0">
-                        <span className="font-bebas text-cta text-xl">$0</span>
-                      </div>
-                      <div>
-                        <p className="font-dm font-bold text-text-dark">It Costs You Nothing to Find Out</p>
-                        <p className="font-dm text-sm text-text-muted mt-1">Darwin's consultation is 100% free. No fee unless he wins. There is literally zero reason to wait.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Process tab */}
-              {piTab === "process" && (
-                <div className="max-w-2xl">
-                  <p className="font-dm text-lg md:text-xl text-text-body mb-8">
-                    Three steps. That's it. Darwin handles everything else.
-                  </p>
-                  <div className="space-y-0">
-                    {[
-                      { step: "01", title: "You Fill Out the Form", desc: "Takes 30 seconds. Tell us what happened. Darwin reviews every single submission personally.", color: "cta" },
-                      { step: "02", title: "Darwin Builds Your Case", desc: "He investigates, gathers evidence, negotiates with the insurance company, and prepares for trial if needed. You focus on healing.", color: "navy" },
-                      { step: "03", title: "You Get Paid", desc: "Darwin fights until you get every dollar you're owed. No fee unless he wins. Most cases resolve in months, not years.", color: "cta" },
-                    ].map((s, i) => (
-                      <div key={i} className="flex gap-6 pb-8 last:pb-0">
-                        <div className="flex flex-col items-center">
-                          <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${s.color === "cta" ? "bg-cta" : "bg-navy"}`}>
-                            <span className="font-bebas text-white text-lg">{s.step}</span>
-                          </div>
-                          {i < 2 && <div className="w-px h-full bg-card-border mt-2" />}
-                        </div>
-                        <div className="pt-2">
-                          <p className="font-dm font-bold text-text-dark text-lg">{s.title}</p>
-                          <p className="font-dm text-sm text-text-muted mt-1 leading-relaxed">{s.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
-
-        </ScrollReveal>
-      </div>
-
-      {/* Damages — highlighted block inside PI section */}
-      <div className="bg-navy-dark rounded-2xl p-8 md:p-14 mt-20">
-        <ScrollReveal>
-          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">WHAT YOU'RE ACTUALLY OWED</p>
-          <h3 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] text-center mb-4">
-            The Insurance Company<br />Won't Tell You This.
-          </h3>
-          <p className="font-dm text-lg md:text-xl text-white/50 text-center max-w-xl mx-auto mb-14">
-            They'll mention your medical bills and hope you sign.<br className="hidden md:block" />
-            Georgia law says you're owed a lot more.
-          </p>
-        </ScrollReveal>
-
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <ScrollReveal direction="left">
-            <div className="bg-white/[0.06] backdrop-blur-sm rounded-xl border border-white/10 p-8 h-full">
-              <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center mb-5">
-                <span className="text-2xl">💰</span>
-              </div>
-              <p className="font-bebas text-3xl text-white tracking-wider mb-2">ECONOMIC DAMAGES</p>
-              <p className="font-dm text-sm text-white/40 mb-6">The tangible costs — things with receipts.</p>
-              <div className="space-y-4">
-                {[
-                  { item: "Medical Expenses", detail: "Past + future — surgeries, PT, medication. Could be $100K+" },
-                  { item: "Lost Wages", detail: "Every paycheck you missed while recovering" },
-                  { item: "Lost Earning Capacity", detail: "If you can't return to your old job or work at the same level" },
-                  { item: "Property Damage", detail: "Vehicle repairs, equipment, anything destroyed" },
-                ].map((d, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="text-cta font-bold text-lg mt-0.5">✓</span>
-                    <div>
-                      <p className="font-dm font-bold text-white text-sm">{d.item}</p>
-                      <p className="font-dm text-xs text-white/40 mt-0.5">{d.detail}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="right">
-            <div className="bg-white/[0.06] backdrop-blur-sm rounded-xl border border-white/10 p-8 h-full">
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-5">
-                <span className="text-2xl">💔</span>
-              </div>
-              <p className="font-bebas text-3xl text-white tracking-wider mb-2">NON-ECONOMIC DAMAGES</p>
-              <p className="font-dm text-sm text-white/40 mb-6">The human costs — often worth more than the bills.</p>
-              <div className="space-y-4">
-                {[
-                  { item: "Pain & Suffering", detail: "Physical pain from your injuries — this can be substantial" },
-                  { item: "Emotional Distress", detail: "Anxiety, depression, PTSD, sleepless nights" },
-                  { item: "Loss of Enjoyment", detail: "Can't play with your kids, exercise, or do what you love" },
-                  { item: "Loss of Consortium", detail: "Impact on your marriage and closest relationships" },
-                ].map((d, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className="text-white font-bold text-lg mt-0.5">✓</span>
-                    <div>
-                      <p className="font-dm font-bold text-white text-sm">{d.item}</p>
-                      <p className="font-dm text-xs text-white/40 mt-0.5">{d.detail}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        <ScrollReveal>
-          <div className="text-center mt-12">
-            <p className="font-dm text-white/40 text-base mb-5">
-              Most people have no idea how much they're actually owed.
-            </p>
-            <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
-              FIND OUT WHAT I'M OWED →
-            </button>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
 };
+
 
 /* ═══════════════════════════════════════════════
    3D INTERACTIVE SCALE OF JUSTICE
@@ -968,6 +834,570 @@ const Interactive3DScale = () => {
         </svg>
       </motion.div>
     </div>
+  );
+};
+
+/* ═══════════════════════════════════════════════
+   4b. UNIFIED QUIZ — 60-Second Case Check
+   ═══════════════════════════════════════════════ */
+const UnifiedQuiz = () => {
+  const [path, setPath] = useState<"wc" | "pi" | null>(null);
+  const [step, setStep] = useState(1);
+  // Workers' Comp state
+  const [selectedInjury, setSelectedInjury] = useState<string | null>(null);
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [wcQualified, setWcQualified] = useState<"yes" | "no" | null>(null);
+  // Personal Injury state
+  const [selectedCaseType, setSelectedCaseType] = useState<string | null>(null);
+  const [selectedPiInjury, setSelectedPiInjury] = useState<string | null>(null);
+  const [thirdPartyFault, setThirdPartyFault] = useState<"yes" | "no" | null>(null);
+
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Listen for path selection from Offerings cards
+  useEffect(() => {
+    const handleStart = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      setPath(detail.path);
+      setStep(1);
+    };
+    window.addEventListener("startQuiz", handleStart);
+    return () => window.removeEventListener("startQuiz", handleStart);
+  }, []);
+
+  const scrollToContent = () => {
+    setTimeout(() => {
+      contentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
+
+  const resetQuiz = () => {
+    setPath(null);
+    setStep(1);
+    setSelectedInjury(null);
+    setSelectedIndustry(null);
+    setWcQualified(null);
+    setSelectedCaseType(null);
+    setSelectedPiInjury(null);
+    setThirdPartyFault(null);
+  };
+
+  // Injury list with hooks (shared between WC and PI)
+  const injuries: { name: string; hook: string }[] = [
+    { name: "Back Injuries", hook: "Back injuries are the #1 cause of missed workdays in Georgia — and one of the most commonly lowballed claims. Darwin fights to get you every dollar, including long-term disability." },
+    { name: "Brain Injuries", hook: "Brain injuries can change your life in ways insurance companies never account for. Darwin specializes in catastrophic cases and has recovered millions for clients with traumatic brain injuries." },
+    { name: "Carpal Tunnel", hook: "Carpal tunnel from repetitive work is 100% compensable under Georgia workers' comp — but insurance companies love to deny it. Darwin knows exactly how to prove it." },
+    { name: "Crush Injuries", hook: "Crush injuries often lead to permanent disability, multiple surgeries, and lifelong pain. Darwin ensures you're compensated for ALL of it — not just the initial medical bills." },
+    { name: "Head Injuries", hook: "Head injuries can cause hidden damage that doesn't show up for months. Darwin makes sure your settlement accounts for future medical needs, not just today's bills." },
+    { name: "Hip Injuries", hook: "Hip injuries often require surgery, replacement, and months of rehab. Darwin fights for every medical expense, lost wage, and disability benefit you're owed." },
+    { name: "Knee Injuries", hook: "Knee injuries end careers in construction, warehousing, and healthcare. Darwin fights to make sure your settlement covers not just the injury — but your lost earning potential." },
+    { name: "Neck Injuries", hook: "Neck injuries are notoriously hard to prove with standard tests. Darwin knows the medical experts who can document the full extent of your damage." },
+    { name: "Paralysis", hook: "Paralysis changes everything. Darwin handles catastrophic cases with the urgency and aggression they require — and has recovered millions for clients with life-altering injuries." },
+    { name: "Shoulder Injuries", hook: "Shoulder injuries from repetitive lifting or single incidents often need surgery. Darwin fights for every dollar — including future surgeries you haven't had yet." },
+    { name: "Spinal Cord Injuries", hook: "Spinal cord injuries are among the most expensive to treat over a lifetime. Darwin ensures your settlement accounts for decades of care, not just the immediate costs." },
+    { name: "Traumatic Brain Injury", hook: "TBI is invisible but devastating. Darwin has recovered millions for clients whose brain injuries were initially dismissed by insurance adjusters." },
+  ];
+
+  // Industries with hooks (WC only)
+  const industries: { name: string; hook: string }[] = [
+    { name: "Airport & Airline", hook: "Airport and airline workers face unique hazards — Darwin has handled cases involving Delta, baggage handlers, ground crew, and mechanics." },
+    { name: "Construction", hook: "Construction is one of the most dangerous industries in Georgia — falls, crush injuries, and equipment accidents are common. Darwin has fought for construction workers for 20+ years." },
+    { name: "Firefighter & EMT", hook: "First responders deserve the best representation. Darwin has fought for firefighters and EMTs injured on duty in Georgia — and won." },
+    { name: "Grocery & Retail", hook: "Grocery and retail workers get hurt from slips, heavy lifting, and repetitive motion. Darwin has won cases for Walmart, Home Depot, and grocery store employees." },
+    { name: "Healthcare", hook: "Nurses and healthcare workers suffer back, shoulder, and lifting injuries at staggering rates. Darwin knows how to fight hospital insurance companies that try to minimize your claim." },
+    { name: "Industrial & Factories", hook: "Factory work is brutal on the body — crush injuries, amputations, and repetitive stress are common. Darwin has taken on Kia, Mohawk, Toyo Tires, and more." },
+    { name: "Law Enforcement", hook: "Police officers face line-of-duty injuries that require specialized legal representation. Darwin fights for every benefit Georgia law entitles you to." },
+    { name: "Poultry Processing", hook: "Poultry plants are notorious for repetitive stress injuries, cuts, and chemical exposure. Darwin has beaten Pilgrim's Pride and Tip Top Poultry — and he'll fight for you." },
+    { name: "Roofing", hook: "Roofing is one of the deadliest jobs in America. Falls, heat stroke, and equipment injuries are common. Darwin fights to get you every dollar you deserve." },
+    { name: "Steelworker", hook: "Steelworkers face some of the most dangerous conditions in any industry. Darwin has the expertise to handle complex catastrophic injury cases." },
+    { name: "Power & Utilities", hook: "Electrical workers face electrocution, burns, and fall hazards every day. Darwin has handled utility worker cases and knows exactly what they're worth." },
+    { name: "Tree Services", hook: "Tree service workers get hurt from falls, chainsaw accidents, and equipment failures. Darwin fights for every dollar — including future medical care." },
+    { name: "Trucking", hook: "Truck drivers suffer back injuries, accidents, and long-term health issues. Darwin has taken on FedEx, UPS, J.B. Hunt, and Americold — and won." },
+  ];
+
+  // Case types with hooks (PI only)
+  const caseTypes: { name: string; hook: string }[] = [
+    { name: "Car Accident", hook: "Car accidents on Atlanta's highways can leave you with life-altering injuries and medical bills you never saw coming. Darwin has handled thousands of auto cases across Georgia." },
+    { name: "Truck Accident", hook: "Truck accidents involve complex federal regulations and multiple liable parties. Darwin knows how to untangle them — and has gone after the biggest trucking companies in the country." },
+    { name: "Motorcycle Accident", hook: "Motorcyclists are often blamed unfairly by juries and insurance companies. Darwin builds cases that cut through the bias and get you full compensation." },
+    { name: "Pedestrian Accident", hook: "If you were hit while walking, jogging, or crossing the street, you have serious legal protections. Darwin fights for every dollar — including pain, suffering, and future care." },
+    { name: "Slip and Fall", hook: "Slip and fall cases depend on proving negligence by the property owner. Darwin knows exactly what evidence wins these cases in Georgia courts." },
+    { name: "Medical Malpractice", hook: "Medical errors — surgical mistakes, misdiagnosis, medication errors — require specialized legal knowledge. Darwin has the experience to take on hospitals and insurance companies." },
+    { name: "Premises Liability", hook: "Unsafe properties — negligent security, hazardous conditions, code violations — can cause devastating injuries. Darwin holds property owners accountable." },
+    { name: "Wrongful Death", hook: "Losing a loved one to someone else's negligence is devastating. Darwin handles these cases with the care and aggression they require." },
+    { name: "Brain Injury", hook: "Brain injuries from accidents are among the most complex personal injury cases. Darwin has recovered millions for clients with traumatic brain injuries." },
+    { name: "Catastrophic Injury", hook: "When the stakes are highest — paralysis, amputation, permanent disability — Darwin fights hardest. These cases need aggressive, experienced representation." },
+  ];
+
+  const injuryData = injuries.find(i => i.name === (path === "wc" ? selectedInjury : selectedPiInjury));
+  const industryData = industries.find(i => i.name === selectedIndustry);
+  const caseTypeData = caseTypes.find(c => c.name === selectedCaseType);
+
+  // Step titles
+  const getStepTitle = () => {
+    if (path === "wc") {
+      if (step === 1) return { num: "01", label: "What's Hurting?" };
+      if (step === 2) return { num: "02", label: "Where You Got Hurt?" };
+      if (step === 3) return { num: "03", label: "Do You Qualify?" };
+    } else if (path === "pi") {
+      if (step === 1) return { num: "01", label: "What Happened?" };
+      if (step === 2) return { num: "02", label: "What's Hurting?" };
+      if (step === 3) return { num: "03", label: "Was Someone Else at Fault?" };
+    }
+    return { num: "00", label: "" };
+  };
+
+  return (
+    <section id="quiz-section" className="bg-off-white py-20 md:py-32 px-6 scroll-mt-20">
+      <div className="max-w-5xl mx-auto">
+        <ScrollReveal>
+          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">60-SECOND CASE CHECK</p>
+          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
+            Let's See What<br />You're Owed.
+          </h2>
+          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
+            Answer 3 quick questions. Darwin will tell you — for free — if you have a case<br className="hidden md:block" />
+            and what it could be worth.
+          </p>
+        </ScrollReveal>
+
+        {/* Quiz container */}
+        <div className="bg-white rounded-2xl border border-card-border p-6 md:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.06)] min-h-[600px]" ref={contentRef}>
+          {/* Empty state — haven't picked path yet */}
+          {path === null && (
+            <div className="flex flex-col items-center justify-center min-h-[500px] text-center">
+              <span className="font-dm text-xs text-text-muted tracking-[3px] uppercase mb-4">GET STARTED</span>
+              <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-4">
+                Click one of the cards above<br />to start your case check.
+              </h3>
+              <p className="font-dm text-text-body text-base max-w-md">
+                Or pick your situation here:
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <button
+                  onClick={() => { setPath("wc"); setStep(1); scrollToContent(); }}
+                  className="cta-btn-primary !py-4 !px-8"
+                >
+                  I GOT HURT AT WORK →
+                </button>
+                <button
+                  onClick={() => { setPath("pi"); setStep(1); scrollToContent(); }}
+                  className="cta-btn-outline !py-4 !px-8"
+                >
+                  I WAS IN AN ACCIDENT →
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Active quiz */}
+          {path !== null && (
+            <>
+              {/* Progress bar */}
+              <div className="mb-8">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold">
+                      STEP {getStepTitle().num} OF 03
+                    </span>
+                    <span className="font-dm text-xs text-text-muted">
+                      {path === "wc" ? "Workers' Compensation" : "Personal Injury"}
+                    </span>
+                  </div>
+                  <button
+                    onClick={resetQuiz}
+                    className="font-dm text-xs text-text-muted hover:text-text-dark transition-colors underline"
+                  >
+                    Start over
+                  </button>
+                </div>
+                <div className="w-full h-1.5 bg-card-border rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-cta rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${(step / 4) * 100}%` }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+              </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${path}-${step}`}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* ─── WORKERS' COMP PATH ─── */}
+                  {path === "wc" && step === 1 && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">What's Hurting?</h3>
+                      <p className="font-dm text-base text-text-body mb-8">Tap the injury that matches your situation.</p>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {injuries.map((item) => (
+                          <button
+                            key={item.name}
+                            onClick={() => {
+                              setSelectedInjury(item.name);
+                              setTimeout(() => { setStep(2); scrollToContent(); }, 300);
+                            }}
+                            className={`text-left px-5 py-4 rounded-lg border-2 transition-all duration-300 ${
+                              selectedInjury === item.name
+                                ? "bg-cta border-cta text-white shadow-[0_8px_30px_rgba(232,119,46,0.3)] scale-[1.02]"
+                                : "bg-white border-card-border text-text-dark hover:border-cta hover:-translate-y-0.5"
+                            }`}
+                          >
+                            <span className="font-dm text-sm font-bold">{item.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {path === "wc" && step === 2 && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">Where You Got Hurt?</h3>
+                      <p className="font-dm text-base text-text-body mb-8">Tap your industry.</p>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {industries.map((item) => (
+                          <button
+                            key={item.name}
+                            onClick={() => {
+                              setSelectedIndustry(item.name);
+                              setTimeout(() => { setStep(3); scrollToContent(); }, 300);
+                            }}
+                            className={`text-left px-5 py-4 rounded-lg border-2 transition-all duration-300 ${
+                              selectedIndustry === item.name
+                                ? "bg-cta border-cta text-white shadow-[0_8px_30px_rgba(232,119,46,0.3)] scale-[1.02]"
+                                : "bg-white border-card-border text-text-dark hover:border-cta hover:-translate-y-0.5"
+                            }`}
+                          >
+                            <span className="font-dm text-sm font-bold">{item.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {path === "wc" && step === 3 && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">Do You Qualify?</h3>
+                      <p className="font-dm text-base text-text-body mb-8">Last step. Check if you meet Georgia's workers' comp requirements.</p>
+                      <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div className="bg-off-white rounded-lg border border-card-border p-5">
+                          <p className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold mb-3">ON-THE-JOB INJURY</p>
+                          {["Injury occurred while working", "Injured due to the job you perform", "Includes injuries during work travel"].map((t, i) => (
+                            <p key={i} className="font-dm text-sm text-text-body mb-2 flex items-start gap-2"><span className="text-cta font-bold">✓</span> {t}</p>
+                          ))}
+                        </div>
+                        <div className="bg-off-white rounded-lg border border-card-border p-5">
+                          <p className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold mb-3">EMPLOYMENT STATUS</p>
+                          {["You are a legal employee (not contractor)", "Your employer has 3+ employees", "Full-time, part-time, or seasonal"].map((t, i) => (
+                            <p key={i} className="font-dm text-sm text-text-body mb-2 flex items-start gap-2"><span className="text-cta font-bold">✓</span> {t}</p>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <button
+                          onClick={() => { setWcQualified("yes"); setStep(4); scrollToContent(); }}
+                          className="cta-btn-primary !py-5 !px-8 !text-base flex-1"
+                        >
+                          ✓ YES — I MEET THESE
+                        </button>
+                        <button
+                          onClick={() => { setWcQualified("no"); setStep(4); scrollToContent(); }}
+                          className="cta-btn-outline !py-5 !px-8 !text-base flex-1"
+                        >
+                          ✗ NO — I DON'T
+                        </button>
+                      </div>
+                      <p className="font-dm text-xs text-text-muted mt-3 text-center">Don't worry — we have options either way.</p>
+                    </div>
+                  )}
+
+                  {/* ─── WC RESULT — QUALIFIED ─── */}
+                  {path === "wc" && step === 4 && wcQualified === "yes" && (
+                    <div className="bg-navy rounded-2xl p-8 md:p-12 relative overflow-hidden -mx-2 md:-mx-4">
+                      <img src={djMonogram} alt="" className="absolute -top-10 -right-10 w-[280px] h-auto opacity-[0.06] pointer-events-none" />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-5">
+                          <span className="w-10 h-10 rounded-full bg-cta flex items-center justify-center">
+                            <span className="text-white text-xl">✓</span>
+                          </span>
+                          <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-cta">YOUR PERSONALIZED RESULT</span>
+                        </div>
+                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                          You Have a Case.<br />Darwin Can Help.
+                        </h4>
+                        <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
+                          <p className="font-dm text-sm text-white/60 mb-3">Your situation:</p>
+                          <div className="space-y-2">
+                            <p className="font-dm text-white"><span className="text-cta font-bold">Injury:</span> {selectedInjury}</p>
+                            <p className="font-dm text-white"><span className="text-cta font-bold">Workplace:</span> {selectedIndustry}</p>
+                            <p className="font-dm text-white"><span className="text-cta font-bold">Status:</span> Qualified for Workers' Comp</p>
+                          </div>
+                        </div>
+                        {injuryData && <p className="font-dm text-lg text-white/80 leading-relaxed mb-4">{injuryData.hook}</p>}
+                        {industryData && <p className="font-dm text-lg text-white/80 leading-relaxed mb-6">{industryData.hook}</p>}
+                        <div className="border-t border-white/10 pt-6 mb-6">
+                          <p className="font-dm text-base text-white/80 leading-relaxed">
+                            In 20 years, Darwin has recovered <span className="text-cta font-bold">$250 million+</span> for Georgia workers across <span className="text-cta font-bold">10,000+</span> cases. He personally reviews every new submission — and picks up the phone himself when you call.
+                          </p>
+                        </div>
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
+                          GET MY FREE CASE REVIEW →
+                        </button>
+                        <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. 30 seconds. No fee unless we win.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ─── WC RESULT — NOT QUALIFIED ─── */}
+                  {path === "wc" && step === 4 && wcQualified === "no" && (
+                    <div className="bg-navy rounded-2xl p-8 md:p-12 relative overflow-hidden -mx-2 md:-mx-4">
+                      <img src={djMonogram} alt="" className="absolute -top-10 -right-10 w-[280px] h-auto opacity-[0.06] pointer-events-none" />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-5">
+                          <span className="w-10 h-10 rounded-full bg-gold flex items-center justify-center">
+                            <span className="text-white text-xl">!</span>
+                          </span>
+                          <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-gold">YOU MAY HAVE A PERSONAL INJURY CASE</span>
+                        </div>
+                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                          Don't Walk Away.<br />You Still Have Options.
+                        </h4>
+                        <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
+                          <p className="font-dm text-sm text-white/60 mb-3">Your situation:</p>
+                          <div className="space-y-2">
+                            <p className="font-dm text-white"><span className="text-gold font-bold">Injury:</span> {selectedInjury}</p>
+                            <p className="font-dm text-white"><span className="text-gold font-bold">Workplace:</span> {selectedIndustry}</p>
+                            <p className="font-dm text-white"><span className="text-gold font-bold">Status:</span> May not qualify for Workers' Comp</p>
+                          </div>
+                        </div>
+                        <p className="font-dm text-lg text-white/80 leading-relaxed mb-4">
+                          Workers' comp has strict requirements — but that doesn't mean you're out of options. Darwin also handles <span className="text-white font-bold">Personal Injury</span> cases, which cover injuries caused by someone else's negligence or wrongdoing.
+                        </p>
+                        <p className="font-dm text-lg text-white/80 leading-relaxed mb-6">
+                          Based on your <span className="text-gold font-bold">{selectedInjury?.toLowerCase()}</span> at a <span className="text-gold font-bold">{selectedIndustry?.toLowerCase()}</span> workplace, you may have a claim if a third party was involved — defective equipment, a subcontractor, unsafe property, or a motor vehicle accident on the job.
+                        </p>
+                        {injuryData && <p className="font-dm text-lg text-white/80 leading-relaxed mb-6">{injuryData.hook}</p>}
+                        <div className="border-t border-white/10 pt-6 mb-6">
+                          <p className="font-dm text-base text-white/80 leading-relaxed">
+                            Darwin has recovered over <span className="text-gold font-bold">$250 million</span> across both workers' comp AND personal injury cases. He'll tell you exactly which path fits — free, 30 seconds, no obligation.
+                          </p>
+                        </div>
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
+                          GET MY FREE CASE REVIEW →
+                        </button>
+                        <p className="font-dm text-xs text-white/30 mt-3">Darwin reviews every submission personally.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ─── PERSONAL INJURY PATH ─── */}
+                  {path === "pi" && step === 1 && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">What Happened?</h3>
+                      <p className="font-dm text-base text-text-body mb-8">Tap the accident or situation that matches yours.</p>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {caseTypes.map((item) => (
+                          <button
+                            key={item.name}
+                            onClick={() => {
+                              setSelectedCaseType(item.name);
+                              setTimeout(() => { setStep(2); scrollToContent(); }, 300);
+                            }}
+                            className={`text-left px-5 py-4 rounded-lg border-2 transition-all duration-300 ${
+                              selectedCaseType === item.name
+                                ? "bg-cta border-cta text-white shadow-[0_8px_30px_rgba(232,119,46,0.3)] scale-[1.02]"
+                                : "bg-white border-card-border text-text-dark hover:border-cta hover:-translate-y-0.5"
+                            }`}
+                          >
+                            <span className="font-dm text-sm font-bold">{item.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {path === "pi" && step === 2 && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">What's Hurting?</h3>
+                      <p className="font-dm text-base text-text-body mb-8">Tap your primary injury.</p>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        {injuries.map((item) => (
+                          <button
+                            key={item.name}
+                            onClick={() => {
+                              setSelectedPiInjury(item.name);
+                              setTimeout(() => { setStep(3); scrollToContent(); }, 300);
+                            }}
+                            className={`text-left px-5 py-4 rounded-lg border-2 transition-all duration-300 ${
+                              selectedPiInjury === item.name
+                                ? "bg-cta border-cta text-white shadow-[0_8px_30px_rgba(232,119,46,0.3)] scale-[1.02]"
+                                : "bg-white border-card-border text-text-dark hover:border-cta hover:-translate-y-0.5"
+                            }`}
+                          >
+                            <span className="font-dm text-sm font-bold">{item.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {path === "pi" && step === 3 && (
+                    <div>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">Was Someone Else at Fault?</h3>
+                      <p className="font-dm text-base text-text-body mb-8">Personal injury cases require proving someone else's negligence or wrongdoing caused your injury.</p>
+                      <div className="bg-off-white rounded-lg border border-card-border p-6 mb-8">
+                        <p className="font-dm text-sm text-text-body leading-relaxed">
+                          <span className="font-bold text-text-dark">Examples of "someone else's fault":</span>
+                          <br />
+                          • Another driver caused the accident
+                          <br />
+                          • A property owner failed to maintain their premises
+                          <br />
+                          • A doctor made a surgical or diagnostic error
+                          <br />
+                          • A company sold defective equipment
+                          <br />
+                          • A business had negligent security
+                        </p>
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <button
+                          onClick={() => { setThirdPartyFault("yes"); setStep(4); scrollToContent(); }}
+                          className="cta-btn-primary !py-5 !px-8 !text-base flex-1"
+                        >
+                          ✓ YES — SOMEONE ELSE WAS AT FAULT
+                        </button>
+                        <button
+                          onClick={() => { setThirdPartyFault("no"); setStep(4); scrollToContent(); }}
+                          className="cta-btn-outline !py-5 !px-8 !text-base flex-1"
+                        >
+                          ✗ NO / NOT SURE
+                        </button>
+                      </div>
+                      <p className="font-dm text-xs text-text-muted mt-3 text-center">Darwin will help you figure it out — for free.</p>
+                    </div>
+                  )}
+
+                  {/* ─── PI RESULT — QUALIFIED ─── */}
+                  {path === "pi" && step === 4 && thirdPartyFault === "yes" && (
+                    <div className="-mx-2 md:-mx-4">
+                      <div className="bg-navy rounded-2xl p-8 md:p-12 relative overflow-hidden mb-6">
+                        <img src={djMonogram} alt="" className="absolute -top-10 -right-10 w-[280px] h-auto opacity-[0.06] pointer-events-none" />
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-3 mb-5">
+                            <span className="w-10 h-10 rounded-full bg-cta flex items-center justify-center">
+                              <span className="text-white text-xl">✓</span>
+                            </span>
+                            <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-cta">YOUR PERSONALIZED RESULT</span>
+                          </div>
+                          <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                            You Have a Case.<br />Don't Sign Anything Yet.
+                          </h4>
+                          <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
+                            <p className="font-dm text-sm text-white/60 mb-3">Your situation:</p>
+                            <div className="space-y-2">
+                              <p className="font-dm text-white"><span className="text-cta font-bold">Accident:</span> {selectedCaseType}</p>
+                              <p className="font-dm text-white"><span className="text-cta font-bold">Injury:</span> {selectedPiInjury}</p>
+                              <p className="font-dm text-white"><span className="text-cta font-bold">Status:</span> Third-party liability confirmed</p>
+                            </div>
+                          </div>
+                          {caseTypeData && <p className="font-dm text-lg text-white/80 leading-relaxed mb-4">{caseTypeData.hook}</p>}
+                          {injuryData && <p className="font-dm text-lg text-white/80 leading-relaxed mb-6">{injuryData.hook}</p>}
+
+                          {/* Urgency — 2 year statute */}
+                          <div className="bg-cta/10 border border-cta/20 rounded-lg p-5 mb-6">
+                            <p className="font-dm text-sm text-cta font-bold tracking-wider mb-1">⏱ GEORGIA GIVES YOU 2 YEARS</p>
+                            <p className="font-dm text-sm text-white/80">Miss the deadline and you lose your right to file — permanently. Every day you wait, the insurance company's lawyers get stronger.</p>
+                          </div>
+
+                          <div className="border-t border-white/10 pt-6 mb-6">
+                            <p className="font-dm text-base text-white/80 leading-relaxed">
+                              Darwin has recovered <span className="text-cta font-bold">$250 million+</span> across both workers' comp and personal injury cases. He'll review your situation personally — and tell you exactly what your case is worth.
+                            </p>
+                          </div>
+                          <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
+                            GET MY FREE CASE REVIEW →
+                          </button>
+                          <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. No fee unless we win.</p>
+                        </div>
+                      </div>
+
+                      {/* Damages block — shown only for PI qualified */}
+                      <DamagesBlock
+                        onCtaClick={scrollToForm}
+                        ctaText="FIND OUT WHAT I'M OWED →"
+                        showMonogram={true}
+                      />
+                    </div>
+                  )}
+
+                  {/* ─── PI RESULT — NOT SURE ─── */}
+                  {path === "pi" && step === 4 && thirdPartyFault === "no" && (
+                    <div className="bg-navy rounded-2xl p-8 md:p-12 relative overflow-hidden -mx-2 md:-mx-4">
+                      <img src={djMonogram} alt="" className="absolute -top-10 -right-10 w-[280px] h-auto opacity-[0.06] pointer-events-none" />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-5">
+                          <span className="w-10 h-10 rounded-full bg-gold flex items-center justify-center">
+                            <span className="text-white text-xl">?</span>
+                          </span>
+                          <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-gold">LET DARWIN FIGURE IT OUT</span>
+                        </div>
+                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                          Don't Rule It Out.<br />You Might Still Have a Case.
+                        </h4>
+                        <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
+                          <p className="font-dm text-sm text-white/60 mb-3">Your situation:</p>
+                          <div className="space-y-2">
+                            <p className="font-dm text-white"><span className="text-gold font-bold">Accident:</span> {selectedCaseType}</p>
+                            <p className="font-dm text-white"><span className="text-gold font-bold">Injury:</span> {selectedPiInjury}</p>
+                            <p className="font-dm text-white"><span className="text-gold font-bold">Status:</span> Third-party liability unclear</p>
+                          </div>
+                        </div>
+                        <p className="font-dm text-lg text-white/80 leading-relaxed mb-4">
+                          You might not realize it, but fault isn't always obvious. A manufacturer could be liable for defective equipment. A property owner might have failed their duty to maintain safe conditions. A business might be responsible for negligent security.
+                        </p>
+                        <p className="font-dm text-lg text-white/80 leading-relaxed mb-6">
+                          Darwin has spent 20 years finding liable parties people never knew existed — and recovering millions for clients who thought they had no case.
+                        </p>
+                        {caseTypeData && <p className="font-dm text-lg text-white/80 leading-relaxed mb-6">{caseTypeData.hook}</p>}
+
+                        <div className="border-t border-white/10 pt-6 mb-6">
+                          <p className="font-dm text-base text-white/80 leading-relaxed">
+                            One free consultation could reveal options you didn't know you had. <span className="text-gold font-bold">$250 million+ recovered</span> across 10,000+ cases. Let Darwin take a look.
+                          </p>
+                        </div>
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
+                          GET MY FREE CASE REVIEW →
+                        </button>
+                        <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. Takes 30 seconds.</p>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Back button — only on steps 2, 3 */}
+              {step > 1 && step < 4 && (
+                <div className="flex justify-start mt-8 pt-6 border-t border-card-border">
+                  <button
+                    onClick={() => setStep(step - 1)}
+                    className="flex items-center gap-2 font-dm text-sm text-text-muted hover:text-text-dark transition-colors group"
+                  >
+                    <span className="group-hover:-translate-x-1 transition-transform">←</span>
+                    <span>Back</span>
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -1072,8 +1502,8 @@ const CaseResults = () => {
   ];
 
   return (
-    <section className="bg-dark py-20 md:py-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-dark py-20 md:py-32">
+      <div className="px-6 max-w-6xl mx-auto">
         <ScrollReveal>
           <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">CASE RESULTS</p>
           <h2 className="font-bebas text-white text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
@@ -1083,34 +1513,35 @@ const CaseResults = () => {
             Over $250 million recovered for Georgia workers and accident victims.
           </p>
         </ScrollReveal>
+      </div>
 
-        {/* Auto-sliding cards — KingKong style */}
-        <div className="relative overflow-hidden -mx-6"
-          style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}>
-          <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
-            {[...cases, ...cases].map((c, i) => (
-              <div key={i} className={`flex-shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] rounded-2xl bg-gradient-to-br ${c.bg} p-8 flex flex-col justify-between card-lift cursor-default relative overflow-hidden`}>
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full" />
-                  <div className="absolute bottom-8 left-8 w-20 h-20 border border-white/20 rounded-full" />
-                </div>
-
-                <div className="relative z-10">
-                  <p className="font-bebas text-white/80 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
-                  <p className="font-dm text-white/50 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
-                </div>
-
-                <div className="relative z-10">
-                  <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider">{c.amount}</p>
-                  <div className="w-12 h-[3px] bg-white/30 mt-3" />
-                </div>
+      {/* Auto-sliding cards — full width, KingKong style */}
+      <div className="relative overflow-hidden">
+        <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
+          {[...cases, ...cases].map((c, i) => (
+            <div key={i} className={`flex-shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] rounded-2xl bg-gradient-to-br ${c.bg} p-8 flex flex-col justify-between card-lift cursor-default relative overflow-hidden`}>
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full" />
+                <div className="absolute bottom-8 left-8 w-20 h-20 border border-white/20 rounded-full" />
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* CTA */}
+              <div className="relative z-10">
+                <p className="font-bebas text-white/80 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
+                <p className="font-dm text-white/50 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
+              </div>
+
+              <div className="relative z-10">
+                <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider">{c.amount}</p>
+                <div className="w-12 h-[3px] bg-white/30 mt-3" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="px-6 max-w-6xl mx-auto">
         <ScrollReveal delay={0.2}>
           <div className="text-center mt-14">
             <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
@@ -1200,15 +1631,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-off-white py-20 md:py-32">
-      <div className="px-6">
-        <ScrollReveal>
-          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-14">
-            Real Clients.<br />Real Results.
-          </h2>
-        </ScrollReveal>
-      </div>
-
+    <section className="bg-white pt-20 md:pt-32 pb-0">
       {/* Featured testimonial — full width video + quote overlay */}
       <ScrollReveal>
         <div className="relative overflow-hidden bg-dark cursor-pointer group" onClick={openVideo}>
@@ -1259,39 +1682,41 @@ const Testimonials = () => {
         </div>
       </ScrollReveal>
 
-      {/* Thumbnail row — full width, scrollable */}
-      <div className="flex gap-0 overflow-x-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-        {testimonials.map((item, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={`flex-shrink-0 relative overflow-hidden transition-all duration-300 ${
-              active === i ? "opacity-100" : "opacity-50 hover:opacity-80"
-            }`}
-          >
-            <div className={`w-[160px] md:w-[220px] h-[100px] md:h-[130px] flex flex-col items-start justify-end p-4 relative ${
-              ["bg-gradient-to-br from-navy to-navy-dark",
-               "bg-gradient-to-br from-navy-dark to-dark",
-               "bg-gradient-to-br from-slate-700 to-slate-900",
-               "bg-gradient-to-br from-navy to-slate-800",
-              ][i % 4]
-            }`}>
-              {/* Active indicator */}
-              {active === i && <div className="absolute top-0 left-0 right-0 h-[3px] bg-cta" />}
+      {/* Thumbnail row — auto-sliding marquee */}
+      <div className="relative overflow-hidden">
+        <div className="flex gap-0 animate-marquee" style={{ width: "max-content", animationDuration: "40s" }}>
+          {[...testimonials, ...testimonials].map((item, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i % testimonials.length)}
+              className={`flex-shrink-0 relative overflow-hidden transition-all duration-300 ${
+                active === i % testimonials.length ? "opacity-100" : "opacity-50 hover:opacity-80"
+              }`}
+            >
+              <div className={`w-[160px] md:w-[220px] h-[100px] md:h-[130px] flex flex-col items-start justify-end p-4 relative ${
+                ["bg-gradient-to-br from-navy to-navy-dark",
+                 "bg-gradient-to-br from-navy-dark to-dark",
+                 "bg-gradient-to-br from-slate-700 to-slate-900",
+                 "bg-gradient-to-br from-navy to-slate-800",
+                ][i % 4]
+              }`}>
+                {/* Active indicator */}
+                {active === i % testimonials.length && <div className="absolute top-0 left-0 right-0 h-[3px] bg-cta" />}
 
-              {/* Play icon */}
-              <div className="absolute top-3 right-3">
-                <svg className="w-4 h-4 text-white/30" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                {/* Play icon */}
+                <div className="absolute top-3 right-3">
+                  <svg className="w-4 h-4 text-white/30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+
+                {/* Name */}
+                <p className="font-bebas text-white text-base md:text-lg tracking-wider leading-none">{item.name}</p>
+                <p className="font-dm text-white/30 text-[10px] mt-1">{item.result.split(".")[0]}</p>
               </div>
-
-              {/* Name */}
-              <p className="font-bebas text-white text-base md:text-lg tracking-wider leading-none">{item.name}</p>
-              <p className="font-dm text-white/30 text-[10px] mt-1">{item.result.split(".")[0]}</p>
-            </div>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Video Modal */}
@@ -1458,71 +1883,24 @@ const FormSection = () => {
   );
 };
 
-/* ═══════════════════════════════════════════════
-   11. AWARDS & CERTIFICATIONS — Trust strip above footer
-   ═══════════════════════════════════════════════ */
-const AwardsBar = () => (
-  <section className="bg-off-white py-20 md:py-32 px-6 border-t border-card-border">
-    <div className="max-w-6xl mx-auto text-center">
-      <ScrollReveal>
-        <p className="font-dm text-xs text-text-muted tracking-[4px] uppercase mb-10">AWARDS & CERTIFICATIONS</p>
-      </ScrollReveal>
-
-      <StaggerContainer stagger={0.08} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        {[
-          { icon: "🏆", title: "Best Workers' Comp Lawyers", subtitle: "Expertise.com · 2024" },
-          { icon: "⭐", title: "4.9 Star Rating", subtitle: "Google Reviews · 7,400+" },
-          { icon: "⚖️", title: "$250M+ Recovered", subtitle: "For Georgia Workers" },
-          { icon: "🛡️", title: "20+ Years", subtitle: "Licensed in All GA Courts" },
-        ].map((award, i) => (
-          <StaggerItem key={i}>
-            <div className="flex flex-col items-center">
-              <span className="text-4xl mb-3">{award.icon}</span>
-              <p className="font-dm font-bold text-text-dark text-sm">{award.title}</p>
-              <p className="font-dm text-xs text-text-muted mt-1">{award.subtitle}</p>
-            </div>
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-
-      {/* Badge images — contained slider */}
-      <div className="mt-12 max-w-5xl mx-auto overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-off-white via-off-white/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-off-white via-off-white/80 to-transparent z-10 pointer-events-none" />
-        <div className="flex items-center gap-16 animate-marquee" style={{ width: "max-content" }}>
-          {[...Array(4)].flatMap(() => [
-            { src: badgeExpertise, alt: "Expertise.com Best Workers' Comp" },
-            { src: badgeGoogleColor, alt: "Google Reviews 5 Stars" },
-            { src: badgeAvvo, alt: "Avvo 5 Star Rating" },
-            { src: badgeStateBar, alt: "State Bar of Georgia" },
-          ]).map((b, i) => (
-            <img key={i} src={b.src} alt={b.alt} className="h-16 md:h-24 w-auto object-contain flex-shrink-0" />
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 /* ═══════════════════════════════════════════════
    PAGE
    ═══════════════════════════════════════════════ */
 const Index = () => (
-  <div className="bg-white min-h-screen overflow-x-hidden pb-16 md:pb-0">
+  <div className="bg-white min-h-screen overflow-x-clip pb-16 md:pb-0">
     <ScrollProgress />
     <Header />
     <HeroAndVideo />
     <LetterSection />
     <Offerings />
-    <WorkersCompDeepDive />
-    <PersonalInjuryDeepDive />
+    <UnifiedQuiz />
     <StatsSection />
     <CaseResults />
     <WhyDarwin />
     <Testimonials />
-    <FAQ />
     <FormSection />
-    <AwardsBar />
+    <FAQ />
     <Footer />
     <FloatingCTA />
     <MobileStickyBar />

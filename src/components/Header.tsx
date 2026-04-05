@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import darwinLogo from "@/assets/darwin-logo.png";
 
 const menuLinks = [
-  { to: "/workers-compensation", label: "Workers' Compensation" },
-  { to: "/personal-injury", label: "Personal Injury" },
+  { id: "workers-comp-section", label: "Workers' Compensation" },
+  { id: "personal-injury-section", label: "Personal Injury" },
 ];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   const [hidden, setHidden] = useState(false);
   const [lastY, setLastY] = useState(0);
@@ -29,13 +28,16 @@ const Header = () => {
   }, [lastY]);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  const scrollToSection = (id: string) => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
 
   return (
     <>
@@ -111,23 +113,22 @@ const Header = () => {
             <nav className="flex flex-col items-center gap-8">
               {menuLinks.map((link, i) => (
                 <motion.div
-                  key={link.to}
+                  key={link.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ delay: i * 0.1, duration: 0.3 }}
                 >
-                  <Link
-                    to={link.to}
-                    className={`font-bebas text-5xl md:text-7xl tracking-wider transition-colors ${
-                      location.pathname === link.to ? "text-cta" : "text-white hover:text-cta"
-                    }`}
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="font-bebas text-5xl md:text-7xl tracking-wider text-white hover:text-cta transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
 
+              {/* CTA in menu */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -136,12 +137,7 @@ const Header = () => {
                 className="mt-4"
               >
                 <button
-                  onClick={() => {
-                    setMenuOpen(false);
-                    setTimeout(() => {
-                      document.getElementById("form-section")?.scrollIntoView({ behavior: "smooth" });
-                    }, 300);
-                  }}
+                  onClick={() => scrollToSection("form-section")}
                   className="cta-btn-primary !text-lg !px-10 !py-5"
                 >
                   FREE CASE REVIEW →
