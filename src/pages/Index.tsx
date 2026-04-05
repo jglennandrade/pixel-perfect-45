@@ -456,6 +456,425 @@ const Offerings = () => (
 );
 
 /* ═══════════════════════════════════════════════
+   4b. WORKERS' COMP DEEP DIVE
+   ═══════════════════════════════════════════════ */
+const WorkersCompDeepDive = () => {
+  const [wcTab, setWcTab] = useState("industries");
+
+  const tabData = {
+    industries: {
+      title: "Where Did You Get Hurt?",
+      desc: "Darwin has fought and won cases across every one of these industries in Georgia. If your workplace is on this list, he already knows the playbook your employer's insurance company is running.",
+      items: [
+        "Airport & Airline", "Construction", "Firefighter & EMT", "Grocery & Retail",
+        "Healthcare", "Industrial & Factories", "Law Enforcement", "Poultry Processing",
+        "Roofing", "Steelworker", "Power & Utilities", "Tree Services", "Trucking"
+      ],
+    },
+    employers: {
+      title: "Who Do You Work For?",
+      desc: "These companies have deep pockets and aggressive legal teams. Darwin has gone up against every single one — and he's recovered millions from them. Your employer doesn't scare us.",
+    },
+    injuries: {
+      title: "What's Hurting?",
+      desc: "If your injury is on this list, you almost certainly have a valid case. Workers' comp is a no-fault system — you don't need to prove your employer did anything wrong.",
+      items: [
+        "Back Injuries", "Brain Injuries", "Carpal Tunnel", "Crush Injuries",
+        "Head Injuries", "Hip Injuries", "Knee Injuries", "Neck Injuries",
+        "Paralysis", "Shoulder Injuries", "Spinal Cord Injuries", "Traumatic Brain Injury"
+      ],
+    },
+    qualify: {
+      title: "Do You Qualify?",
+      desc: "Check one box from each column. If you can — you likely have a valid workers' compensation claim. Darwin will confirm for free.",
+    },
+  };
+
+  const tabs = [
+    { id: "industries", label: "Industries We Serve", icon: "🏗️" },
+    { id: "employers", label: "Employers We've Beaten", icon: "🏢" },
+    { id: "injuries", label: "Injuries We Handle", icon: "🩺" },
+    { id: "qualify", label: "Do I Qualify?", icon: "✅" },
+  ];
+
+  const current = tabData[wcTab as keyof typeof tabData];
+
+  return (
+    <section className="bg-off-white py-20 md:py-32 px-6">
+      <div className="max-w-6xl mx-auto">
+        <ScrollReveal>
+          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">WORKERS' COMPENSATION</p>
+          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
+            Your Employer Has Lawyers.<br />Now You Do Too.
+          </h2>
+          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-16">
+            No matter where you work, what happened, or how bad it is —<br className="hidden md:block" />
+            Darwin has seen it, fought it, and won it.
+          </p>
+        </ScrollReveal>
+
+        {/* Vertical tabs layout */}
+        <ScrollReveal>
+          <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-10">
+            {/* Left — Tab navigation */}
+            <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 md:border-l-2 md:border-card-border">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setWcTab(tab.id)}
+                  className={`flex items-center gap-3 px-4 py-3.5 rounded-lg md:rounded-none md:rounded-r-lg text-left whitespace-nowrap md:whitespace-normal transition-all duration-300 flex-shrink-0 md:ml-[-2px] md:border-l-2 ${
+                    wcTab === tab.id
+                      ? "bg-cta/10 text-cta font-bold md:border-l-cta"
+                      : "text-text-muted hover:text-text-dark hover:bg-white/50 md:border-l-transparent"
+                  }`}
+                >
+                  <span className="text-xl">{tab.icon}</span>
+                  <span className="font-dm text-sm md:text-base">{tab.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Right — Tab content */}
+            <div className="min-h-[400px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={wcTab}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider mb-3">{current.title}</h3>
+                  <p className="font-dm text-base md:text-lg text-text-body leading-relaxed mb-8 max-w-xl">{current.desc}</p>
+
+                  {/* Industries tab */}
+                  {wcTab === "industries" && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {tabData.industries.items.map((item, i) => (
+                        <div key={i} className="bg-white rounded-lg border border-card-border px-4 py-3 font-dm text-sm text-text-dark hover:border-cta hover:text-cta transition-colors cursor-default flex items-center gap-2">
+                          <span className="text-cta">→</span> {item}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Employers tab */}
+                  {wcTab === "employers" && (
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
+                        {[...row1Logos, ...row2Logos, ...row3Logos].map((logo, i) => (
+                          <div key={i} className="flex items-center justify-center p-3 bg-white rounded-lg border border-card-border hover:border-cta/30 hover:shadow-md transition-all">
+                            <img src={logo.src} alt={logo.alt} className="h-8 md:h-10 w-auto object-contain" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Injuries tab */}
+                  {wcTab === "injuries" && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {tabData.injuries.items.map((item, i) => (
+                        <div key={i} className="bg-white rounded-lg border border-card-border px-4 py-3 font-dm text-sm text-text-dark hover:border-cta hover:text-cta transition-colors cursor-default flex items-center gap-2">
+                          <span className="text-cta">→</span> {item}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Qualify tab */}
+                  {wcTab === "qualify" && (
+                    <div>
+                      <div className="grid sm:grid-cols-2 gap-8 mb-8">
+                        <div className="bg-white rounded-lg border border-card-border p-6">
+                          <p className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold mb-4">ON-THE-JOB INJURY</p>
+                          {["Injury occurred while working", "Injured due to the job you perform", "Includes injuries during work travel"].map((t, i) => (
+                            <p key={i} className="font-dm text-sm text-text-body mb-3 flex items-start gap-2"><span className="text-cta font-bold">✓</span> {t}</p>
+                          ))}
+                        </div>
+                        <div className="bg-white rounded-lg border border-card-border p-6">
+                          <p className="font-dm text-xs text-cta tracking-[2px] uppercase font-bold mb-4">EMPLOYMENT STATUS</p>
+                          {["You are a legal employee (not contractor)", "Your employer has 3+ employees", "Full-time, part-time, or seasonal"].map((t, i) => (
+                            <p key={i} className="font-dm text-sm text-text-body mb-3 flex items-start gap-2"><span className="text-cta font-bold">✓</span> {t}</p>
+                          ))}
+                        </div>
+                      </div>
+                      <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-10">
+                        I QUALIFY — GET MY FREE CASE REVIEW →
+                      </button>
+                      <p className="font-dm text-xs text-text-muted mt-3">Don't meet these criteria? You may still have a personal injury case. Keep scrolling.</p>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+};
+
+/* ═══════════════════════════════════════════════
+   4c. PERSONAL INJURY DEEP DIVE
+   ═══════════════════════════════════════════════ */
+
+const PersonalInjuryDeepDive = () => {
+  const [piTab, setPiTab] = useState("cases");
+
+  const piTabs = [
+    {
+      id: "cases",
+      name: "Cases We Handle",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>,
+    },
+    {
+      id: "deadline",
+      name: "Filing Deadline",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    },
+    {
+      id: "process",
+      name: "How It Works",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>,
+    },
+  ];
+
+  const caseTypes = [
+    { icon: "🚗", name: "Car Accidents", desc: "Rear-ends, T-bones, hit-and-runs on I-285 and beyond." },
+    { icon: "🚛", name: "Truck Accidents", desc: "18-wheelers, delivery trucks, federal regulations." },
+    { icon: "🏍️", name: "Motorcycle Accidents", desc: "Cutting through bias to get you full compensation." },
+    { icon: "🧠", name: "Brain Injuries", desc: "Catastrophic cases requiring aggressive representation." },
+    { icon: "🦴", name: "Spinal Cord Injuries", desc: "Life-changing injuries. Darwin has recovered millions." },
+    { icon: "🚶", name: "Pedestrian Accidents", desc: "Hit while walking, jogging, or crossing the street." },
+    { icon: "⚕️", name: "Medical Malpractice", desc: "Surgical errors, misdiagnosis, medication mistakes." },
+    { icon: "🏢", name: "Premises Liability", desc: "Slip and falls, negligent security, unsafe properties." },
+    { icon: "💀", name: "Wrongful Death", desc: "Handled with care, compassion, and aggression." },
+    { icon: "🔥", name: "Catastrophic Injuries", desc: "When the stakes are highest, Darwin fights hardest." },
+  ];
+
+  return (
+    <section className="bg-white py-20 md:py-32 px-6">
+      <div className="max-w-6xl mx-auto">
+        <ScrollReveal>
+          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">PERSONAL INJURY</p>
+          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
+            Injured In An Accident?<br />Here's What You're Owed.
+          </h2>
+          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
+            If someone else's negligence caused your injury, Georgia law says<br className="hidden md:block" />
+            you're entitled to a lot more than just medical bills.
+          </p>
+        </ScrollReveal>
+
+        {/* Horizontal tabs with icons */}
+        <ScrollReveal>
+          <div className="border-b border-card-border mb-8">
+            <div className="flex items-center gap-1 overflow-x-auto">
+              {piTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setPiTab(tab.id)}
+                  className={`group flex items-center gap-2 py-3 px-4 border-b-2 transition-all duration-300 whitespace-nowrap ${
+                    piTab === tab.id
+                      ? "border-cta text-cta"
+                      : "border-transparent text-text-muted hover:text-text-dark hover:bg-off-white"
+                  }`}
+                >
+                  <span className={`transition-colors ${piTab === tab.id ? "text-cta" : "text-text-muted group-hover:text-text-dark"}`}>
+                    {tab.icon}
+                  </span>
+                  <span className="font-dm text-sm font-medium">{tab.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Tab content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={piTab}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="min-h-[350px]"
+            >
+              {/* Cases tab */}
+              {piTab === "cases" && (
+                <div>
+                  <p className="font-dm text-lg md:text-xl text-text-body mb-8 max-w-xl">
+                    Every case below has one thing in common: someone was careless, and you paid the price.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {caseTypes.map((c, i) => (
+                      <div key={i} className="flex items-start gap-4 bg-off-white rounded-lg border border-card-border p-5 hover:border-cta/30 transition-colors cursor-default">
+                        <span className="text-2xl flex-shrink-0 mt-0.5">{c.icon}</span>
+                        <div>
+                          <p className="font-dm font-bold text-text-dark text-sm">{c.name}</p>
+                          <p className="font-dm text-xs text-text-muted mt-1">{c.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Deadline tab */}
+              {piTab === "deadline" && (
+                <div className="max-w-2xl">
+                  <p className="font-dm text-lg md:text-xl text-text-body mb-8">
+                    Georgia has strict deadlines. Miss them and you lose your right to file — forever.
+                  </p>
+                  <div className="space-y-6">
+                    <div className="bg-off-white rounded-xl border border-card-border p-6 flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-bebas text-cta text-xl">2Y</span>
+                      </div>
+                      <div>
+                        <p className="font-dm font-bold text-text-dark">2-Year Statute of Limitations</p>
+                        <p className="font-dm text-sm text-text-muted mt-1">You have two years from the date of injury to file a personal injury lawsuit in Georgia. After that — your case is gone.</p>
+                      </div>
+                    </div>
+                    <div className="bg-off-white rounded-xl border border-card-border p-6 flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-full bg-navy/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-bebas text-navy text-xl">⚠️</span>
+                      </div>
+                      <div>
+                        <p className="font-dm font-bold text-text-dark">Evidence Disappears Fast</p>
+                        <p className="font-dm text-sm text-text-muted mt-1">Surveillance footage gets deleted. Witnesses forget details. Medical records change. The sooner Darwin gets involved, the stronger your case.</p>
+                      </div>
+                    </div>
+                    <div className="bg-off-white rounded-xl border border-card-border p-6 flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-full bg-cta/10 flex items-center justify-center flex-shrink-0">
+                        <span className="font-bebas text-cta text-xl">$0</span>
+                      </div>
+                      <div>
+                        <p className="font-dm font-bold text-text-dark">It Costs You Nothing to Find Out</p>
+                        <p className="font-dm text-sm text-text-muted mt-1">Darwin's consultation is 100% free. No fee unless he wins. There is literally zero reason to wait.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Process tab */}
+              {piTab === "process" && (
+                <div className="max-w-2xl">
+                  <p className="font-dm text-lg md:text-xl text-text-body mb-8">
+                    Three steps. That's it. Darwin handles everything else.
+                  </p>
+                  <div className="space-y-0">
+                    {[
+                      { step: "01", title: "You Fill Out the Form", desc: "Takes 30 seconds. Tell us what happened. Darwin reviews every single submission personally.", color: "cta" },
+                      { step: "02", title: "Darwin Builds Your Case", desc: "He investigates, gathers evidence, negotiates with the insurance company, and prepares for trial if needed. You focus on healing.", color: "navy" },
+                      { step: "03", title: "You Get Paid", desc: "Darwin fights until you get every dollar you're owed. No fee unless he wins. Most cases resolve in months, not years.", color: "cta" },
+                    ].map((s, i) => (
+                      <div key={i} className="flex gap-6 pb-8 last:pb-0">
+                        <div className="flex flex-col items-center">
+                          <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${s.color === "cta" ? "bg-cta" : "bg-navy"}`}>
+                            <span className="font-bebas text-white text-lg">{s.step}</span>
+                          </div>
+                          {i < 2 && <div className="w-px h-full bg-card-border mt-2" />}
+                        </div>
+                        <div className="pt-2">
+                          <p className="font-dm font-bold text-text-dark text-lg">{s.title}</p>
+                          <p className="font-dm text-sm text-text-muted mt-1 leading-relaxed">{s.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+
+        </ScrollReveal>
+      </div>
+
+      {/* Damages — highlighted block inside PI section */}
+      <div className="bg-navy-dark rounded-2xl p-8 md:p-14 mt-20">
+        <ScrollReveal>
+          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">WHAT YOU'RE ACTUALLY OWED</p>
+          <h3 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] text-center mb-4">
+            The Insurance Company<br />Won't Tell You This.
+          </h3>
+          <p className="font-dm text-lg md:text-xl text-white/50 text-center max-w-xl mx-auto mb-14">
+            They'll mention your medical bills and hope you sign.<br className="hidden md:block" />
+            Georgia law says you're owed a lot more.
+          </p>
+        </ScrollReveal>
+
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <ScrollReveal direction="left">
+            <div className="bg-white/[0.06] backdrop-blur-sm rounded-xl border border-white/10 p-8 h-full">
+              <div className="w-12 h-12 rounded-full bg-cta/20 flex items-center justify-center mb-5">
+                <span className="text-2xl">💰</span>
+              </div>
+              <p className="font-bebas text-3xl text-white tracking-wider mb-2">ECONOMIC DAMAGES</p>
+              <p className="font-dm text-sm text-white/40 mb-6">The tangible costs — things with receipts.</p>
+              <div className="space-y-4">
+                {[
+                  { item: "Medical Expenses", detail: "Past + future — surgeries, PT, medication. Could be $100K+" },
+                  { item: "Lost Wages", detail: "Every paycheck you missed while recovering" },
+                  { item: "Lost Earning Capacity", detail: "If you can't return to your old job or work at the same level" },
+                  { item: "Property Damage", detail: "Vehicle repairs, equipment, anything destroyed" },
+                ].map((d, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-cta font-bold text-lg mt-0.5">✓</span>
+                    <div>
+                      <p className="font-dm font-bold text-white text-sm">{d.item}</p>
+                      <p className="font-dm text-xs text-white/40 mt-0.5">{d.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="right">
+            <div className="bg-white/[0.06] backdrop-blur-sm rounded-xl border border-white/10 p-8 h-full">
+              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-5">
+                <span className="text-2xl">💔</span>
+              </div>
+              <p className="font-bebas text-3xl text-white tracking-wider mb-2">NON-ECONOMIC DAMAGES</p>
+              <p className="font-dm text-sm text-white/40 mb-6">The human costs — often worth more than the bills.</p>
+              <div className="space-y-4">
+                {[
+                  { item: "Pain & Suffering", detail: "Physical pain from your injuries — this can be substantial" },
+                  { item: "Emotional Distress", detail: "Anxiety, depression, PTSD, sleepless nights" },
+                  { item: "Loss of Enjoyment", detail: "Can't play with your kids, exercise, or do what you love" },
+                  { item: "Loss of Consortium", detail: "Impact on your marriage and closest relationships" },
+                ].map((d, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-white font-bold text-lg mt-0.5">✓</span>
+                    <div>
+                      <p className="font-dm font-bold text-white text-sm">{d.item}</p>
+                      <p className="font-dm text-xs text-white/40 mt-0.5">{d.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <ScrollReveal>
+          <div className="text-center mt-12">
+            <p className="font-dm text-white/40 text-base mb-5">
+              Most people have no idea how much they're actually owed.
+            </p>
+            <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
+              FIND OUT WHAT I'M OWED →
+            </button>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+};
+
+/* ═══════════════════════════════════════════════
    3D INTERACTIVE SCALE OF JUSTICE
    ═══════════════════════════════════════════════ */
 const Interactive3DScale = () => {
@@ -638,46 +1057,69 @@ const StatsSection = () => (
    ═══════════════════════════════════════════════ */
 const CaseResults = () => {
   const cases = [
-    { amount: "$4,200,000", type: "Catastrophic Workers' Comp", industry: "Construction" },
-    { amount: "$2,400,000", type: "Catastrophic Workers' Comp", industry: "Industrial" },
-    { amount: "$1,200,000", type: "Catastrophic Workers' Comp", industry: "Warehouse" },
-    { amount: "$180,000", type: "Workers' Comp Denial Overturned", industry: "Healthcare" },
-    { amount: "$95,000", type: "Personal Injury Settlement", industry: "Auto Accident" },
-    { amount: "$850,000", type: "Workers' Comp — Back Injury", industry: "Trucking" },
+    { amount: "$4,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Construction", bg: "from-orange-500 to-red-600" },
+    { amount: "$2,400,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Industrial", bg: "from-amber-500 to-orange-600" },
+    { amount: "$1,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Warehouse", bg: "from-navy to-navy-dark" },
+    { amount: "$850,000", type: "WORKERS' COMP\nBACK INJURY", industry: "Trucking", bg: "from-emerald-600 to-teal-700" },
+    { amount: "$750,000", type: "WORKPLACE\nHEAD INJURY", industry: "Factory", bg: "from-rose-500 to-pink-700" },
+    { amount: "$620,000", type: "WORKERS' COMP\nSHOULDER INJURY", industry: "Warehouse", bg: "from-indigo-500 to-violet-700" },
+    { amount: "$480,000", type: "PERSONAL INJURY\nCAR ACCIDENT", industry: "Auto Accident", bg: "from-sky-500 to-blue-700" },
+    { amount: "$350,000", type: "WORKERS' COMP\nKNEE INJURY", industry: "Healthcare", bg: "from-teal-500 to-cyan-700" },
+    { amount: "$275,000", type: "TRUCK ACCIDENT\nSETTLEMENT", industry: "Trucking", bg: "from-slate-600 to-gray-800" },
+    { amount: "$180,000", type: "DENIAL\nOVERTURNED", industry: "Healthcare", bg: "from-violet-600 to-purple-800" },
+    { amount: "$150,000", type: "WORKPLACE\nNECK INJURY", industry: "Retail", bg: "from-amber-600 to-yellow-700" },
+    { amount: "$95,000", type: "PERSONAL INJURY\nSETTLEMENT", industry: "Motorcycle", bg: "from-red-600 to-rose-800" },
   ];
 
   return (
-    <section className="bg-white py-20 md:py-32 px-6">
+    <section className="bg-dark py-20 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="font-dm text-xs text-text-muted tracking-[4px] uppercase mb-4 text-center">CASE RESULTS</p>
-          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
-            Become Our Next Success Story.
+          <p className="font-dm text-xs text-cta tracking-[4px] uppercase font-bold mb-4 text-center">CASE RESULTS</p>
+          <h2 className="font-bebas text-white text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-4">
+            Become Our Next<br />Success Story.
           </h2>
-          <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
-            Over $250 million recovered for Georgia workers and accident victims. Here's a snapshot.
+          <p className="font-dm text-lg md:text-xl text-white/50 text-center max-w-2xl mx-auto mb-14">
+            Over $250 million recovered for Georgia workers and accident victims.
           </p>
         </ScrollReveal>
 
-        <StaggerContainer stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 gap-5">
-          {cases.map((c, i) => (
-            <StaggerItem key={i}>
-              <div className="bg-off-white rounded-lg border border-card-border p-6 md:p-8 card-lift text-center">
-                <p className="font-bebas text-cta text-4xl md:text-5xl tracking-wider">{c.amount}</p>
-                <p className="font-dm text-sm text-text-dark font-bold mt-3">{c.type}</p>
-                <p className="font-dm text-xs text-text-muted mt-1">{c.industry}</p>
+        {/* Auto-sliding cards — KingKong style */}
+        <div className="relative overflow-hidden -mx-6"
+          style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}>
+          <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
+            {[...cases, ...cases].map((c, i) => (
+              <div key={i} className={`flex-shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] rounded-2xl bg-gradient-to-br ${c.bg} p-8 flex flex-col justify-between card-lift cursor-default relative overflow-hidden`}>
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full" />
+                  <div className="absolute bottom-8 left-8 w-20 h-20 border border-white/20 rounded-full" />
+                </div>
+
+                <div className="relative z-10">
+                  <p className="font-bebas text-white/80 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
+                  <p className="font-dm text-white/50 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
+                </div>
+
+                <div className="relative z-10">
+                  <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider">{c.amount}</p>
+                  <div className="w-12 h-[3px] bg-white/30 mt-3" />
+                </div>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+            ))}
+          </div>
+        </div>
 
         {/* CTA */}
         <ScrollReveal delay={0.2}>
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-base">
               GET MY FREE CASE REVIEW →
             </button>
-            <p className="font-dm text-xs text-text-muted mt-3">Free. No obligation. Takes 30 seconds.</p>
+            <div className="flex items-center justify-center gap-3 mt-5">
+              <span className="text-cta text-xl tracking-[4px]">★★★★★</span>
+              <span className="font-dm text-sm text-white/40">4.9 stars · 10,000+ cases handled</span>
+            </div>
           </div>
         </ScrollReveal>
       </div>
@@ -729,56 +1171,171 @@ const WhyDarwin = () => (
    ═══════════════════════════════════════════════ */
 const Testimonials = () => {
   const testimonials = [
-    { result: "Denied by insurance. Settled for $180K.", quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him.", name: "Nicole F." },
-    { result: "Insurance offered $12K. Darwin got $95K.", quote: "He was very straightforward and got me the best offer for my settlement. You'll be in great hands.", name: "Adtresa M." },
-    { result: "Fired after reporting injury — Darwin stepped in.", quote: "We just settled! I was injured on the job and they tried to fire me. Wrong thing to do when you have attorneys like this!", name: "Jeremy H." },
+    { result: "Denied by insurance. Settled for $180K.", quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him. He responds to your calls immediately.", name: "Nicole F.", role: "Workers' Comp Client", video: "" },
+    { result: "Insurance offered $12K. Darwin got $95K.", quote: "He was very straightforward and got me the best offer for my settlement. You'll be in great hands.", name: "Adtresa M.", role: "Personal Injury Client", video: "" },
+    { result: "Fired after reporting injury — Darwin stepped in.", quote: "We just settled! I was injured on the job and they tried to fire me. Wrong thing to do when you have attorneys like this that will fight for your rights!", name: "Jeremy H.", role: "Workers' Comp Client", video: "" },
+    { result: "Best attorney in Georgia. Period.", quote: "Attorney Darwin Johnson is the best! I would tell anybody to give my attorney the chance to work on your case you will be satisfied with the results.", name: "Janice C.", role: "Workers' Comp Client", video: "" },
+    { result: "Heart, compassion, and results.", quote: "Attorney Johnson has a heart. He and his staff nurtured me through a very difficult time and achieved a fair settlement expediently.", name: "Sonya W.", role: "Workers' Comp Client", video: "" },
+    { result: "First-time claim. Darwin handled everything.", quote: "Never had to deal with a worker's compensation claim before. Darwin got results in my brother-in-law's time of need. Did a great job.", name: "James J.", role: "Workers' Comp Client", video: "" },
+    { result: "Bold. Aggressive. Got results.", quote: "Darwin is a bold man, the Business Man! Darwin Law Firm is the best! I am very pleased with my settlement! It was worth the wait!", name: "Former Client", role: "Workers' Comp Client", video: "" },
+    { result: "Professional, friendly, the best.", quote: "The law office is professional, and friendly. Matt, Attorney Berman, and Yohandra are the best staff that I have ever had the chance to work with.", name: "Cheryl R.", role: "Workers' Comp Client", video: "" },
   ];
 
   const [active, setActive] = useState(0);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const t = testimonials[active];
 
+  const openVideo = () => {
+    setVideoModalOpen(true);
+    document.body.style.overflow = "hidden";
+    const header = document.querySelector("header");
+    if (header) header.style.display = "none";
+  };
+
+  const closeVideo = () => {
+    setVideoModalOpen(false);
+    document.body.style.overflow = "";
+    const header = document.querySelector("header");
+    if (header) header.style.display = "";
+  };
+
   return (
-    <section className="bg-white py-20 md:py-32 px-6">
-      <div className="max-w-3xl mx-auto">
+    <section className="bg-off-white py-20 md:py-32">
+      <div className="px-6">
         <ScrollReveal>
-          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-12">
+          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl tracking-wider leading-[0.95] text-center mb-14">
             Real Clients.<br />Real Results.
           </h2>
         </ScrollReveal>
-
-        <div className="mb-10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease }}
-              className="text-center"
-            >
-              <p className="font-bebas text-cta text-3xl md:text-5xl tracking-wider mb-6">{t.result}</p>
-              <span className="text-cta text-xl tracking-[6px]">★★★★★</span>
-              <p className="font-serif italic text-text-dark text-3xl md:text-4xl leading-relaxed mt-6 mb-8">"{t.quote}"</p>
-              <p className="font-dm font-bold text-sm text-text-muted tracking-[2px]">— {t.name.toUpperCase()}</p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="flex items-center justify-center gap-3">
-          {testimonials.map((item, i) => (
-            <button
-              key={item.name}
-              onClick={() => setActive(i)}
-              className={`relative px-6 py-2.5 text-xs font-bold font-dm tracking-wider rounded transition-all duration-300 ${active === i ? "text-white" : "text-text-muted hover:text-text-dark"}`}
-            >
-              {active === i && (
-                <motion.span layoutId="testimonial-tab" className="absolute inset-0 rounded bg-cta" transition={{ type: "spring", bounce: 0.18, duration: 0.5 }} />
-              )}
-              <span className="relative z-10">{item.name}</span>
-            </button>
-          ))}
-        </div>
       </div>
+
+      {/* Featured testimonial — full width video + quote overlay */}
+      <ScrollReveal>
+        <div className="relative overflow-hidden bg-dark cursor-pointer group" onClick={openVideo}>
+          {/* Video / placeholder — full width, no rounded corners */}
+          <div className="aspect-[21/9] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center relative">
+            {/* Placeholder — remove when real video added */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="font-dm text-white/5 text-sm">Video Placeholder — Drop testimonial videos here</p>
+            </div>
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+
+            {/* Play button */}
+            <div className="relative z-10">
+              <motion.div
+                className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform"
+                whileTap={{ scale: 0.95 }}
+              >
+                <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </motion.div>
+            </div>
+
+            {/* Quote overlay — bottom left */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14 z-10">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                  className="max-w-3xl"
+                >
+                  <p className="font-serif italic text-white text-xl md:text-3xl leading-relaxed mb-4">
+                    "{t.quote}"
+                  </p>
+                  <p className="font-dm text-cta font-bold text-sm md:text-base tracking-wider">
+                    {t.name}, <span className="text-white/50 font-normal">{t.role}</span>
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      {/* Thumbnail row — full width, scrollable */}
+      <div className="flex gap-0 overflow-x-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+        {testimonials.map((item, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`flex-shrink-0 relative overflow-hidden transition-all duration-300 ${
+              active === i ? "opacity-100" : "opacity-50 hover:opacity-80"
+            }`}
+          >
+            <div className={`w-[160px] md:w-[220px] h-[100px] md:h-[130px] flex flex-col items-start justify-end p-4 relative ${
+              ["bg-gradient-to-br from-navy to-navy-dark",
+               "bg-gradient-to-br from-navy-dark to-dark",
+               "bg-gradient-to-br from-slate-700 to-slate-900",
+               "bg-gradient-to-br from-navy to-slate-800",
+              ][i % 4]
+            }`}>
+              {/* Active indicator */}
+              {active === i && <div className="absolute top-0 left-0 right-0 h-[3px] bg-cta" />}
+
+              {/* Play icon */}
+              <div className="absolute top-3 right-3">
+                <svg className="w-4 h-4 text-white/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+
+              {/* Name */}
+              <p className="font-bebas text-white text-base md:text-lg tracking-wider leading-none">{item.name}</p>
+              <p className="font-dm text-white/30 text-[10px] mt-1">{item.result.split(".")[0]}</p>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
+            onClick={closeVideo}
+          >
+            <button
+              onClick={closeVideo}
+              className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+            >
+              <span className="text-white text-2xl font-light">✕</span>
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full max-w-5xl aspect-video rounded-xl overflow-hidden bg-dark flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Replace with real video when available */}
+              {t.video ? (
+                <video controls autoPlay playsInline className="w-full h-full object-contain bg-black">
+                  <source src={t.video} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="text-center">
+                  <p className="font-dm text-white/20 text-lg mb-4">Video coming soon</p>
+                  <p className="font-serif italic text-white/40 text-xl max-w-lg mx-auto px-6">"{t.quote}"</p>
+                  <p className="font-dm text-cta text-sm mt-4">{t.name}</p>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
@@ -957,6 +1514,8 @@ const Index = () => (
     <HeroAndVideo />
     <LetterSection />
     <Offerings />
+    <WorkersCompDeepDive />
+    <PersonalInjuryDeepDive />
     <StatsSection />
     <CaseResults />
     <WhyDarwin />
