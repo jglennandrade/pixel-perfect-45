@@ -1286,30 +1286,37 @@ const CaseResults = () => {
       <div className="relative overflow-hidden">
         <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
           {[...cases, ...cases].map((c, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group"
-              style={{
-                backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15)), url(${c.img})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+            <article
+              key={`${c.amount}-${c.type}-${i}`}
+              className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate bg-dark"
             >
+              <img
+                src={c.img}
+                alt={`${c.industry} case result`}
+                loading="eager"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
 
-              {/* Top content */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.28) 42%, rgba(0, 0, 0, 0.88) 100%)",
+                }}
+              />
+
               <div className="relative z-10 p-7 h-full flex flex-col justify-between">
                 <div>
                   <p className="font-bebas text-white/90 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
-                  <p className="font-dm text-white/50 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
+                  <p className="font-dm text-white/60 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
                 </div>
 
-                {/* Bottom — amount */}
                 <div>
                   <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider drop-shadow-lg">{c.amount}</p>
                   <div className="w-12 h-[3px] bg-cta mt-3 rounded-full" />
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
