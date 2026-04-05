@@ -1244,18 +1244,18 @@ const StatsSection = () => (
    ═══════════════════════════════════════════════ */
 const CaseResults = () => {
   const cases = [
-    { amount: "$4,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Construction", bg: "from-orange-500 to-red-600" },
-    { amount: "$2,400,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Industrial", bg: "from-amber-500 to-orange-600" },
-    { amount: "$1,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Warehouse", bg: "from-navy to-navy-dark" },
-    { amount: "$850,000", type: "WORKERS' COMP\nBACK INJURY", industry: "Trucking", bg: "from-emerald-600 to-teal-700" },
-    { amount: "$750,000", type: "WORKPLACE\nHEAD INJURY", industry: "Factory", bg: "from-rose-500 to-pink-700" },
-    { amount: "$620,000", type: "WORKERS' COMP\nSHOULDER INJURY", industry: "Warehouse", bg: "from-indigo-500 to-violet-700" },
-    { amount: "$480,000", type: "PERSONAL INJURY\nCAR ACCIDENT", industry: "Auto Accident", bg: "from-sky-500 to-blue-700" },
-    { amount: "$350,000", type: "WORKERS' COMP\nKNEE INJURY", industry: "Healthcare", bg: "from-teal-500 to-cyan-700" },
-    { amount: "$275,000", type: "TRUCK ACCIDENT\nSETTLEMENT", industry: "Trucking", bg: "from-slate-600 to-gray-800" },
-    { amount: "$180,000", type: "DENIAL\nOVERTURNED", industry: "Healthcare", bg: "from-violet-600 to-purple-800" },
-    { amount: "$150,000", type: "WORKPLACE\nNECK INJURY", industry: "Retail", bg: "from-amber-600 to-yellow-700" },
-    { amount: "$95,000", type: "PERSONAL INJURY\nSETTLEMENT", industry: "Motorcycle", bg: "from-red-600 to-rose-800" },
+    { amount: "$4,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Construction", img: caseConstruction },
+    { amount: "$2,400,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Industrial", img: caseFactory },
+    { amount: "$1,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Warehouse", img: caseWarehouse },
+    { amount: "$850,000", type: "WORKERS' COMP\nBACK INJURY", industry: "Trucking", img: caseTrucking },
+    { amount: "$750,000", type: "WORKPLACE\nHEAD INJURY", industry: "Factory", img: caseFactory },
+    { amount: "$620,000", type: "WORKERS' COMP\nSHOULDER INJURY", industry: "Warehouse", img: caseWarehouse },
+    { amount: "$480,000", type: "PERSONAL INJURY\nCAR ACCIDENT", industry: "Auto Accident", img: caseCarAccident },
+    { amount: "$350,000", type: "WORKERS' COMP\nKNEE INJURY", industry: "Healthcare", img: caseMedical },
+    { amount: "$275,000", type: "TRUCK ACCIDENT\nSETTLEMENT", industry: "Trucking", img: caseTrucking },
+    { amount: "$180,000", type: "DENIAL\nOVERTURNED", industry: "Healthcare", img: caseMedical },
+    { amount: "$150,000", type: "WORKPLACE\nNECK INJURY", industry: "Retail", img: caseConstruction },
+    { amount: "$95,000", type: "PERSONAL INJURY\nSETTLEMENT", industry: "Motorcycle", img: caseCarAccident },
   ];
 
   return (
@@ -1276,25 +1276,33 @@ const CaseResults = () => {
         </ScrollReveal>
       </div>
 
-      {/* Auto-sliding cards — full width, KingKong style */}
+      {/* Auto-sliding cards — full width, KingKong style with images */}
       <div className="relative overflow-hidden">
         <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
           {[...cases, ...cases].map((c, i) => (
-            <div key={i} className={`flex-shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] rounded-2xl bg-gradient-to-br ${c.bg} p-8 flex flex-col justify-between card-lift cursor-default relative overflow-hidden`}>
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full" />
-                <div className="absolute bottom-8 left-8 w-20 h-20 border border-white/20 rounded-full" />
-              </div>
+            <div key={i} className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group">
+              {/* Background image */}
+              <img
+                src={c.img}
+                alt={c.industry}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
 
-              <div className="relative z-10">
-                <p className="font-bebas text-white/80 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
-                <p className="font-dm text-white/50 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
-              </div>
+              {/* Top content */}
+              <div className="relative z-10 p-7 h-full flex flex-col justify-between">
+                <div>
+                  <p className="font-bebas text-white/90 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
+                  <p className="font-dm text-white/50 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
+                </div>
 
-              <div className="relative z-10">
-                <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider">{c.amount}</p>
-                <div className="w-12 h-[3px] bg-white/30 mt-3" />
+                {/* Bottom — amount */}
+                <div>
+                  <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider drop-shadow-lg">{c.amount}</p>
+                  <div className="w-12 h-[3px] bg-cta mt-3 rounded-full" />
+                </div>
               </div>
             </div>
           ))}
