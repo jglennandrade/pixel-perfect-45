@@ -1598,12 +1598,12 @@ const Testimonials = () => {
             </div>
 
             {/* Play button */}
-            <div className="relative z-10">
+            <div className="relative z-10 mt-6 mr-6 md:mt-0 md:mr-0">
               <motion.div
-                className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform"
+                className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform"
                 whileTap={{ scale: 0.95 }}
               >
-                <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </motion.div>
