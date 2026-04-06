@@ -1497,15 +1497,16 @@ const DarwinGuarantee = () => {
    8. TESTIMONIALS
    ═══════════════════════════════════════════════ */
 const Testimonials = () => {
+  const youtubeId = "7whm6WsDwBU";
   const testimonials = [
-    { result: "Denied by insurance. Settled for $180K.", quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him. He responds to your calls immediately.", name: "Nicole F.", role: "Workers' Comp Client", video: "", thumbnail: "" },
-    { result: "Insurance offered $12K. Darwin got $95K.", quote: "He was very straightforward and got me the best offer for my settlement. You'll be in great hands.", name: "Adtresa M.", role: "Personal Injury Client", video: "", thumbnail: "" },
-    { result: "Fired after reporting injury — Darwin stepped in.", quote: "We just settled! I was injured on the job and they tried to fire me. Wrong thing to do when you have attorneys like this that will fight for your rights!", name: "Jeremy H.", role: "Workers' Comp Client", video: "", thumbnail: "" },
-    { result: "Best attorney in Georgia. Period.", quote: "Attorney Darwin Johnson is the best! I would tell anybody to give my attorney the chance to work on your case you will be satisfied with the results.", name: "Janice C.", role: "Workers' Comp Client", video: "", thumbnail: "" },
-    { result: "Heart, compassion, and results.", quote: "Attorney Johnson has a heart. He and his staff nurtured me through a very difficult time and achieved a fair settlement expediently.", name: "Sonya W.", role: "Workers' Comp Client", video: "", thumbnail: "" },
-    { result: "First-time claim. Darwin handled everything.", quote: "Never had to deal with a worker's compensation claim before. Darwin got results in my brother-in-law's time of need. Did a great job.", name: "James J.", role: "Workers' Comp Client", video: "", thumbnail: "" },
-    { result: "Bold. Aggressive. Got results.", quote: "Darwin is a bold man, the Business Man! Darwin Law Firm is the best! I am very pleased with my settlement! It was worth the wait!", name: "Former Client", role: "Workers' Comp Client", video: "", thumbnail: "" },
-    { result: "Professional, friendly, the best.", quote: "The law office is professional, and friendly. Matt, Attorney Berman, and Yohandra are the best staff that I have ever had the chance to work with.", name: "Cheryl R.", role: "Workers' Comp Client", video: "", thumbnail: "" },
+    { result: "Denied by insurance. Settled for $180K.", quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him. He responds to your calls immediately.", name: "Nicole F.", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` },
+    { result: "Insurance offered $12K. Darwin got $95K.", quote: "He was very straightforward and got me the best offer for my settlement. You'll be in great hands.", name: "Adtresa M.", role: "Personal Injury Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/sddefault.jpg` },
+    { result: "Fired after reporting injury — Darwin stepped in.", quote: "We just settled! I was injured on the job and they tried to fire me. Wrong thing to do when you have attorneys like this that will fight for your rights!", name: "Jeremy H.", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` },
+    { result: "Best attorney in Georgia. Period.", quote: "Attorney Darwin Johnson is the best! I would tell anybody to give my attorney the chance to work on your case you will be satisfied with the results.", name: "Janice C.", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` },
+    { result: "Heart, compassion, and results.", quote: "Attorney Johnson has a heart. He and his staff nurtured me through a very difficult time and achieved a fair settlement expediently.", name: "Sonya W.", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` },
+    { result: "First-time claim. Darwin handled everything.", quote: "Never had to deal with a worker's compensation claim before. Darwin got results in my brother-in-law's time of need. Did a great job.", name: "James J.", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/sddefault.jpg` },
+    { result: "Bold. Aggressive. Got results.", quote: "Darwin is a bold man, the Business Man! Darwin Law Firm is the best! I am very pleased with my settlement! It was worth the wait!", name: "Former Client", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` },
+    { result: "Professional, friendly, the best.", quote: "The law office is professional, and friendly. Matt, Attorney Berman, and Yohandra are the best staff that I have ever had the chance to work with.", name: "Cheryl R.", role: "Workers' Comp Client", video: youtubeId, thumbnail: `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg` },
   ];
 
   const [active, setActive] = useState(0);
@@ -1670,18 +1671,13 @@ const Testimonials = () => {
               className="w-full max-w-5xl aspect-video rounded-xl overflow-hidden bg-dark flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Replace with real video when available */}
-              {t.video ? (
-                <video controls autoPlay playsInline className="w-full h-full object-contain bg-black">
-                  <source src={t.video} type="video/mp4" />
-                </video>
-              ) : (
-                <div className="text-center">
-                  <p className="font-dm text-white/20 text-lg mb-4">Video coming soon</p>
-                  <p className="font-serif italic text-white/40 text-xl max-w-lg mx-auto px-6">"{t.quote}"</p>
-                  <p className="font-dm text-cta text-sm mt-4">{t.name}</p>
-                </div>
-              )}
+              <iframe
+                src={`https://www.youtube.com/embed/${t.video}?autoplay=1&rel=0&modestbranding=1`}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ border: "none" }}
+              />
             </motion.div>
           </motion.div>
         )}
