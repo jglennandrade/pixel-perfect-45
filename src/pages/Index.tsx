@@ -1567,7 +1567,7 @@ const Testimonials = () => {
       <ScrollReveal>
         <div className="relative overflow-hidden bg-dark cursor-pointer group" onClick={openVideo}>
           {/* Video / placeholder — full width, no rounded corners */}
-          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-start justify-end md:items-center md:justify-center relative">
+          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center relative">
             {/* Active testimonial thumbnail */}
             <AnimatePresence mode="wait">
               {t.thumbnail && (
@@ -1599,10 +1599,10 @@ const Testimonials = () => {
               <img src={darwinLogo} alt="Darwin Law Firm" className="h-6 md:h-8 w-auto opacity-90 drop-shadow-lg" />
             </div>
 
-            {/* Play button */}
-            <div className="relative z-10 mt-6 mr-6 md:mt-0 md:mr-0">
+            {/* Play button — centered above quote */}
+            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none" style={{ marginBottom: '80px' }}>
               <motion.div
-                className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform"
+                className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform pointer-events-auto cursor-pointer"
                 whileTap={{ scale: 0.95 }}
               >
                 <svg className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
