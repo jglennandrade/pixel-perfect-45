@@ -35,6 +35,7 @@ import caseTrucking from "@/assets/case-trucking.jpg";
 import caseMedical from "@/assets/case-medical.jpg";
 import caseFactory from "@/assets/case-factory.jpg";
 import caseFileConstruction from "@/assets/case-file-construction.jpg";
+import caseCardTestV4 from "@/assets/case-card-test-v4.jpg";
 import caseCheckConstruction from "@/assets/case-check-construction.jpg";
 import bgConstruction from "@/assets/bg-construction.jpg";
 import logoAmericold from "@/assets/logo-americold.png";
@@ -1253,10 +1254,11 @@ const StatsSection = () => (
    ═══════════════════════════════════════════════ */
 const CaseResults = () => {
   /* ─── VARIATION TEST CARDS (first 3) ─── */
-  const variationCards: { amount: string; injury: string; industry: string; variant: "A" | "B" | "C" }[] = [
+  const variationCards: { amount: string; injury: string; industry: string; variant: "A" | "B" | "C" | "D" }[] = [
     { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "A" },
     { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "B" },
     { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "C" },
+    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "D" },
   ];
 
   const remainingCases = [
@@ -1324,24 +1326,40 @@ const CaseResults = () => {
       );
     }
 
-    /* Variation C — Solid Gradient + Floating Settlement Check */
+    if (v.variant === "C") {
+      /* Variation C — Solid Gradient + Floating Settlement Check */
+      return (
+        <article key={`var-C-${i}`} className={`${cardBase}`} style={{ background: "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 65% 8%) 100%)" }}>
+          <div className="relative z-10 p-5 h-full flex flex-col">
+            <div className="mb-2">
+              <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION C</span>
+            </div>
+            <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
+            <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src={caseCheckConstruction}
+                alt="Settlement check"
+                loading="eager"
+                className="w-[85%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="h-1 bg-cta rounded-full" />
+          </div>
+        </article>
+      );
+    }
+
+    /* Variation D — Device Mockup on Lifestyle Background */
     return (
-      <article key={`var-C-${i}`} className={`${cardBase}`} style={{ background: "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 65% 8%) 100%)" }}>
-        <div className="relative z-10 p-5 h-full flex flex-col">
-          <div className="mb-2">
-            <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION C</span>
+      <article key={`var-D-${i}`} className={`${cardBase}`}>
+        <img src={caseCardTestV4} alt="" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="relative z-10 p-5 h-full flex flex-col justify-between">
+          <div>
+            <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded mb-2">VARIATION D</span>
+            <p className="font-bebas text-white text-lg tracking-wider drop-shadow-lg">{v.injury}</p>
+            <p className="font-dm text-white/60 text-xs tracking-wider uppercase drop-shadow-lg">{v.industry}</p>
           </div>
-          <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
-          <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
-          <div className="flex-1 flex items-center justify-center">
-            <img
-              src={caseCheckConstruction}
-              alt="Settlement check"
-              loading="eager"
-              className="w-[85%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div className="h-1 bg-cta rounded-full" />
         </div>
       </article>
     );
