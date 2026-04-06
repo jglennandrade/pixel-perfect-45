@@ -229,15 +229,15 @@ const HeroAndVideo = () => {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="w-full h-full object-cover"
-            ref={(el) => {
-              if (el) {
-                el.currentTime = 10;
-              }
+            onLoadedData={(e) => {
+              const v = e.currentTarget;
+              v.currentTime = 10;
+              v.play().catch(() => {});
             }}
           >
-            <source src="/mainstage-hero-bg.mp4" type="video/mp4" />
+            <source src="https://darwinreynoldtest.lovable.app/videos/mainstage-hero-bg.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/65" />
         </motion.div>
