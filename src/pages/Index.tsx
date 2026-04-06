@@ -1881,9 +1881,8 @@ const FinalCTA = () => {
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <ScrollReveal>
-          <h2 className="font-bebas text-white text-5xl md:text-7xl lg:text-[110px] tracking-wide leading-[0.95] mb-14">
-            You've Read The Page.<br />
-            We've Made Our Case.<br />
+          <h2 className="font-bebas text-white text-4xl md:text-7xl lg:text-[110px] tracking-wide leading-[0.95] mb-14">
+            You've Read The Page. We've Made Our Case.<br className="hidden md:block" />
             <span className="text-cta">Do What You Gotta Do.</span>
           </h2>
 
