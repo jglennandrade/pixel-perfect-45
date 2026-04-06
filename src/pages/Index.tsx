@@ -1203,7 +1203,7 @@ const StatsSection = () => {
           playsInline
           preload="none"
           poster="/justice-scale-poster.jpg"
-          className="w-full h-full md:h-auto object-cover md:object-contain absolute md:relative inset-0 block"
+          className="w-full h-full md:h-auto object-cover md:object-contain absolute md:relative inset-0 block -mt-[15px]"
           ref={(el) => {
             if (el && !el.dataset.observed) {
               el.dataset.observed = "1";
