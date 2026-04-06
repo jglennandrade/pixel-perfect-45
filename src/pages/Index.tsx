@@ -1567,7 +1567,7 @@ const Testimonials = () => {
       <ScrollReveal>
         <div className="relative overflow-hidden bg-dark cursor-pointer group" onClick={openVideo}>
           {/* Video / placeholder — full width, no rounded corners */}
-          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center relative">
+          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-start justify-end md:items-center md:justify-center relative">
             {/* Active testimonial thumbnail */}
             <AnimatePresence mode="wait">
               {t.thumbnail && (
@@ -1600,19 +1600,19 @@ const Testimonials = () => {
             </div>
 
             {/* Play button */}
-            <div className="relative z-10">
+            <div className="relative z-10 mt-6 mr-6 md:mt-0 md:mr-0">
               <motion.div
-                className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform"
+                className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-cta/90 flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.4)] group-hover:scale-110 transition-transform"
                 whileTap={{ scale: 0.95 }}
               >
-                <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </motion.div>
             </div>
 
             {/* Quote overlay — bottom left */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14 z-10">
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-14 z-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -1622,7 +1622,7 @@ const Testimonials = () => {
                   transition={{ duration: 0.4 }}
                   className="max-w-3xl"
                 >
-                  <p className="font-serif italic text-white text-xl md:text-3xl leading-relaxed mb-4">
+                  <p className="font-serif italic text-white text-base md:text-3xl leading-relaxed mb-3 md:mb-4">
                     "{t.quote}"
                   </p>
                   <p className="font-dm text-cta font-bold text-sm md:text-base tracking-wider">
