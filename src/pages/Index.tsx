@@ -1180,7 +1180,7 @@ const StatsSection = () => {
     </section>
 
     {/* ── PART 2: Video background — justice scale center stage ── */}
-    <section className="relative overflow-hidden -mt-32 md:-mt-44" style={{ background: "hsl(220 60% 12%)" }}>
+    <section className="relative overflow-hidden -mt-20 md:-mt-28" style={{ background: "hsl(220 60% 12%)" }}>
       {/* Video fills this entire section */}
       <video
         autoPlay
