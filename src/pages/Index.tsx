@@ -235,17 +235,18 @@ const HeroAndVideo = () => {
         {/* Video bg with parallax zoom */}
         <motion.div className="absolute inset-0" style={{ scale: bgScale }}>
           <video
-            autoPlay
             muted
             loop
             playsInline
             preload="auto"
             poster="/hero-video-poster.jpg"
             className="w-full h-full object-cover"
-            onLoadedData={(e) => {
+            onLoadedMetadata={(e) => {
               const v = e.currentTarget;
               v.currentTime = 10;
-              v.play().catch(() => {});
+            }}
+            onSeeked={(e) => {
+              e.currentTarget.play().catch(() => {});
             }}
           >
             <source src="/mainstage-hero-bg-optimized.mp4" type="video/mp4" />
