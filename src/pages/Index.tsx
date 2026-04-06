@@ -28,16 +28,18 @@ import logoDelta from "@/assets/logo-delta.png";
 import logoUps from "@/assets/logo-ups.png";
 import logoTiptop from "@/assets/logo-tiptop.webp";
 import logoToyotires from "@/assets/logo-toyotires.png";
-import caseConstruction from "@/assets/case-construction.jpg";
-import caseCarAccident from "@/assets/case-car-accident.jpg";
-import caseWarehouse from "@/assets/case-warehouse.jpg";
-import caseTrucking from "@/assets/case-trucking.jpg";
-import caseMedical from "@/assets/case-medical.jpg";
-import caseFactory from "@/assets/case-factory.jpg";
-import caseFileConstruction from "@/assets/case-file-construction.jpg";
-import caseCardTestV4 from "@/assets/case-card-test-v4.jpg";
-import caseCheckConstruction from "@/assets/case-check-construction.jpg";
-import bgConstruction from "@/assets/bg-construction.jpg";
+import caseCard01 from "@/assets/case-card-01.jpg";
+import caseCard02 from "@/assets/case-card-02.jpg";
+import caseCard03 from "@/assets/case-card-03.jpg";
+import caseCard04 from "@/assets/case-card-04.jpg";
+import caseCard05 from "@/assets/case-card-05.jpg";
+import caseCard06 from "@/assets/case-card-06.jpg";
+import caseCard07 from "@/assets/case-card-07.jpg";
+import caseCard08 from "@/assets/case-card-08.jpg";
+import caseCard09 from "@/assets/case-card-09.jpg";
+import caseCard10 from "@/assets/case-card-10.jpg";
+import caseCard11 from "@/assets/case-card-11.jpg";
+import caseCard12 from "@/assets/case-card-12.jpg";
 import logoAmericold from "@/assets/logo-americold.png";
 import logoShaw from "@/assets/logo-shaw.webp";
 import logoJbhunt from "@/assets/logo-jbhunt.png";
@@ -1253,143 +1255,35 @@ const StatsSection = () => (
    6. CASE RESULTS — KingKong case study grid
    ═══════════════════════════════════════════════ */
 const CaseResults = () => {
-  /* ─── VARIATION TEST CARDS (first 3) ─── */
-  const variationCards: { amount: string; injury: string; industry: string; variant: "A" | "B" | "C" | "D" }[] = [
-    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "A" },
-    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "B" },
-    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "C" },
-    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "D" },
+  const cases = [
+    { img: caseCard01, alt: "Construction Injury — $4,200,000" },
+    { img: caseCard02, alt: "Industrial Accident — $2,400,000" },
+    { img: caseCard03, alt: "Warehouse Injury — $1,200,000" },
+    { img: caseCard04, alt: "Back Injury Trucking — $850,000" },
+    { img: caseCard05, alt: "Head Injury Factory — $750,000" },
+    { img: caseCard06, alt: "Shoulder Injury — $620,000" },
+    { img: caseCard07, alt: "Car Accident — $480,000" },
+    { img: caseCard08, alt: "Knee Injury Healthcare — $350,000" },
+    { img: caseCard09, alt: "Truck Accident — $275,000" },
+    { img: caseCard10, alt: "Insurance Denial Overturned — $180,000" },
+    { img: caseCard11, alt: "Neck Injury Retail — $150,000" },
+    { img: caseCard12, alt: "Motorcycle Accident — $95,000" },
   ];
 
-  const remainingCases = [
-    { amount: "$850,000", type: "WORKERS' COMP\nBACK INJURY", industry: "Trucking", img: caseTrucking },
-    { amount: "$750,000", type: "WORKPLACE\nHEAD INJURY", industry: "Factory", img: caseFactory },
-    { amount: "$620,000", type: "WORKERS' COMP\nSHOULDER INJURY", industry: "Warehouse", img: caseWarehouse },
-    { amount: "$480,000", type: "PERSONAL INJURY\nCAR ACCIDENT", industry: "Auto Accident", img: caseCarAccident },
-    { amount: "$350,000", type: "WORKERS' COMP\nKNEE INJURY", industry: "Healthcare", img: caseMedical },
-    { amount: "$275,000", type: "TRUCK ACCIDENT\nSETTLEMENT", industry: "Trucking", img: caseTrucking },
-    { amount: "$180,000", type: "DENIAL\nOVERTURNED", industry: "Healthcare", img: caseMedical },
-    { amount: "$150,000", type: "WORKPLACE\nNECK INJURY", industry: "Retail", img: caseConstruction },
-    { amount: "$95,000", type: "PERSONAL INJURY\nSETTLEMENT", industry: "Motorcycle", img: caseCarAccident },
-  ];
-
-  /* Render a variation card */
-  const renderVariation = (v: typeof variationCards[0], i: number) => {
-    const cardBase = "flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate";
-
-    if (v.variant === "A") {
-      /* Variation A — Themed Background + Floating Case File */
-      return (
-        <article key={`var-A-${i}`} className={`${cardBase}`}>
-          <img src={bgConstruction} alt="" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative z-10 p-5 h-full flex flex-col">
-            <div className="mb-2">
-              <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION A</span>
-            </div>
-            <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
-            <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
-            <div className="flex-1 flex items-center justify-center">
-              <img
-                src={caseFileConstruction}
-                alt="Case file"
-                loading="eager"
-                className="w-[75%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </article>
-      );
-    }
-
-    if (v.variant === "B") {
-      /* Variation B — Solid Gradient + Floating Case File */
-      return (
-        <article key={`var-B-${i}`} className={`${cardBase}`} style={{ background: "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 65% 8%) 100%)" }}>
-          <div className="relative z-10 p-5 h-full flex flex-col">
-            <div className="mb-2">
-              <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION B</span>
-            </div>
-            <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
-            <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
-            <div className="flex-1 flex items-center justify-center">
-              <img
-                src={caseFileConstruction}
-                alt="Case file"
-                loading="eager"
-                className="w-[75%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="h-1 bg-cta rounded-full" />
-          </div>
-        </article>
-      );
-    }
-
-    if (v.variant === "C") {
-      /* Variation C — Solid Gradient + Floating Settlement Check */
-      return (
-        <article key={`var-C-${i}`} className={`${cardBase}`} style={{ background: "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 65% 8%) 100%)" }}>
-          <div className="relative z-10 p-5 h-full flex flex-col">
-            <div className="mb-2">
-              <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION C</span>
-            </div>
-            <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
-            <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
-            <div className="flex-1 flex items-center justify-center">
-              <img
-                src={caseCheckConstruction}
-                alt="Settlement check"
-                loading="eager"
-                className="w-[85%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="h-1 bg-cta rounded-full" />
-          </div>
-        </article>
-      );
-    }
-
-    /* Variation D — Device Mockup on Lifestyle Background */
-    return (
-      <article key={`var-D-${i}`} className={`${cardBase}`}>
-        <img src={caseCardTestV4} alt="" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="relative z-10 p-5 h-full flex flex-col justify-between">
-          <div>
-            <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded mb-2">VARIATION D</span>
-            <p className="font-bebas text-white text-lg tracking-wider drop-shadow-lg">{v.injury}</p>
-            <p className="font-dm text-white/60 text-xs tracking-wider uppercase drop-shadow-lg">{v.industry}</p>
-          </div>
-        </div>
-      </article>
-    );
-  };
-
-  /* Render a remaining (old-style) card */
-  const renderOldCard = (c: typeof remainingCases[0], i: number) => (
+  const allCards = cases.map((c, i) => (
     <article
-      key={`old-${c.amount}-${i}`}
-      className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate bg-dark"
+      key={`case-${i}`}
+      className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate"
     >
-      <img src={c.img} alt={`${c.industry} case result`} loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.28) 42%, rgba(0,0,0,0.88) 100%)" }} />
-      <div className="relative z-10 p-7 h-full flex flex-col justify-between">
-        <div>
-          <p className="font-bebas text-white/90 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
-          <p className="font-dm text-white/60 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
-        </div>
-        <div>
-          <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider drop-shadow-lg">{c.amount}</p>
-          <div className="w-12 h-[3px] bg-cta mt-3 rounded-full" />
-        </div>
-      </div>
+      <img
+        src={c.img}
+        alt={c.alt}
+        loading="eager"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      />
     </article>
-  );
-
-  const allCards = [
-    ...variationCards.map((v, i) => renderVariation(v, i)),
-    ...remainingCases.map((c, i) => renderOldCard(c, i)),
-  ];
+  ));
 
   return (
     <section className="bg-dark py-20 md:py-32">
