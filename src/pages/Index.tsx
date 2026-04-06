@@ -1279,7 +1279,8 @@ const CaseResults = () => {
   const allCards = cases.map((c, i) => (
     <article
       key={`case-${i}`}
-      className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate"
+      className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate border-0 outline-none ring-0"
+      style={{ boxShadow: 'none', borderColor: 'transparent' }}
     >
       <img
         src={c.img}
