@@ -294,10 +294,10 @@ const HeroAndVideo = () => {
             transition={{ duration: 0.7, delay: 0.45, ease }}
             className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
           >
-            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-4 !px-6 md:!py-5 md:!px-10 !text-base md:!text-xl">
-              GET MY FREE CASE REVIEW →
+            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-4 !px-6 md:!py-5 md:!px-10 !text-sm md:!text-xl whitespace-nowrap">
+              FREE CASE REVIEW →
             </button>
-            <button onClick={scrollToForm} className="cta-btn-outline-light !py-4 !px-6 md:!py-5 md:!px-10 !text-base md:!text-xl">
+            <button onClick={scrollToForm} className="cta-btn-outline-light !py-4 !px-6 md:!py-5 md:!px-10 !text-sm md:!text-xl whitespace-nowrap">
               SEE IF I QUALIFY →
             </button>
           </motion.div>
@@ -901,8 +901,8 @@ const UnifiedQuiz = () => {
                             In 20 years, Darwin has recovered <span className="text-cta font-bold">$250 million+</span> for Georgia workers across <span className="text-cta font-bold">10,000+</span> cases. He personally reviews every new submission — and picks up the phone himself when you call.
                           </p>
                         </div>
-                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-base">
-                          GET MY FREE CASE REVIEW →
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-sm md:!text-base whitespace-nowrap">
+                          FREE CASE REVIEW →
                         </button>
                         <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. 30 seconds. No fee unless we win.</p>
                       </div>
@@ -943,8 +943,8 @@ const UnifiedQuiz = () => {
                             Darwin handles <span className="text-white font-bold">both workers' comp AND personal injury</span> under one roof. He'll look at what happened and tell you exactly which path fits — free, no obligation.
                           </p>
                         </div>
-                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-base">
-                          GET MY FREE CASE REVIEW →
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-sm md:!text-base whitespace-nowrap">
+                          FREE CASE REVIEW →
                         </button>
                         <p className="font-dm text-xs text-white/30 mt-3">Darwin reviews every submission personally.</p>
                       </div>
@@ -1086,7 +1086,7 @@ const UnifiedQuiz = () => {
                       {/* Damages block — the ONE CTA for PI qualified */}
                       <DamagesBlock
                         onCtaClick={scrollToForm}
-                        ctaText="GET MY FREE CASE REVIEW →"
+                        ctaText="FREE CASE REVIEW →"
                         showMonogram={true}
                       />
                     </div>
@@ -1127,8 +1127,8 @@ const UnifiedQuiz = () => {
                             One free consultation could reveal options you didn't know you had. Takes 30 seconds. <span className="text-white font-bold">Worst case — you learn exactly where you stand.</span>
                           </p>
                         </div>
-                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-base">
-                          GET MY FREE CASE REVIEW →
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-sm md:!text-base whitespace-nowrap">
+                          FREE CASE REVIEW →
                         </button>
                         <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. Takes 30 seconds.</p>
                       </div>
@@ -1368,8 +1368,8 @@ const CaseResults = () => {
       <div className="px-6 max-w-6xl mx-auto">
         <ScrollReveal delay={0.2}>
           <div className="text-center mt-14">
-            <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-xl">
-              GET MY FREE CASE REVIEW →
+            <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 md:!py-5 md:!px-10 !text-sm md:!text-xl whitespace-nowrap">
+              FREE CASE REVIEW →
             </button>
             <div className="flex items-center justify-center gap-3 mt-5">
               <span className="text-cta text-xl tracking-[4px]">★★★★★</span>
@@ -1511,8 +1511,8 @@ const DarwinGuarantee = () => {
         {/* CTA with urgency */}
         <ScrollReveal delay={0.3}>
           <div className="text-center">
-            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-6 !px-12 !text-xl">
-              GET MY FREE CASE REVIEW — NO OBLIGATION →
+            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-5 !px-8 md:!py-6 md:!px-12 !text-sm md:!text-xl whitespace-nowrap">
+              FREE CASE REVIEW →
             </button>
             <div className="flex items-center justify-center gap-3 mt-6">
               <span className="text-cta text-xl tracking-[4px]">★★★★★</span>
@@ -1887,9 +1887,9 @@ const FinalCTA = () => {
 
           <button
             onClick={scrollToForm}
-            className="cta-btn-primary cta-pulse !py-7 md:!py-8 !px-10 md:!px-16 !text-lg md:!text-2xl w-full max-w-2xl"
+            className="cta-btn-primary cta-pulse !py-6 md:!py-8 !px-8 md:!px-16 !text-base md:!text-2xl w-full max-w-2xl whitespace-nowrap"
           >
-            NOW DO WHAT YOU GOTTA DO →
+            GET STARTED NOW →
           </button>
         </ScrollReveal>
       </div>
@@ -2074,8 +2074,8 @@ const FormSection = () => {
                 />
               </div>
 
-              <button type="submit" className="cta-btn-primary cta-pulse w-full !h-16 !text-xl mt-2">
-                GET MY FREE CASE REVIEW →
+              <button type="submit" className="cta-btn-primary cta-pulse w-full !h-16 !text-base md:!text-xl mt-2">
+                FREE CASE REVIEW →
               </button>
 
               <p className="font-dm text-xs text-text-muted text-center font-bold pt-1">
