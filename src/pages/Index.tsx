@@ -1567,7 +1567,7 @@ const Testimonials = () => {
       <ScrollReveal>
         <div className="relative overflow-hidden bg-dark cursor-pointer group" onClick={openVideo}>
           {/* Video / placeholder — full width, no rounded corners */}
-          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-start justify-end md:items-center md:justify-center relative">
+          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center relative">
             {/* Active testimonial thumbnail */}
             <AnimatePresence mode="wait">
               {t.thumbnail && (
