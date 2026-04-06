@@ -1148,112 +1148,129 @@ const UnifiedQuiz = () => {
 /* ═══════════════════════════════════════════════
    5. STATS + EMPLOYER LOGOS
    ═══════════════════════════════════════════════ */
-const StatsSection = () => (
-  <section
-    className="relative pt-24 md:pt-40 pb-24 md:pb-36 px-6 overflow-hidden"
-    style={{
-      background: "linear-gradient(180deg, hsl(220 60% 12%) 0%, hsl(220 55% 18%) 25%, hsl(220 45% 35%) 45%, hsl(220 25% 82%) 70%, hsl(0 0% 100%) 78%, hsl(0 0% 100%) 100%)",
-      marginTop: "-2px",
-    }}
-  >
-    {/* Radial decorative shape — subtle orange glow */}
-    <div
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/4 w-[900px] h-[900px] rounded-full pointer-events-none opacity-[0.15]"
+const StatsSection = () => {
+
+  return (
+  <>
+    {/* ── PART 1: Dark navy — headline + subtitle ── */}
+    <section
+      className="relative pt-24 md:pt-40 pb-0 px-6 overflow-hidden"
       style={{
-        background: "radial-gradient(circle, hsl(var(--cta)) 0%, transparent 60%)",
+        background: "hsl(220 60% 12%)",
+        marginTop: "-2px",
       }}
-    />
-
-    <div className="relative z-10 max-w-6xl mx-auto text-center">
-      <ScrollReveal>
-        <div className="inline-block mb-6">
-          <span className="inline-block bg-cta/15 border-2 border-cta/40 rounded-full px-6 py-2.5 font-dm text-xs text-cta tracking-[3px] uppercase font-bold">
-            YOUR RECOVERY STARTS HERE
-          </span>
-        </div>
-        <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] mb-6">
-          RECOVER 10X BIGGER,<br />FASTER, FULLY.
-        </h2>
-        <p className="font-dm text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
-          <span className="md:whitespace-nowrap">Darwin's clients typically settle for <span className="text-cta font-bold">5-10x more</span> than insurance's first offer.</span><br className="hidden md:block" />
-          Skip the runaround, the denied claims, and the sleepless nights.<br className="hidden md:block" />
-          <span className="text-white font-bold">Your only job is to recover.</span>
-        </p>
-      </ScrollReveal>
-
-      {/* Video Section */}
-      <div className="max-w-4xl mx-auto mt-16 md:mt-20 relative rounded-2xl overflow-hidden" style={{ aspectRatio: '481/269' }}>
-        <iframe
-          src="https://player.mux.com/J1NxJD5kl01YrfWrYVC01YtGuCIKgh02gpTykMs1Xq99cw"
-          style={{ width: '100%', height: '100%', border: 'none' }}
-          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-
-      {/* Stat cards */}
-      <div className="max-w-6xl mx-auto mt-12 md:mt-16 relative z-20">
-        <StaggerContainer stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {[
-            { to: 250, prefix: "$", suffix: "M+", title: "Recovered for Clients", desc: "Every dollar fought for personally by Darwin." },
-            { to: 10000, suffix: "+", title: "Lives Changed", desc: "Real people. Real families. Real recoveries.", separator: true },
-            { to: 20, suffix: "+", title: "Years Showing Up", desc: "Two decades of being there when it matters most." },
-            { to: 15, suffix: "+", title: "Industries Served", desc: "From the factory floor to the hospital ward — we know your world." },
-          ].map((s, i) => (
-            <StaggerItem key={i}>
-              <div className="bg-white rounded-xl border border-card-border p-7 md:p-9 h-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] text-left">
-                <p className="font-dm font-bold text-base md:text-lg text-text-dark mb-3">{s.title}</p>
-                <div className="w-full h-[2px] bg-gradient-to-r from-cta via-cta/60 to-transparent mb-5" />
-                <div className="font-bebas text-5xl md:text-6xl text-text-dark tracking-wider">
-                  <AnimatedCounter to={s.to} prefix={s.prefix || ""} suffix={s.suffix} separator={s.separator} decimals={0} />
-                </div>
-                <p className="font-dm text-sm md:text-base text-text-muted mt-4 leading-relaxed">{s.desc}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-
-      {/* Employer logos — colored, on cream bg */}
-      <div className="mt-20">
+    >
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
         <ScrollReveal>
-          <div className="text-center mb-10">
-            <span className="inline-block bg-navy/10 border-2 border-navy/30 rounded-full px-6 py-2.5 font-dm text-xs text-navy tracking-[3px] uppercase font-bold">
-              EMPLOYERS WE'VE TAKEN ON — AND WON
+          <div className="inline-block mb-6">
+            <span className="inline-block bg-cta/15 border-2 border-cta/40 rounded-full px-6 py-2.5 font-dm text-xs text-cta tracking-[3px] uppercase font-bold">
+              YOUR RECOVERY STARTS HERE
             </span>
           </div>
+          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] mb-6">
+            RECOVER 10X BIGGER,<br />FASTER, FULLY.
+          </h2>
+          <p className="font-dm text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+            <span className="md:whitespace-nowrap">Darwin's clients typically settle for <span className="text-cta font-bold">5-10x more</span> than insurance's first offer.</span><br className="hidden md:block" />
+            Skip the runaround, the denied claims, and the sleepless nights.<br className="hidden md:block" />
+            <span className="text-white font-bold">Your only job is to recover.</span>
+          </p>
         </ScrollReveal>
+      </div>
+    </section>
 
-        <div className="max-w-5xl mx-auto overflow-hidden relative mb-8"
-          style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-          <div className="flex items-center gap-20 animate-marquee" style={{ width: "max-content" }}>
-            {[...Array(4)].flatMap(() => row1Logos).map((logo, i) => (
-              <img key={i} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className={`${logo.h} w-auto object-contain flex-shrink-0`} />
+    {/* ── PART 2: Video background — justice scale center stage ── */}
+    <section className="relative overflow-hidden -mt-32 md:-mt-44" style={{ background: "hsl(220 60% 12%)" }}>
+      {/* Video fills this entire section */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="w-full h-auto block"
+      >
+        <source src="/justice-scale-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* Top gradient — deep fade from solid navy into video, tall enough to be invisible */}
+      <div className="absolute top-0 left-0 right-0 h-[40%] pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(220 60% 12%) 0%, hsl(220 60% 12% / 0.8) 30%, hsl(220 60% 12% / 0.3) 60%, transparent 100%)" }} />
+
+      {/* Bottom gradient — longer, smoother fade from video into white */}
+      <div className="absolute bottom-0 left-0 right-0 h-[55%] pointer-events-none" style={{ background: "linear-gradient(0deg, hsl(0 0% 100%) 0%, hsl(0 0% 100% / 0.9) 20%, hsl(0 0% 100% / 0.5) 45%, hsl(0 0% 100% / 0.15) 70%, transparent 100%)" }} />
+    </section>
+
+    {/* ── PART 3: White — stat cards + employer logos ── */}
+    <section
+      className="relative pt-0 pb-24 md:pb-36 px-6 overflow-hidden -mt-16 md:-mt-24"
+      style={{ background: "transparent" }}
+    >
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        {/* Stat cards */}
+        <div className="max-w-6xl mx-auto relative z-20">
+          <StaggerContainer stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {[
+              { to: 250, prefix: "$", suffix: "M+", title: "Recovered for Clients", desc: "Every dollar fought for personally by Darwin." },
+              { to: 10000, suffix: "+", title: "Lives Changed", desc: "Real people. Real families. Real recoveries.", separator: true },
+              { to: 20, suffix: "+", title: "Years Showing Up", desc: "Two decades of being there when it matters most." },
+              { to: 15, suffix: "+", title: "Industries Served", desc: "From the factory floor to the hospital ward — we know your world." },
+            ].map((s, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-white rounded-xl border border-card-border p-7 md:p-9 h-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] text-left">
+                  <p className="font-dm font-bold text-base md:text-lg text-text-dark mb-3">{s.title}</p>
+                  <div className="w-full h-[2px] bg-gradient-to-r from-cta via-cta/60 to-transparent mb-5" />
+                  <div className="font-bebas text-5xl md:text-6xl text-text-dark tracking-wider">
+                    <AnimatedCounter to={s.to} prefix={s.prefix || ""} suffix={s.suffix} separator={s.separator} decimals={0} />
+                  </div>
+                  <p className="font-dm text-sm md:text-base text-text-muted mt-4 leading-relaxed">{s.desc}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
-        <div className="max-w-5xl mx-auto overflow-hidden relative mb-8"
-          style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-          <div className="flex items-center gap-20 animate-marquee-reverse" style={{ width: "max-content" }}>
-            {[...Array(4)].flatMap(() => row2Logos).map((logo, i) => (
-              <img key={i} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className={`${logo.h} w-auto object-contain flex-shrink-0`} />
-            ))}
-          </div>
-        </div>
+        {/* Employer logos — colored, on white bg */}
+        <div className="mt-20">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <span className="inline-block bg-navy/10 border-2 border-navy/30 rounded-full px-6 py-2.5 font-dm text-xs text-navy tracking-[3px] uppercase font-bold">
+                EMPLOYERS WE'VE TAKEN ON — AND WON
+              </span>
+            </div>
+          </ScrollReveal>
 
-        <div className="max-w-5xl mx-auto overflow-hidden relative mt-12"
-          style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-          <div className="flex items-center gap-20 animate-marquee" style={{ width: "max-content" }}>
-            {[...Array(4)].flatMap(() => row3Logos).map((logo, i) => (
-              <img key={i} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className={`${logo.h} w-auto object-contain flex-shrink-0`} />
-            ))}
+          <div className="max-w-5xl mx-auto overflow-hidden relative mb-8"
+            style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+            <div className="flex items-center gap-20 animate-marquee" style={{ width: "max-content" }}>
+              {[...Array(4)].flatMap(() => row1Logos).map((logo, i) => (
+                <img key={i} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className={`${logo.h} w-auto object-contain flex-shrink-0`} />
+              ))}
+            </div>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-hidden relative mb-8"
+            style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+            <div className="flex items-center gap-20 animate-marquee-reverse" style={{ width: "max-content" }}>
+              {[...Array(4)].flatMap(() => row2Logos).map((logo, i) => (
+                <img key={i} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className={`${logo.h} w-auto object-contain flex-shrink-0`} />
+              ))}
+            </div>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-hidden relative mt-12"
+            style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+            <div className="flex items-center gap-20 animate-marquee" style={{ width: "max-content" }}>
+              {[...Array(4)].flatMap(() => row3Logos).map((logo, i) => (
+                <img key={i} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" className={`${logo.h} w-auto object-contain flex-shrink-0`} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  </>
+  );
+};
 
 /* ═══════════════════════════════════════════════
    6. CASE RESULTS — KingKong case study grid
