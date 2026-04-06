@@ -719,18 +719,18 @@ const UnifiedQuiz = () => {
 
                 <span className="font-dm text-xs text-text-muted tracking-[3px] uppercase mb-5">Which one happened to you?</span>
 
-                <div className="flex flex-row gap-3 md:gap-4 w-full max-w-2xl">
+                <div className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl">
                   <button
                     onClick={() => { setPath("wc"); setStep(1); scrollToContent(); }}
-                    className="cta-btn-primary !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1 whitespace-nowrap"
+                    className="cta-btn-primary !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1"
                   >
-                    I GOT HURT AT WORK →
+                    HURT AT WORK →
                   </button>
                   <button
                     onClick={() => { setPath("pi"); setStep(1); scrollToContent(); }}
-                    className="cta-btn-outline !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1 whitespace-nowrap"
+                    className="cta-btn-outline !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1"
                   >
-                    I WAS IN AN ACCIDENT →
+                    IN AN ACCIDENT →
                   </button>
                 </div>
 
@@ -852,15 +852,15 @@ const UnifiedQuiz = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <button
                           onClick={() => { setWcQualified("yes"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-primary !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-primary !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          YES — I MEET THESE
+                          YES, I QUALIFY →
                         </button>
                         <button
                           onClick={() => { setWcQualified("no"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-outline !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-outline !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          NOT QUITE / I'M NOT SURE
+                          NOT SURE →
                         </button>
                       </div>
                       <div className="mt-5 bg-off-white rounded-lg border border-cta/20 p-4 flex items-start gap-3">
@@ -1023,15 +1023,15 @@ const UnifiedQuiz = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <button
                           onClick={() => { setThirdPartyFault("yes"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-primary !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-primary !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          YES — SOMEONE ELSE WAS AT FAULT
+                          YES, SOMEONE ELSE →
                         </button>
                         <button
                           onClick={() => { setThirdPartyFault("no"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-outline !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-outline !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          I'M NOT SURE
+                          NOT SURE →
                         </button>
                       </div>
                       <div className="mt-5 bg-off-white rounded-lg border border-cta/20 p-4 flex items-start gap-3">
