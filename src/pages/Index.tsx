@@ -1193,40 +1193,42 @@ const StatsSection = () => {
     </section>
 
     {/* ── PART 2: Video background — justice scale center stage ── */}
-    <section className="relative overflow-hidden -mt-20 md:-mt-28" style={{ background: "hsl(220 60% 12%)" }}>
-      {/* Video fills this entire section */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        poster="/justice-scale-poster.jpg"
-        className="w-full h-auto block"
-        ref={(el) => {
-          if (el && !el.dataset.observed) {
-            el.dataset.observed = "1";
-            const io = new IntersectionObserver(([e]) => {
-              if (e.isIntersecting) {
-                el.preload = "auto";
-                el.load();
-                io.disconnect();
-              }
-            }, { rootMargin: "400px" });
-            io.observe(el);
-          }
-        }}
-        onLoadedData={(e) => {
-          e.currentTarget.play().catch(() => {});
-        }}
-      >
-        <source src="/justice-scale-bg-optimized.mp4" type="video/mp4" />
-      </video>
+    <section className="relative overflow-hidden -mt-10 md:-mt-28" style={{ background: "hsl(220 60% 12%)" }}>
+      {/* Video fills this entire section — taller on mobile for impact */}
+      <div className="relative w-full min-h-[50vh] md:min-h-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster="/justice-scale-poster.jpg"
+          className="w-full h-full md:h-auto object-cover md:object-contain absolute md:relative inset-0 block"
+          ref={(el) => {
+            if (el && !el.dataset.observed) {
+              el.dataset.observed = "1";
+              const io = new IntersectionObserver(([e]) => {
+                if (e.isIntersecting) {
+                  el.preload = "auto";
+                  el.load();
+                  io.disconnect();
+                }
+              }, { rootMargin: "400px" });
+              io.observe(el);
+            }
+          }}
+          onLoadedData={(e) => {
+            e.currentTarget.play().catch(() => {});
+          }}
+        >
+          <source src="/justice-scale-bg-optimized.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-      {/* Top gradient — deep fade from solid navy into video, tall enough to be invisible */}
+      {/* Top gradient */}
       <div className="absolute top-0 left-0 right-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(220 60% 12%) 0%, hsl(220 60% 12% / 0.95) 15%, hsl(220 60% 12% / 0.7) 35%, hsl(220 60% 12% / 0.4) 55%, hsl(220 60% 12% / 0.15) 75%, transparent 100%)" }} />
 
-      {/* Bottom gradient — longer, smoother fade from video into white */}
+      {/* Bottom gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none" style={{ background: "linear-gradient(0deg, hsl(0 0% 100%) 0%, hsl(0 0% 100% / 0.95) 12%, hsl(0 0% 100% / 0.8) 25%, hsl(0 0% 100% / 0.55) 40%, hsl(0 0% 100% / 0.3) 55%, hsl(0 0% 100% / 0.1) 72%, transparent 100%)" }} />
     </section>
 
