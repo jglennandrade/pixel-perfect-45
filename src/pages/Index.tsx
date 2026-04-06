@@ -1252,10 +1252,14 @@ const StatsSection = () => (
    6. CASE RESULTS — KingKong case study grid
    ═══════════════════════════════════════════════ */
 const CaseResults = () => {
-  const cases = [
-    { amount: "$4,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Construction", img: caseConstruction },
-    { amount: "$2,400,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Industrial", img: caseFactory },
-    { amount: "$1,200,000", type: "CATASTROPHIC\nWORKERS' COMP", industry: "Warehouse", img: caseWarehouse },
+  /* ─── VARIATION TEST CARDS (first 3) ─── */
+  const variationCards: { amount: string; injury: string; industry: string; variant: "A" | "B" | "C" }[] = [
+    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "A" },
+    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "B" },
+    { amount: "$4,200,000", injury: "Back Injury", industry: "Construction", variant: "C" },
+  ];
+
+  const remainingCases = [
     { amount: "$850,000", type: "WORKERS' COMP\nBACK INJURY", industry: "Trucking", img: caseTrucking },
     { amount: "$750,000", type: "WORKPLACE\nHEAD INJURY", industry: "Factory", img: caseFactory },
     { amount: "$620,000", type: "WORKERS' COMP\nSHOULDER INJURY", industry: "Warehouse", img: caseWarehouse },
@@ -1265,6 +1269,108 @@ const CaseResults = () => {
     { amount: "$180,000", type: "DENIAL\nOVERTURNED", industry: "Healthcare", img: caseMedical },
     { amount: "$150,000", type: "WORKPLACE\nNECK INJURY", industry: "Retail", img: caseConstruction },
     { amount: "$95,000", type: "PERSONAL INJURY\nSETTLEMENT", industry: "Motorcycle", img: caseCarAccident },
+  ];
+
+  /* Render a variation card */
+  const renderVariation = (v: typeof variationCards[0], i: number) => {
+    const cardBase = "flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate";
+
+    if (v.variant === "A") {
+      /* Variation A — Themed Background + Floating Case File */
+      return (
+        <article key={`var-A-${i}`} className={`${cardBase}`}>
+          <img src={bgConstruction} alt="" loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="relative z-10 p-5 h-full flex flex-col">
+            <div className="mb-2">
+              <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION A</span>
+            </div>
+            <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
+            <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src={caseFileConstruction}
+                alt="Case file"
+                loading="eager"
+                className="w-[75%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </article>
+      );
+    }
+
+    if (v.variant === "B") {
+      /* Variation B — Solid Gradient + Floating Case File */
+      return (
+        <article key={`var-B-${i}`} className={`${cardBase}`} style={{ background: "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 65% 8%) 100%)" }}>
+          <div className="relative z-10 p-5 h-full flex flex-col">
+            <div className="mb-2">
+              <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION B</span>
+            </div>
+            <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
+            <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src={caseFileConstruction}
+                alt="Case file"
+                loading="eager"
+                className="w-[75%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="h-1 bg-cta rounded-full" />
+          </div>
+        </article>
+      );
+    }
+
+    /* Variation C — Solid Gradient + Floating Settlement Check */
+    return (
+      <article key={`var-C-${i}`} className={`${cardBase}`} style={{ background: "linear-gradient(160deg, hsl(220 55% 22%) 0%, hsl(220 65% 8%) 100%)" }}>
+        <div className="relative z-10 p-5 h-full flex flex-col">
+          <div className="mb-2">
+            <span className="inline-block bg-cta/90 text-white font-dm text-[10px] font-bold tracking-[2px] uppercase px-3 py-1 rounded">VARIATION C</span>
+          </div>
+          <p className="font-bebas text-white text-lg tracking-wider">{v.injury}</p>
+          <p className="font-dm text-white/60 text-xs tracking-wider uppercase">{v.industry}</p>
+          <div className="flex-1 flex items-center justify-center">
+            <img
+              src={caseCheckConstruction}
+              alt="Settlement check"
+              loading="eager"
+              className="w-[85%] rounded-lg shadow-[0_25px_50px_rgba(0,0,0,0.5)] transform -rotate-3 group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="h-1 bg-cta rounded-full" />
+        </div>
+      </article>
+    );
+  };
+
+  /* Render a remaining (old-style) card */
+  const renderOldCard = (c: typeof remainingCases[0], i: number) => (
+    <article
+      key={`old-${c.amount}-${i}`}
+      className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate bg-dark"
+    >
+      <img src={c.img} alt={`${c.industry} case result`} loading="eager" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.28) 42%, rgba(0,0,0,0.88) 100%)" }} />
+      <div className="relative z-10 p-7 h-full flex flex-col justify-between">
+        <div>
+          <p className="font-bebas text-white/90 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
+          <p className="font-dm text-white/60 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
+        </div>
+        <div>
+          <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider drop-shadow-lg">{c.amount}</p>
+          <div className="w-12 h-[3px] bg-cta mt-3 rounded-full" />
+        </div>
+      </div>
+    </article>
+  );
+
+  const allCards = [
+    ...variationCards.map((v, i) => renderVariation(v, i)),
+    ...remainingCases.map((c, i) => renderOldCard(c, i)),
   ];
 
   return (
@@ -1285,42 +1391,10 @@ const CaseResults = () => {
         </ScrollReveal>
       </div>
 
-      {/* Auto-sliding cards — full width, KingKong style with images */}
+      {/* Auto-sliding cards — full width, KingKong style */}
       <div className="relative overflow-hidden">
         <div className="flex gap-5 animate-marquee py-2" style={{ width: "max-content" }}>
-          {[...cases, ...cases].map((c, i) => (
-            <article
-              key={`${c.amount}-${c.type}-${i}`}
-              className="flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] rounded-2xl overflow-hidden card-lift cursor-default relative group isolate bg-dark"
-            >
-              <img
-                src={c.img}
-                alt={`${c.industry} case result`}
-                loading="eager"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.28) 42%, rgba(0, 0, 0, 0.88) 100%)",
-                }}
-              />
-
-              <div className="relative z-10 p-7 h-full flex flex-col justify-between">
-                <div>
-                  <p className="font-bebas text-white/90 text-xl tracking-wider whitespace-pre-line leading-tight">{c.type}</p>
-                  <p className="font-dm text-white/60 text-xs mt-2 tracking-wider uppercase">{c.industry}</p>
-                </div>
-
-                <div>
-                  <p className="font-bebas text-white text-5xl md:text-6xl tracking-wider drop-shadow-lg">{c.amount}</p>
-                  <div className="w-12 h-[3px] bg-cta mt-3 rounded-full" />
-                </div>
-              </div>
-            </article>
-          ))}
+          {[...allCards, ...allCards]}
         </div>
       </div>
 
