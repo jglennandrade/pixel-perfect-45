@@ -852,15 +852,15 @@ const UnifiedQuiz = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <button
                           onClick={() => { setWcQualified("yes"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-primary !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-primary !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          YES — I MEET THESE
+                          YES, I QUALIFY →
                         </button>
                         <button
                           onClick={() => { setWcQualified("no"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-outline !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-outline !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          NOT QUITE / I'M NOT SURE
+                          NOT SURE →
                         </button>
                       </div>
                       <div className="mt-5 bg-off-white rounded-lg border border-cta/20 p-4 flex items-start gap-3">
@@ -1023,15 +1023,15 @@ const UnifiedQuiz = () => {
                       <div className="flex flex-col sm:flex-row gap-3">
                         <button
                           onClick={() => { setThirdPartyFault("yes"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-primary !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-primary !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          YES — SOMEONE ELSE WAS AT FAULT
+                          YES, SOMEONE ELSE →
                         </button>
                         <button
                           onClick={() => { setThirdPartyFault("no"); setStep(4); scrollToContent(); }}
-                          className="cta-btn-outline !py-4 !px-6 !text-base flex-1"
+                          className="cta-btn-outline !py-4 !px-6 !text-sm sm:!text-base flex-1"
                         >
-                          I'M NOT SURE
+                          NOT SURE →
                         </button>
                       </div>
                       <div className="mt-5 bg-off-white rounded-lg border border-cta/20 p-4 flex items-start gap-3">
