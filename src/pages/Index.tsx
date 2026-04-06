@@ -1180,7 +1180,7 @@ const StatsSection = () => {
               YOUR RECOVERY STARTS HERE
             </span>
           </div>
-          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] mb-6">
+          <h2 className="font-bebas text-white md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] mb-6 text-5xl">
             RECOVER 10X BIGGER,<br />FASTER, FULLY.
           </h2>
           <p className="font-dm text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
@@ -1350,7 +1350,7 @@ const CaseResults = () => {
               CASE RESULTS
             </span>
           </div>
-          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
+          <h2 className="font-bebas text-white md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4 text-5xl">
             Become Our Next<br />Success Story.
           </h2>
           <p className="font-dm text-lg md:text-xl text-white/50 text-center max-w-2xl mx-auto mb-14">
@@ -1881,7 +1881,7 @@ const FinalCTA = () => {
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <ScrollReveal>
-          <h2 className="font-bebas text-white text-4xl md:text-7xl lg:text-[110px] tracking-wide leading-[0.95] mb-14">
+          <h2 className="font-bebas text-white md:text-7xl lg:text-[110px] tracking-wide leading-[0.95] mb-14 text-5xl">
             You've Read The Page. We've Made Our Case.<br className="hidden md:block" />
             <span className="text-cta">Do What You Gotta Do.</span>
           </h2>
@@ -1976,7 +1976,7 @@ const FormSection = () => {
           }}
         >
           <motion.span
-            className="block tracking-wide"
+            className="block tracking-wide text-5xl"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
@@ -1985,7 +1985,7 @@ const FormSection = () => {
             10,000 People Filled This Out.
           </motion.span>
           <motion.span
-            className="block text-cta tracking-wide"
+            className="block text-cta tracking-wide text-5xl"
             variants={{
               hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
               visible: {
