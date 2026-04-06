@@ -1203,7 +1203,7 @@ const StatsSection = () => {
           playsInline
           preload="none"
           poster="/justice-scale-poster.jpg"
-          className="w-full h-full md:h-auto object-cover md:object-contain absolute md:relative inset-0 block -mt-[15px]"
+          className="w-full h-full md:h-auto object-cover md:object-contain absolute md:relative inset-0 block -mt-[15px] md:mt-0"
           ref={(el) => {
             if (el && !el.dataset.observed) {
               el.dataset.observed = "1";
@@ -1976,7 +1976,7 @@ const FormSection = () => {
           }}
         >
           <motion.span
-            className="block tracking-wide text-5xl"
+            className="block tracking-wide text-5xl md:text-[length:inherit]"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
@@ -1985,7 +1985,7 @@ const FormSection = () => {
             10,000 People Filled This Out.
           </motion.span>
           <motion.span
-            className="block text-cta tracking-wide text-5xl"
+            className="block text-cta tracking-wide text-5xl md:text-[length:inherit]"
             variants={{
               hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
               visible: {
