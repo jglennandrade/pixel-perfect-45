@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import DamagesBlock from "@/components/DamagesBlock";
 import { JusticeScale } from "@/components/JusticeScale";
+import { SettlementTicker } from "@/components/SettlementTicker";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -1182,8 +1183,13 @@ const StatsSection = () => (
         </p>
       </ScrollReveal>
 
-      {/* Justice Scale — animated transformation */}
+      {/* Settlement Ticker — A/B test variant */}
       <div className="max-w-6xl mx-auto mt-16 md:mt-20 relative">
+        <SettlementTicker />
+      </div>
+
+      {/* Justice Scale — animated transformation (kept for comparison) */}
+      <div className="max-w-6xl mx-auto mt-12 md:mt-16 relative">
         <JusticeScale />
       </div>
 
