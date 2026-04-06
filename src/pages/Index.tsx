@@ -1887,9 +1887,9 @@ const FinalCTA = () => {
 
           <button
             onClick={scrollToForm}
-            className="cta-btn-primary cta-pulse !py-7 md:!py-8 !px-10 md:!px-16 !text-lg md:!text-2xl w-full max-w-2xl"
+            className="cta-btn-primary cta-pulse !py-6 md:!py-8 !px-8 md:!px-16 !text-base md:!text-2xl w-full max-w-2xl whitespace-nowrap"
           >
-            NOW DO WHAT YOU GOTTA DO →
+            GET STARTED NOW →
           </button>
         </ScrollReveal>
       </div>
