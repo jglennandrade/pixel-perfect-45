@@ -116,14 +116,24 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           className="w-full h-full object-cover"
+          ref={(el) => {
+            if (el && !el.dataset.observed) {
+              el.dataset.observed = "1";
+              const io = new IntersectionObserver(([e]) => {
+                if (e.isIntersecting) {
+                  el.preload = "auto";
+                  el.load();
+                  io.disconnect();
+                }
+              }, { rootMargin: "200px" });
+              io.observe(el);
+            }
+          }}
           onLoadedData={(e) => {
             const v = e.currentTarget;
             v.play().catch(() => {});
-          }}
-          onTimeUpdate={(e) => {
-            const v = e.currentTarget;
             if (v.currentTime > 15) v.currentTime = 0;
           }}
         >
@@ -1189,8 +1199,24 @@ const StatsSection = () => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         className="w-full h-auto block"
+        ref={(el) => {
+          if (el && !el.dataset.observed) {
+            el.dataset.observed = "1";
+            const io = new IntersectionObserver(([e]) => {
+              if (e.isIntersecting) {
+                el.preload = "auto";
+                el.load();
+                io.disconnect();
+              }
+            }, { rootMargin: "400px" });
+            io.observe(el);
+          }
+        }}
+        onLoadedData={(e) => {
+          e.currentTarget.play().catch(() => {});
+        }}
       >
         <source src="/justice-scale-bg.mp4" type="video/mp4" />
       </video>
