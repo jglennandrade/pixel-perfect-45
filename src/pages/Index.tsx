@@ -901,8 +901,8 @@ const UnifiedQuiz = () => {
                             In 20 years, Darwin has recovered <span className="text-cta font-bold">$250 million+</span> for Georgia workers across <span className="text-cta font-bold">10,000+</span> cases. He personally reviews every new submission — and picks up the phone himself when you call.
                           </p>
                         </div>
-                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-base">
-                          GET MY FREE CASE REVIEW →
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-sm md:!text-base whitespace-nowrap">
+                          FREE CASE REVIEW →
                         </button>
                         <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. 30 seconds. No fee unless we win.</p>
                       </div>
@@ -943,8 +943,8 @@ const UnifiedQuiz = () => {
                             Darwin handles <span className="text-white font-bold">both workers' comp AND personal injury</span> under one roof. He'll look at what happened and tell you exactly which path fits — free, no obligation.
                           </p>
                         </div>
-                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-base">
-                          GET MY FREE CASE REVIEW →
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-sm md:!text-base whitespace-nowrap">
+                          FREE CASE REVIEW →
                         </button>
                         <p className="font-dm text-xs text-white/30 mt-3">Darwin reviews every submission personally.</p>
                       </div>
@@ -1127,8 +1127,8 @@ const UnifiedQuiz = () => {
                             One free consultation could reveal options you didn't know you had. Takes 30 seconds. <span className="text-white font-bold">Worst case — you learn exactly where you stand.</span>
                           </p>
                         </div>
-                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-base">
-                          GET MY FREE CASE REVIEW →
+                        <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 !text-sm md:!text-base whitespace-nowrap">
+                          FREE CASE REVIEW →
                         </button>
                         <p className="font-dm text-xs text-white/30 mt-3">Free. No obligation. Takes 30 seconds.</p>
                       </div>
