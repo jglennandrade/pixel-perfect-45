@@ -294,10 +294,10 @@ const HeroAndVideo = () => {
             transition={{ duration: 0.7, delay: 0.45, ease }}
             className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
           >
-            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-4 !px-6 md:!py-5 md:!px-10 !text-base md:!text-xl">
-              GET MY FREE CASE REVIEW →
+            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-4 !px-6 md:!py-5 md:!px-10 !text-sm md:!text-xl whitespace-nowrap">
+              FREE CASE REVIEW →
             </button>
-            <button onClick={scrollToForm} className="cta-btn-outline-light !py-4 !px-6 md:!py-5 md:!px-10 !text-base md:!text-xl">
+            <button onClick={scrollToForm} className="cta-btn-outline-light !py-4 !px-6 md:!py-5 md:!px-10 !text-sm md:!text-xl whitespace-nowrap">
               SEE IF I QUALIFY →
             </button>
           </motion.div>
@@ -1368,8 +1368,8 @@ const CaseResults = () => {
       <div className="px-6 max-w-6xl mx-auto">
         <ScrollReveal delay={0.2}>
           <div className="text-center mt-14">
-            <button onClick={scrollToForm} className="cta-btn-primary !py-5 !px-10 !text-xl">
-              GET MY FREE CASE REVIEW →
+            <button onClick={scrollToForm} className="cta-btn-primary !py-4 !px-8 md:!py-5 md:!px-10 !text-sm md:!text-xl whitespace-nowrap">
+              FREE CASE REVIEW →
             </button>
             <div className="flex items-center justify-center gap-3 mt-5">
               <span className="text-cta text-xl tracking-[4px]">★★★★★</span>
@@ -1511,8 +1511,8 @@ const DarwinGuarantee = () => {
         {/* CTA with urgency */}
         <ScrollReveal delay={0.3}>
           <div className="text-center">
-            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-6 !px-12 !text-xl">
-              GET MY FREE CASE REVIEW — NO OBLIGATION →
+            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-5 !px-8 md:!py-6 md:!px-12 !text-sm md:!text-xl whitespace-nowrap">
+              FREE CASE REVIEW →
             </button>
             <div className="flex items-center justify-center gap-3 mt-6">
               <span className="text-cta text-xl tracking-[4px]">★★★★★</span>
@@ -2074,8 +2074,8 @@ const FormSection = () => {
                 />
               </div>
 
-              <button type="submit" className="cta-btn-primary cta-pulse w-full !h-16 !text-xl mt-2">
-                GET MY FREE CASE REVIEW →
+              <button type="submit" className="cta-btn-primary cta-pulse w-full !h-16 !text-base md:!text-xl mt-2">
+                FREE CASE REVIEW →
               </button>
 
               <p className="font-dm text-xs text-text-muted text-center font-bold pt-1">
