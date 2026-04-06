@@ -72,6 +72,15 @@ export default {
         "navy-light": "hsl(var(--navy-light))",
         "navy-dark": "hsl(var(--navy-dark))",
       },
+      keyframes: {
+        "ticker-scroll": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
+      },
+      animation: {
+        "ticker-scroll": "ticker-scroll 35s linear infinite",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
