@@ -91,7 +91,7 @@ const Header = () => {
         </a>
 
         {/* CENTER — Logo */}
-        <Link to="/" className="absolute left-1/2 -translate-x-1/2 z-50">
+        <Link to="/" onClick={(e) => { if (window.location.pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }} className="absolute left-1/2 -translate-x-1/2 z-50">
           <img
             src={darwinLogo}
             alt="Darwin F. Johnson"
