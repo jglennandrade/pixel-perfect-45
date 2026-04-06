@@ -1086,7 +1086,7 @@ const UnifiedQuiz = () => {
                       {/* Damages block — the ONE CTA for PI qualified */}
                       <DamagesBlock
                         onCtaClick={scrollToForm}
-                        ctaText="GET MY FREE CASE REVIEW →"
+                        ctaText="FREE CASE REVIEW →"
                         showMonogram={true}
                       />
                     </div>
