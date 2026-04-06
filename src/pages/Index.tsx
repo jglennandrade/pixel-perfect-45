@@ -1183,14 +1183,14 @@ const StatsSection = () => (
         </p>
       </ScrollReveal>
 
-      {/* Settlement Ticker — A/B test variant */}
-      <div className="max-w-6xl mx-auto mt-16 md:mt-20 relative">
-        <SettlementTicker />
-      </div>
-
-      {/* Justice Scale — animated transformation (kept for comparison) */}
-      <div className="max-w-6xl mx-auto mt-12 md:mt-16 relative">
-        <JusticeScale />
+      {/* Video Section */}
+      <div className="max-w-4xl mx-auto mt-16 md:mt-20 relative rounded-2xl overflow-hidden" style={{ aspectRatio: '481/269' }}>
+        <iframe
+          src="https://player.mux.com/J1NxJD5kl01YrfWrYVC01YtGuCIKgh02gpTykMs1Xq99cw"
+          style={{ width: '100%', height: '100%', border: 'none' }}
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
       </div>
 
       {/* Stat cards */}
