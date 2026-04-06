@@ -117,6 +117,7 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
           loop
           playsInline
           preload="none"
+          poster="/brand-story-poster.jpg"
           className="w-full h-full object-cover"
           ref={(el) => {
             if (el && !el.dataset.observed) {
@@ -132,12 +133,10 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
             }
           }}
           onLoadedData={(e) => {
-            const v = e.currentTarget;
-            v.play().catch(() => {});
-            if (v.currentTime > 15) v.currentTime = 0;
+            e.currentTarget.play().catch(() => {});
           }}
         >
-          <source src="/brand-story.mp4" type="video/mp4" />
+          <source src="/brand-story-preview.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
 
@@ -192,9 +191,10 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
                 autoPlay
                 playsInline
                 preload="metadata"
+                poster="/brand-story-poster.jpg"
                 className="w-full h-full object-contain bg-black"
               >
-                <source src="/brand-story.mp4" type="video/mp4" />
+                <source src="/brand-story-optimized.mp4" type="video/mp4" />
               </video>
             </motion.div>
           </motion.div>
@@ -240,6 +240,7 @@ const HeroAndVideo = () => {
             loop
             playsInline
             preload="auto"
+            poster="/hero-video-poster.jpg"
             className="w-full h-full object-cover"
             onLoadedData={(e) => {
               const v = e.currentTarget;
@@ -247,7 +248,7 @@ const HeroAndVideo = () => {
               v.play().catch(() => {});
             }}
           >
-            <source src="https://darwinreynoldtest.lovable.app/videos/mainstage-hero-bg.mp4" type="video/mp4" />
+            <source src="/mainstage-hero-bg-optimized.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/65" />
         </motion.div>
@@ -1200,6 +1201,7 @@ const StatsSection = () => {
         loop
         playsInline
         preload="none"
+        poster="/justice-scale-poster.jpg"
         className="w-full h-auto block"
         ref={(el) => {
           if (el && !el.dataset.observed) {
@@ -1218,7 +1220,7 @@ const StatsSection = () => {
           e.currentTarget.play().catch(() => {});
         }}
       >
-        <source src="/justice-scale-bg.mp4" type="video/mp4" />
+        <source src="/justice-scale-bg-optimized.mp4" type="video/mp4" />
       </video>
 
       {/* Top gradient — deep fade from solid navy into video, tall enough to be invisible */}
