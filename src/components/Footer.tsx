@@ -7,7 +7,7 @@ const scrollToForm = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white">
+    <footer className="bg-black text-white">
       <div className="max-w-6xl mx-auto px-6 py-14">
         <div className="grid md:grid-cols-4 gap-10">
           {/* Brand */}

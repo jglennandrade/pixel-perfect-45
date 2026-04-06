@@ -9,7 +9,9 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingCTA from "@/components/FloatingCTA";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import darwinLogo from "@/assets/darwin-logo.png";
 import darwinHeadshot from "@/assets/darwin-headshot.jpg";
+import darwinOffice from "@/assets/darwin-office.webp";
 import djMonogram from "@/assets/dj-monogram.png";
 import badgeExpertise from "@/assets/badge-expertise-color.png";
 import badgeAvvo from "@/assets/badge-avvo.webp";
@@ -227,7 +229,7 @@ const HeroAndVideo = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             className="w-full h-full object-cover"
             ref={(el) => {
               if (el) {
@@ -260,7 +262,7 @@ const HeroAndVideo = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease }}
-            className="font-bebas text-white text-6xl md:text-[110px] lg:text-[140px] leading-[0.9] tracking-wider"
+            className="font-bebas text-white text-6xl md:text-[110px] lg:text-[140px] leading-[0.9] tracking-wide"
           >
             WE FIGHT.<br />
             <span className="text-cta">YOU RECOVER.</span>
@@ -281,10 +283,10 @@ const HeroAndVideo = () => {
             transition={{ duration: 0.7, delay: 0.45, ease }}
             className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
           >
-            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-5 !px-10 !text-xl">
+            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-4 !px-6 md:!py-5 md:!px-10 !text-base md:!text-xl">
               GET MY FREE CASE REVIEW →
             </button>
-            <button onClick={scrollToForm} className="cta-btn-outline-light !py-5 !px-10 !text-xl">
+            <button onClick={scrollToForm} className="cta-btn-outline-light !py-4 !px-6 md:!py-5 md:!px-10 !text-base md:!text-xl">
               SEE IF I QUALIFY →
             </button>
           </motion.div>
@@ -421,7 +423,7 @@ const Offerings = () => (
             PICK THE ONE THAT HAPPENED TO YOU
           </span>
         </div>
-        <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] text-center mb-4">
+        <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
           How Were You Hurt?
         </h2>
         <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
@@ -484,7 +486,7 @@ const Offerings = () => (
                       {card.number} / {card.label}
                     </span>
                   </div>
-                  <h3 className="font-bebas text-white text-6xl md:text-8xl tracking-wider leading-[0.85] mb-6">
+                  <h3 className="font-bebas text-white text-6xl md:text-8xl tracking-wide leading-[0.85] mb-6">
                     {card.headline}
                   </h3>
                   <p className="font-dm text-lg md:text-xl text-white/60 leading-relaxed mb-8">
@@ -648,7 +650,7 @@ const UnifiedQuiz = () => {
       id="quiz-section"
       className="relative pt-20 md:pt-32 pb-48 md:pb-72 px-6 scroll-mt-20 overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, hsl(var(--bg-off)) 0%, hsl(var(--bg-off)) 40%, hsl(220 30% 75%) 60%, hsl(220 45% 40%) 75%, hsl(220 58% 14%) 88%, hsl(220 60% 12%) 95%, hsl(220 60% 12%) 100%)",
+        background: "linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(var(--bg-off)) 8%, hsl(var(--bg-off)) 32%, hsl(30 8% 93%) 38%, hsl(200 8% 90%) 43%, hsl(215 12% 85%) 48%, hsl(218 18% 76%) 54%, hsl(220 22% 65%) 60%, hsl(220 30% 52%) 67%, hsl(220 40% 38%) 74%, hsl(220 50% 26%) 81%, hsl(220 56% 18%) 88%, hsl(220 60% 12%) 94%, hsl(220 60% 12%) 100%)",
         marginBottom: "-4px",
       }}
     >
@@ -659,7 +661,7 @@ const UnifiedQuiz = () => {
               60-SECOND CASE CHECK
             </span>
           </div>
-          <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] text-center mb-4">
+          <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
             Let's See What<br />You're Owed.
           </h2>
           <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
@@ -670,7 +672,7 @@ const UnifiedQuiz = () => {
 
         {/* Quiz container — letter/paper aesthetic */}
         <div
-          className="relative rounded-2xl min-h-[600px]"
+          className="relative rounded-2xl min-h-[450px] md:min-h-[600px]"
           style={{
             background: "linear-gradient(180deg, #fdfcf9 0%, #fbf9f4 100%)",
             boxShadow: "0 25px 60px -15px rgba(30, 41, 59, 0.18), 0 8px 20px -8px rgba(30, 41, 59, 0.08), 0 0 0 1px rgba(30, 41, 59, 0.04)",
@@ -697,7 +699,7 @@ const UnifiedQuiz = () => {
           <div className="relative z-10 p-8 md:p-14">
             {/* Empty state — haven't picked path yet */}
             {path === null && (
-              <div className="flex flex-col items-center justify-center min-h-[500px] text-center">
+              <div className="flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] text-center">
                 <p className="font-serif italic text-text-dark text-3xl md:text-4xl mb-2">Before you sign anything,</p>
                 <p className="font-dm text-text-body text-base md:text-lg max-w-xl mb-10 leading-relaxed">
                   I'll keep this simple. Tell me what happened — and I'll tell you<br className="hidden md:block" />
@@ -770,7 +772,7 @@ const UnifiedQuiz = () => {
                   {/* ─── WORKERS' COMP PATH ─── */}
                   {path === "wc" && step === 1 && (
                     <div>
-                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">What's Hurting?</h3>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wide leading-[0.95] mb-2">What's Hurting?</h3>
                       <p className="font-dm text-base text-text-body mb-8">Tap the injury that matches your situation.</p>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         {injuries.map((item) => (
@@ -795,7 +797,7 @@ const UnifiedQuiz = () => {
 
                   {path === "wc" && step === 2 && (
                     <div>
-                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">Where You Got Hurt?</h3>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wide leading-[0.95] mb-2">Where You Got Hurt?</h3>
                       <p className="font-dm text-base text-text-body mb-8">Tap your industry.</p>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         {industries.map((item) => (
@@ -820,7 +822,7 @@ const UnifiedQuiz = () => {
 
                   {path === "wc" && step === 3 && (
                     <div>
-                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">Do You Qualify?</h3>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wide leading-[0.95] mb-2">Do You Qualify?</h3>
                       <p className="font-dm text-base text-text-body mb-8">Last step. Check if you meet Georgia's workers' comp requirements.</p>
                       <div className="grid sm:grid-cols-2 gap-4 mb-8">
                         <div className="bg-off-white rounded-lg border border-card-border p-5">
@@ -870,7 +872,7 @@ const UnifiedQuiz = () => {
                           </span>
                           <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-cta">YOUR PERSONALIZED RESULT</span>
                         </div>
-                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wide leading-[0.95] mb-6">
                           You Have a Case.<br />Darwin Can Help.
                         </h4>
                         <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
@@ -907,7 +909,7 @@ const UnifiedQuiz = () => {
                           </span>
                           <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-cta">YOU MAY HAVE A PERSONAL INJURY CASE</span>
                         </div>
-                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wide leading-[0.95] mb-6">
                           Don't Walk Away.<br />You Still Have Options.
                         </h4>
                         <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
@@ -941,7 +943,7 @@ const UnifiedQuiz = () => {
                   {/* ─── PERSONAL INJURY PATH ─── */}
                   {path === "pi" && step === 1 && (
                     <div>
-                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">What Happened?</h3>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wide leading-[0.95] mb-2">What Happened?</h3>
                       <p className="font-dm text-base text-text-body mb-8">Tap the accident or situation that matches yours.</p>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         {caseTypes.map((item) => (
@@ -966,7 +968,7 @@ const UnifiedQuiz = () => {
 
                   {path === "pi" && step === 2 && (
                     <div>
-                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">What's Hurting?</h3>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wide leading-[0.95] mb-2">What's Hurting?</h3>
                       <p className="font-dm text-base text-text-body mb-8">Tap your primary injury.</p>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                         {injuries.map((item) => (
@@ -991,7 +993,7 @@ const UnifiedQuiz = () => {
 
                   {path === "pi" && step === 3 && (
                     <div>
-                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wider leading-[0.95] mb-2">Was Someone Else at Fault?</h3>
+                      <h3 className="font-bebas text-text-dark text-3xl md:text-5xl tracking-wide leading-[0.95] mb-2">Was Someone Else at Fault?</h3>
                       <p className="font-dm text-base text-text-body mb-8">
                         Personal injury cases usually require proving someone else's negligence caused your injury. <span className="font-bold text-text-dark">There's no wrong answer here</span> — Darwin will help you figure it out.
                       </p>
@@ -1042,7 +1044,7 @@ const UnifiedQuiz = () => {
                             </span>
                             <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-cta">YOUR PERSONALIZED RESULT</span>
                           </div>
-                          <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                          <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wide leading-[0.95] mb-6">
                             You Have a Case.<br />Don't Sign Anything Yet.
                           </h4>
                           <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
@@ -1090,7 +1092,7 @@ const UnifiedQuiz = () => {
                           </span>
                           <span className="font-dm text-xs tracking-[3px] uppercase font-bold text-cta">LET DARWIN FIGURE IT OUT</span>
                         </div>
-                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wider leading-[0.95] mb-6">
+                        <h4 className="font-bebas text-white text-4xl md:text-6xl tracking-wide leading-[0.95] mb-6">
                           Don't Rule It Out.<br />You Might Still Have a Case.
                         </h4>
                         <div className="bg-white/[0.06] rounded-lg border border-white/10 p-5 mb-6">
@@ -1167,7 +1169,7 @@ const StatsSection = () => {
               YOUR RECOVERY STARTS HERE
             </span>
           </div>
-          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] mb-6">
+          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] mb-6">
             RECOVER 10X BIGGER,<br />FASTER, FULLY.
           </h2>
           <p className="font-dm text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
@@ -1194,10 +1196,10 @@ const StatsSection = () => {
       </video>
 
       {/* Top gradient — deep fade from solid navy into video, tall enough to be invisible */}
-      <div className="absolute top-0 left-0 right-0 h-[40%] pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(220 60% 12%) 0%, hsl(220 60% 12% / 0.8) 30%, hsl(220 60% 12% / 0.3) 60%, transparent 100%)" }} />
+      <div className="absolute top-0 left-0 right-0 h-[45%] pointer-events-none" style={{ background: "linear-gradient(180deg, hsl(220 60% 12%) 0%, hsl(220 60% 12% / 0.95) 15%, hsl(220 60% 12% / 0.7) 35%, hsl(220 60% 12% / 0.4) 55%, hsl(220 60% 12% / 0.15) 75%, transparent 100%)" }} />
 
       {/* Bottom gradient — longer, smoother fade from video into white */}
-      <div className="absolute bottom-0 left-0 right-0 h-[55%] pointer-events-none" style={{ background: "linear-gradient(0deg, hsl(0 0% 100%) 0%, hsl(0 0% 100% / 0.9) 20%, hsl(0 0% 100% / 0.5) 45%, hsl(0 0% 100% / 0.15) 70%, transparent 100%)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none" style={{ background: "linear-gradient(0deg, hsl(0 0% 100%) 0%, hsl(0 0% 100% / 0.95) 12%, hsl(0 0% 100% / 0.8) 25%, hsl(0 0% 100% / 0.55) 40%, hsl(0 0% 100% / 0.3) 55%, hsl(0 0% 100% / 0.1) 72%, transparent 100%)" }} />
     </section>
 
     {/* ── PART 3: White — stat cards + employer logos ── */}
@@ -1216,10 +1218,10 @@ const StatsSection = () => {
               { to: 15, suffix: "+", title: "Industries Served", desc: "From the factory floor to the hospital ward — we know your world." },
             ].map((s, i) => (
               <StaggerItem key={i}>
-                <div className="bg-white rounded-xl border border-card-border p-7 md:p-9 h-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] text-left">
-                  <p className="font-dm font-bold text-base md:text-lg text-text-dark mb-3">{s.title}</p>
-                  <div className="w-full h-[2px] bg-gradient-to-r from-cta via-cta/60 to-transparent mb-5" />
-                  <div className="font-bebas text-5xl md:text-6xl text-text-dark tracking-wider">
+                <div className="bg-white rounded-xl border border-card-border p-5 md:p-9 h-full shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] text-left">
+                  <p className="font-dm font-bold text-sm md:text-lg text-text-dark mb-2 md:mb-3">{s.title}</p>
+                  <div className="w-full h-[2px] bg-gradient-to-r from-cta via-cta/60 to-transparent mb-3 md:mb-5" />
+                  <div className="font-bebas text-4xl md:text-6xl text-text-dark tracking-wide">
                     <AnimatedCounter to={s.to} prefix={s.prefix || ""} suffix={s.suffix} separator={s.separator} decimals={0} />
                   </div>
                   <p className="font-dm text-sm md:text-base text-text-muted mt-4 leading-relaxed">{s.desc}</p>
@@ -1300,8 +1302,10 @@ const CaseResults = () => {
       <img
         src={c.img}
         alt={c.alt}
-        loading="eager"
+        loading="lazy"
         decoding="async"
+        width={320}
+        height={450}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
     </article>
@@ -1316,7 +1320,7 @@ const CaseResults = () => {
               CASE RESULTS
             </span>
           </div>
-          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] text-center mb-4">
+          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
             Become Our Next<br />Success Story.
           </h2>
           <p className="font-dm text-lg md:text-xl text-white/50 text-center max-w-2xl mx-auto mb-14">
@@ -1402,7 +1406,7 @@ const DarwinGuarantee = () => {
             </div>
 
             {/* Massive KingKong headline */}
-            <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] mb-10">
+            <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] mb-10">
               You Pay Nothing<br />Unless We Win.<br /><span className="text-cta">Not One Dime.</span>
             </h2>
           </div>
@@ -1458,19 +1462,19 @@ const DarwinGuarantee = () => {
         <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 max-w-4xl mx-auto mb-14">
           <StaggerItem>
             <div className="text-center md:px-4">
-              <p className="font-bebas text-cta text-7xl md:text-8xl tracking-wider leading-none mb-3">$0</p>
+              <p className="font-bebas text-cta text-7xl md:text-8xl tracking-wide leading-none mb-3">$0</p>
               <p className="font-dm text-xs md:text-sm text-text-muted uppercase tracking-[2px] font-bold">to start your case</p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="text-center md:px-4 md:border-x md:border-gray-200">
-              <p className="font-bebas text-cta text-7xl md:text-8xl tracking-wider leading-none mb-3">$0</p>
+              <p className="font-bebas text-cta text-7xl md:text-8xl tracking-wide leading-none mb-3">$0</p>
               <p className="font-dm text-xs md:text-sm text-text-muted uppercase tracking-[2px] font-bold">if we don't win</p>
             </div>
           </StaggerItem>
           <StaggerItem>
             <div className="text-center md:px-4">
-              <p className="font-bebas text-cta text-5xl md:text-6xl tracking-wider leading-none mb-3 pt-2 md:pt-4">Advanced</p>
+              <p className="font-bebas text-cta text-5xl md:text-6xl tracking-wide leading-none mb-3 pt-2 md:pt-4">Advanced</p>
               <p className="font-dm text-xs md:text-sm text-text-muted uppercase tracking-[2px] font-bold">medical costs if needed</p>
             </div>
           </StaggerItem>
@@ -1533,7 +1537,7 @@ const Testimonials = () => {
       <ScrollReveal>
         <div className="relative overflow-hidden bg-dark cursor-pointer group" onClick={openVideo}>
           {/* Video / placeholder — full width, no rounded corners */}
-          <div className="aspect-[21/9] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center relative">
+          <div className="aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center relative">
             {/* Active testimonial thumbnail */}
             <AnimatePresence mode="wait">
               {t.thumbnail && (
@@ -1559,6 +1563,11 @@ const Testimonials = () => {
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+
+            {/* Darwin logo — top left */}
+            <div className="absolute top-6 left-6 md:top-10 md:left-10 z-10">
+              <img src={darwinLogo} alt="Darwin Law Firm" className="h-6 md:h-8 w-auto opacity-90 drop-shadow-lg" />
+            </div>
 
             {/* Play button */}
             <div className="relative z-10">
@@ -1597,17 +1606,17 @@ const Testimonials = () => {
       </ScrollReveal>
 
       {/* Thumbnail row — auto-sliding marquee */}
-      <div className="relative overflow-hidden">
-        <div className="flex gap-0 animate-marquee" style={{ width: "max-content", animationDuration: "40s" }}>
+      <div className="relative overflow-hidden bg-dark pt-0 pb-4">
+        <div className="flex gap-3 md:gap-4 animate-marquee" style={{ width: "max-content", animationDuration: "40s" }}>
           {[...testimonials, ...testimonials].map((item, i) => (
             <button
               key={i}
               onClick={() => setActive(i % testimonials.length)}
-              className={`flex-shrink-0 relative overflow-hidden transition-all duration-300 ${
+              className={`flex-shrink-0 relative overflow-hidden rounded-lg transition-all duration-300 ${
                 active === i % testimonials.length ? "opacity-100" : "opacity-50 hover:opacity-80"
               }`}
             >
-              <div className={`w-[160px] md:w-[220px] h-[100px] md:h-[130px] flex flex-col items-start justify-end p-4 relative overflow-hidden ${
+              <div className={`w-[200px] md:w-[340px] h-[130px] md:h-[200px] flex flex-col items-start justify-end p-4 md:p-5 relative overflow-hidden ${
                 !item.thumbnail ? ["bg-gradient-to-br from-navy to-navy-dark",
                  "bg-gradient-to-br from-navy-dark to-dark",
                  "bg-gradient-to-br from-slate-700 to-slate-900",
@@ -1637,7 +1646,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* Name */}
-                <p className="font-bebas text-cta text-lg md:text-xl tracking-wider leading-none uppercase relative z-10">{item.name}</p>
+                <p className="font-bebas text-cta text-lg md:text-xl tracking-wide leading-none uppercase relative z-10">{item.name}</p>
                 <p className="font-dm text-white/70 text-[10px] mt-1 relative z-10">{item.result.split(".")[0]}</p>
               </div>
             </button>
@@ -1709,7 +1718,7 @@ const FAQ = () => {
               Yes, We Already Know What You're Thinking
             </span>
           </div>
-          <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wider leading-[0.9] text-center mb-6">
+          <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-6">
             The Questions You're<br />
             Googling at{" "}
             <span className="relative inline-block">
@@ -1755,10 +1764,63 @@ const FAQ = () => {
    FINAL CTA — KingKong self-aware closer
    Clean black panel, massive headline, massive button. Nothing else.
    ═══════════════════════════════════════════════ */
+const CheckCard = ({ amount, name, rotate, delay, bobDuration, scale = 1, blur = 0 }: { amount: string; name: string; rotate: number; delay: number; bobDuration: number; scale?: number; blur?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.5, rotate: rotate - 3 }}
+    whileInView={{ opacity: blur > 2 ? 0.6 : 1, scale, rotate }}
+    viewport={{ once: true }}
+    transition={{ delay, duration: 0.8, ease: "easeOut" }}
+    style={{ filter: blur ? `blur(${blur}px)` : "none" }}
+  >
+    <motion.div
+      animate={{ y: [0, -6, 0] }}
+      transition={{ duration: bobDuration, repeat: Infinity, ease: "easeInOut" }}
+      className="relative w-[140px] md:w-[170px]"
+    >
+      <div className="bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] rounded-lg p-3 md:p-4">
+        {/* Check header */}
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-cta/60" />
+            <span className="font-dm text-[8px] md:text-[9px] text-white/30 uppercase tracking-wider">Settlement</span>
+          </div>
+          <span className="font-dm text-[8px] md:text-[9px] text-cta/60 font-bold">PAID</span>
+        </div>
+        {/* Amount */}
+        <p className="font-bebas text-white text-2xl md:text-3xl tracking-wide leading-none mb-1.5">{amount}</p>
+        {/* Dotted line + name */}
+        <div className="border-t border-dashed border-white/10 pt-1.5">
+          <span className="font-dm text-[9px] md:text-[10px] text-white/25">{name}</span>
+        </div>
+      </div>
+    </motion.div>
+  </motion.div>
+);
+
 const FinalCTA = () => {
+  const checks = [
+    // Sharp — hero cards
+    { amount: "$4.2M", name: "Construction Injury", top: "10%", left: "3%", rotate: -6, delay: 0.2, bob: 7, scale: 1.1, blur: 0 },
+    { amount: "$620K", name: "Shoulder Injury", top: "42%", right: "2%", rotate: 5, delay: 0.8, bob: 7.5, scale: 0.8, blur: 0 },
+    { amount: "$95K", name: "Motorcycle Accident", top: "75%", right: "6%", rotate: -5, delay: 1.1, bob: 9.5, scale: 1.0, blur: 0 },
+    // Mid-depth
+    { amount: "$2.4M", name: "Industrial Accident", top: "5%", right: "12%", rotate: 4, delay: 0.6, bob: 8.5, scale: 0.7, blur: 2 },
+    { amount: "$850K", name: "Trucking Injury", top: "55%", left: "1%", rotate: -3, delay: 1.0, bob: 9, scale: 0.75, blur: 1 },
+    { amount: "$180K", name: "Insurance Denial", top: "82%", left: "10%", rotate: 3, delay: 1.4, bob: 8, scale: 0.65, blur: 3 },
+    // Inner — blurred atmosphere
+    { amount: "$1.2M", name: "Warehouse Injury", top: "22%", left: "18%", rotate: 3, delay: 0.9, bob: 10, scale: 0.55, blur: 4 },
+    { amount: "$350K", name: "Knee Injury", top: "68%", right: "18%", rotate: -3, delay: 1.3, bob: 8.5, scale: 0.6, blur: 3 },
+    // Top middle — blurred depth
+    { amount: "$750K", name: "Head Injury", top: "-2%", left: "35%", rotate: 2, delay: 0.4, bob: 11, scale: 0.5, blur: 5 },
+    { amount: "$275K", name: "Truck Accident", top: "1%", right: "30%", rotate: -4, delay: 0.7, bob: 9, scale: 0.45, blur: 4 },
+    // Bottom middle — blurred depth
+    { amount: "$480K", name: "Car Accident", top: "88%", left: "30%", rotate: -2, delay: 1.5, bob: 10.5, scale: 0.5, blur: 5 },
+    { amount: "$150K", name: "Neck Injury", top: "90%", right: "28%", rotate: 3, delay: 1.7, bob: 9.5, scale: 0.45, blur: 4 },
+  ];
+
   return (
-    <section className="relative bg-black overflow-hidden py-28 md:py-44 px-6">
-      {/* Subtle radial glow behind the headline — gives the orange punchline weight */}
+    <section className="relative bg-dark overflow-hidden py-28 md:py-44 px-6">
+      {/* Subtle radial glow behind the headline */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -1766,16 +1828,35 @@ const FinalCTA = () => {
         }}
       />
 
+      {/* Floating settlement checks */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
+        {checks.map((check, i) => (
+          <div
+            key={i}
+            className="absolute"
+            style={{ top: check.top, left: check.left, right: check.right }}
+          >
+            <CheckCard
+              amount={check.amount}
+              name={check.name}
+              rotate={check.rotate}
+              delay={check.delay}
+              bobDuration={check.bob}
+              scale={check.scale}
+              blur={check.blur}
+            />
+          </div>
+        ))}
+      </div>
+
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <ScrollReveal>
-          {/* Massive self-aware headline — ends on the exact button text */}
-          <h2 className="font-bebas text-white text-5xl md:text-7xl lg:text-[110px] tracking-wider leading-[0.95] mb-14">
+          <h2 className="font-bebas text-white text-5xl md:text-7xl lg:text-[110px] tracking-wide leading-[0.95] mb-14">
             You've Read The Page.<br />
             We've Made Our Case.<br />
             <span className="text-cta">Do What You Gotta Do.</span>
           </h2>
 
-          {/* Massive pulsing orange button — echoes headline punchline exactly */}
           <button
             onClick={scrollToForm}
             className="cta-btn-primary cta-pulse !py-7 md:!py-8 !px-10 md:!px-16 !text-lg md:!text-2xl w-full max-w-2xl"
@@ -1793,7 +1874,23 @@ const FinalCTA = () => {
    ═══════════════════════════════════════════════ */
 const FormSection = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", phone: "", details: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", details: "" });
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const formTestimonials = [
+    { quote: "Insurance offered $12,000. Darwin got me $95,000.", name: "Adtresa M.", role: "Personal Injury Client" },
+    { quote: "Darwin Johnson is the best in the state of Georgia. He responds to your calls immediately.", name: "Nicole F.", role: "Workers' Comp Client" },
+    { quote: "We just settled! They tried to fire me. Wrong thing to do when you have attorneys like this.", name: "Jeremy H.", role: "Workers' Comp Client" },
+    { quote: "Attorney Johnson has a heart. He achieved a fair settlement expediently.", name: "Sonya W.", role: "Workers' Comp Client" },
+    { quote: "I am very pleased with my settlement! It was worth the wait!", name: "Former Client", role: "Workers' Comp Client" },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial(prev => (prev + 1) % formTestimonials.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -1805,40 +1902,42 @@ const FormSection = () => {
 
   return (
     <section id="form-section" className="bg-dark py-20 md:py-32 px-6 relative overflow-hidden">
+      {/* Geometric dot grid — subtle premium texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage: "radial-gradient(circle, hsl(0 0% 100%) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      {/* Faint grid lines — layered depth */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
       {/* Atmospheric radial glow */}
       <div
         className="absolute inset-0 opacity-[0.12] pointer-events-none"
         style={{
-          background: "radial-gradient(circle at 50% 20%, hsl(var(--cta)) 0%, transparent 55%)",
+          background: "radial-gradient(circle at 50% 30%, hsl(var(--cta)) 0%, transparent 50%)",
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Darwin headshot — centered above headline */}
-        <ScrollReveal>
-          <div className="flex flex-col items-center mb-10 md:mb-12">
-            <img
-              src={darwinHeadshot}
-              alt="Darwin F. Johnson, Attorney"
-              loading="lazy"
-              decoding="async"
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover ring-2 ring-cta/40 mb-4"
-            />
-            <p className="text-white text-2xl md:text-3xl mb-1" style={{ fontFamily: "'Dancing Script', cursive" }}>Darwin F. Johnson</p>
-            <p className="font-dm text-[10px] text-white/50 tracking-[2px] uppercase">Founder · Managing Attorney</p>
-          </div>
-        </ScrollReveal>
-
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Eyebrow — narrative setup */}
         <ScrollReveal delay={0.1}>
           <p className="font-dm text-xs md:text-sm text-cta tracking-[4px] uppercase font-bold text-center mb-8">
-            This Is What Healing Looks Like
+            Darwin Reviews Your Case Personally
           </p>
         </ScrollReveal>
 
         {/* Transformation headline — word-by-word motion reveal on the punchline */}
         <motion.h2
-          className="font-bebas text-white text-5xl md:text-6xl lg:text-8xl tracking-wider leading-[1] text-center mb-8"
+          className="font-bebas text-white tracking-wide leading-[0.95] text-center mb-8"
+          style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -1848,44 +1947,34 @@ const FormSection = () => {
           }}
         >
           <motion.span
-            className="block mb-2"
+            className="block tracking-wide"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
             }}
           >
-            You're One Form Away
+            10,000 People Filled This Out.
           </motion.span>
           <motion.span
-            className="block"
+            className="block text-cta tracking-wide"
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
+              hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+              visible: {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+              },
             }}
           >
-            From{" "}
-            <motion.span
-              className="text-cta inline-block"
-              variants={{
-                hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  filter: "blur(0px)",
-                  transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
-                },
-              }}
-            >
-              Sleeping Through the Night.
-            </motion.span>
+            Then They Got Paid.
           </motion.span>
         </motion.h2>
 
         {/* Subtitle */}
         <ScrollReveal delay={0.6}>
           <p className="font-dm text-lg md:text-xl text-white/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed">
-            60 seconds with Darwin.<br />
-            Then 2 A.M. stops meaning what it used to.
+            Fill this out. Darwin calls you back. That's it.
           </p>
         </ScrollReveal>
 
@@ -1894,7 +1983,7 @@ const FormSection = () => {
 
         {/* Form card */}
         <ScrollReveal delay={0.15} direction="scale">
-          <div className="bg-white rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.5)] p-8 md:p-10 relative">
+          <div className="bg-white rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.5)] p-5 md:p-10 relative">
             {/* Trust bar */}
             <div className="flex items-center justify-between pb-6 mb-6 border-b border-gray-100">
               <div className="flex items-center gap-2">
@@ -1923,6 +2012,18 @@ const FormSection = () => {
               </div>
 
               <div>
+                <label className={labelClass}>Email address</label>
+                <input
+                  type="email"
+                  required
+                  className={inputClass}
+                  placeholder="jane@email.com"
+                  value={form.email}
+                  onChange={e => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
+
+              <div>
                 <label className={labelClass}>Best number to reach you</label>
                 <input
                   type="tel"
@@ -1946,7 +2047,7 @@ const FormSection = () => {
               </div>
 
               <button type="submit" className="cta-btn-primary cta-pulse w-full !h-16 !text-xl mt-2">
-                SHOW ME WHAT I'M OWED →
+                GET MY FREE CASE REVIEW →
               </button>
 
               <p className="font-dm text-xs text-text-muted text-center font-bold pt-1">
@@ -1956,18 +2057,26 @@ const FormSection = () => {
           </div>
         </ScrollReveal>
 
-          {/* Testimonial card below form — social proof at the moment of conversion */}
-          <ScrollReveal delay={0.25}>
-            <div className="mt-10 text-center">
-              <div className="text-cta text-lg tracking-[3px] mb-3">★★★★★</div>
-              <p className="font-serif italic text-white/90 text-xl md:text-2xl leading-snug mb-3">
-                "Insurance offered $12,000.<br />Darwin got me $95,000."
-              </p>
-              <p className="font-dm text-sm text-white/50 tracking-wider">
-                — Adtresa M., Personal Injury Client
-              </p>
-            </div>
-          </ScrollReveal>
+          {/* Rotating testimonials below form */}
+          <div className="mt-10 text-center min-h-[140px] md:min-h-[120px]">
+            <div className="text-cta text-lg tracking-[3px] mb-3">★★★★★</div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTestimonial}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <p className="font-serif italic text-white/90 text-xl md:text-2xl leading-snug mb-3">
+                  "{formTestimonials[activeTestimonial].quote}"
+                </p>
+                <p className="font-dm text-sm text-white/50 tracking-wider">
+                  — {formTestimonials[activeTestimonial].name}, {formTestimonials[activeTestimonial].role}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>
