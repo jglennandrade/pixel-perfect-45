@@ -1610,7 +1610,7 @@ const Testimonials = () => {
             </div>
 
             {/* Quote overlay — bottom left */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14 z-10">
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-14 z-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -1620,7 +1620,7 @@ const Testimonials = () => {
                   transition={{ duration: 0.4 }}
                   className="max-w-3xl"
                 >
-                  <p className="font-serif italic text-white text-xl md:text-3xl leading-relaxed mb-4">
+                  <p className="font-serif italic text-white text-base md:text-3xl leading-relaxed mb-3 md:mb-4">
                     "{t.quote}"
                   </p>
                   <p className="font-dm text-cta font-bold text-sm md:text-base tracking-wider">
