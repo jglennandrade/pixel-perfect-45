@@ -719,18 +719,18 @@ const UnifiedQuiz = () => {
 
                 <span className="font-dm text-xs text-text-muted tracking-[3px] uppercase mb-5">Which one happened to you?</span>
 
-                <div className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl">
+                <div className="flex flex-col gap-3 w-full max-w-md mx-auto">
                   <button
                     onClick={() => { setPath("wc"); setStep(1); scrollToContent(); }}
-                    className="cta-btn-primary !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1"
+                    className="cta-btn-primary !py-4 !px-6 !text-sm whitespace-nowrap w-full"
                   >
                     HURT AT WORK →
                   </button>
                   <button
                     onClick={() => { setPath("pi"); setStep(1); scrollToContent(); }}
-                    className="cta-btn-outline !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1"
+                    className="cta-btn-outline !py-4 !px-6 !text-sm whitespace-nowrap w-full"
                   >
-                    IN AN ACCIDENT →
+                    I WAS IN AN ACCIDENT →
                   </button>
                 </div>
 
