@@ -35,6 +35,7 @@ import caseTrucking from "@/assets/case-trucking.jpg";
 import caseMedical from "@/assets/case-medical.jpg";
 import caseFactory from "@/assets/case-factory.jpg";
 import caseFileConstruction from "@/assets/case-file-construction.jpg";
+import caseCardTestV4 from "@/assets/case-card-test-v4.jpg";
 import caseCheckConstruction from "@/assets/case-check-construction.jpg";
 import bgConstruction from "@/assets/bg-construction.jpg";
 import logoAmericold from "@/assets/logo-americold.png";
