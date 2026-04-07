@@ -8,7 +8,25 @@
 
 **Content approach:** 1 quality video per session. No batch recording pressure. Video ideas stay in a bank — pick the best one for that day based on what's performing. Quality > quantity.
 
-**Key Reference:** Full spec with all copy, pricing, calendar, and growth lever map is at `docs/superpowers/specs/2026-04-07-resibo-growth-execution-plan.md`
+---
+
+## Comment Reply Templates (use everywhere)
+
+- **Agrees with pain:** "Totoo yan! Ilang clients hina-handle mo? May group kami — DM mo ko."
+- **Shares volume:** "200 per day? Grabe. We're building something for that — DM me."
+- **Asks for solutions:** "May ginagawa kami for PH receipts. DM me — may community kami."
+- **Tags a friend:** "Salamat sa tag. Both welcome sa group namin — DM lang."
+
+## DM Script: When Someone Says "Interested"
+
+> "Quick lang — ano ginagawa mo for encoding? Manual pa ba?"
+> → Listen → repeat back
+> "We're building Resibo for exactly that. In beta — free pa. Gusto mo i-try?"
+
+## DM Script: When Someone Asks About Pricing (Pre-Launch)
+
+> "Lifetime access for early supporters. One-time, forever. Instead of ₱5K+/mo, pay once."
+> "Ano ba current spend mo monthly?" (anchors against their cost + collects intel)
 
 ---
 
@@ -54,8 +72,15 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Go to facebook.com/pages/create
   - Name: `Resibo`
   - Category: Software → Business Software
-  - Bio (copy from spec 3A): `AI-powered receipt extraction built for PH bookkeepers. Upload. Extract. Export. Tapos na.`
-  - About section: copy from spec 3A
+  - Bio: `Stop encoding receipts. Start running your practice.`
+  - About section:
+    > Resibo turns any PH receipt — thermal paper, GCash screenshots, handwritten resibo, blurry Viber photos — into clean, export-ready data in seconds.
+    >
+    > Hindi ka na mag-e-encode. Upload mo lang, i-review, i-export. Tapos.
+    >
+    > Built specifically for Filipino bookkeepers and accountants.
+    >
+    > Launching soon. Join the community for first access.
   - Profile photo: placeholder "R" logo (dark navy background, gold letter)
   - Cover photo: dark navy (#0D1B2A), text: "Stop Encoding Receipts. Start Running Your Practice."
   - CTA button: "Send Message" → Messenger
@@ -68,18 +93,48 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Name: `Resibo — Smart Bookkeepers PH`
   - Privacy: Private group, visible
   - Link to Resibo FB Page
-  - Add group description (copy from spec 3B)
-  - Add 3 membership questions (copy from spec 3B)
+  - Group description:
+    > Para sa mga bookkeeper at accountant sa Pilipinas na gustong mag-level up ng practice nila.
+    >
+    > Dito makikita mo:
+    > • Tips para ma-speed up ang receipt encoding workflow mo
+    > • Behind-the-scenes updates sa Resibo — AI-powered encoding tool built for PH
+    > • Direct access sa founding team
+    > • Community ng mga bookkeeper na gets ang struggle
+    >
+    > Hindi ito sales group. Ito ay community.
+    > Share, magtanong, mag-connect.
+  - Membership questions:
+    1. Ano ang role mo? (Bookkeeper, Accountant, CPA, Student, Other)
+    2. Ilang clients hina-handle mo ngayon?
+    3. Paano mo nalaman ang group na ito?
   - Upload cover photo: 1640x856px, dark navy, "Your AI-powered encoding team. Built for PH bookkeepers."
 
 - [ ] **Step 4: Pin welcome post in FB Group**
-  - Post the pinned welcome post (copy from spec 3B)
-  - Pin it to top
+  - Post this and pin to top:
+    > Welcome! Glad you're here.
+    >
+    > Kung bago ka, here's what this group is about:
+    >
+    > We're a small team building a tool specifically for PH bookkeepers — yung receipt encoding na ginagawa mo manually every day? We're working on making that way faster.
+    >
+    > Sa group na ito makikita mo:
+    > → Real dev updates from our developer (hindi marketing, yung actual progress)
+    > → Tests on real PH receipts — thermal, GCash, handwritten
+    > → Your chance to shape what we build (we actually listen)
+    > → Tips and discussions about bookkeeping workflows
+    >
+    > This is not a sales page. We're building in public and you're part of it.
+    >
+    > Introduce yourself sa comments —
+    > Ano ang role mo, ilang clients mo, at ano ang pinaka-masakit na part ng encoding workflow mo?
+    >
+    > — Gab & Glenn
 
 - [ ] **Step 5: Create TikTok account**
   - Username: `@resibo.ph` (fallback: `@resiboapp`)
   - Display name: `Resibo — PH Bookkeeper Tool`
-  - Bio (copy from spec 3C): `Stop encoding receipts. Start running your practice. 🇵🇭 ⬇ Join the community`
+  - Bio: `Stop encoding receipts. Start running your practice. 🇵🇭 ⬇ Join the community`
   - Link in bio: FB Group link (until landing page is live)
 
 - [ ] **Step 6: Set up Messenger broadcast list**
@@ -127,9 +182,9 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Track: Name | Responded Y/N | Date
 
 - [ ] **Step 3: Prep beta onboarding materials**
-  - Copy beta invite message from spec 3D
-  - Copy beta feedback questions from spec 3E
-  - Copy testimonial request from spec 3F
+  - Beta invite message = Task 5 Step 2
+  - Beta feedback questions = Task 8 Step 4
+  - Testimonial request = Task 9 Step 2
   - Save all three in one doc for quick access Friday
 
 - [ ] **Step 4: Milestone check**
@@ -159,26 +214,41 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Trim dead air — first frame = hook
 
 - [ ] **Step 4: Publish on TikTok (7-9 PM PHT)**
-  - Caption + hashtags from spec 3C
+  - Caption + hashtags: #bookkeeper #bookkeepersofph #accountingph #cpaph #freelancebookkeeper #excelph #resiboapp
   - Pin comment with bio link
 
 - [ ] **Step 5: Cross-post to FB Group (native upload)**
   - Caption: "180 receipts. Mano-mano. Araw-araw. Sino dito ganun din? 😅"
 
 - [ ] **Step 6: Post A1 (Discovery Question) in 2 external groups**
-  - Copy from spec 3H. No links. No Resibo mention.
-  - Reply to every comment within 2 hours
+  - No links. No Resibo mention. Reply to every comment within 2 hours.
+  - Post this:
+    > Curious lang — sa mga bookkeeper dito, gaano katagal kayo mag-encode ng receipts per client per month?
+    >
+    > Ako kasi average 3-4 hours per day. Minsan pa mas matagal pag maraming thermal receipts na faded na.
+    >
+    > Kayo?
 
 ---
 
 ### Task 4: Engage + Outreach (Thursday Apr 10)
 
-- [ ] **Step 1: Post in 2 new external groups**
-  - Post A2 (Relatable Story) from spec 3H
+- [ ] **Step 1: Post A2 (Relatable Story) in 2 new external groups**
+  - Post this:
+    > Nag-encode ako kagabi ng 105 receipts for one client. 4 hours. Tapos pagkatapos, hindi nag-tally yung total.
+    >
+    > Isa lang pala na receipt yung mali yung amount ko. Isa.
+    >
+    > Sino dito na-experience na yung ganun?
 
 - [ ] **Step 2: Start DM outreach**
   - DM the top 5-10 commenters from yesterday
-  - Use Script 1 from spec 3G (CLOSER framework)
+  - Use CLOSER script:
+    1. **Clarify:** "Hey! Bookkeeper ka ba or accountant? Ilang clients?"
+    2. **Label:** "So [X] clients, tapos manual encoding? Ilang oras per day?"
+    3. **Overview:** "Na-try mo na ibang tool? Or Excel lang?"
+    4. **Sell vacation:** "Imagine yung 3-4 hours, maging 5 minutes. More clients, more income."
+    5. **Invite:** "May community kami ng PH bookkeepers — real updates, not marketing. Gusto mo sumali?"
   - Goal: 2-3 real conversations → invite to group
   - Add anyone who joins to Messenger list
 
@@ -200,8 +270,21 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - If critical issues: delay beta to Saturday
 
 - [ ] **Step 2: Send beta invites**
-  - Send beta invite message (spec 3D) to all confirmed testers
-  - Personalize with names. Include the app URL.
+  - Send this to each confirmed tester (personalize with name):
+    > Hey [name]! Remember yung tool na pinag-usapan natin for receipt encoding?
+    >
+    > Ready na siya for testing. Gusto ko ikaw maging isa sa unang mga bookkeeper na mag-try.
+    >
+    > Free lang — walang bayad, walang catch. Ang need ko lang:
+    > 1. Upload 10-20 real receipts mo (thermal, GCash, PDF, kahit ano)
+    > 2. Check kung tama yung na-extract
+    > 3. Sabihin mo sa akin kung ano ang maganda at ano ang kailangan i-fix
+    >
+    > Here's the link: [APP URL]
+    >
+    > Kapag may feedback ka, message mo lang ako directly. Lahat ng sinabi mo, babaguhin namin.
+    >
+    > Game?
   - Track: Name | Invite Sent | Started Testing Y/N
 
 - [ ] **Step 3: Post Dev Update in FB Group**
@@ -234,7 +317,15 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Screenshot any good results. Relay bugs to Glenn.
 
 - [ ] **Step 2: Post A3 (Poll) in 1-2 new external groups**
-  - Copy from spec 3H
+  - Post this:
+    > Real talk: ano yung pinaka-ayaw nyo na part ng bookkeeping?
+    >
+    > A) Encoding receipts manually
+    > B) Pag-habol ng BIR deadlines
+    > C) Pag-tally na hindi nag-match
+    > D) Lahat ng nasa taas haha
+    >
+    > Comment your answer.
 
 - [ ] **Step 3: Record + publish next video (optional)**
   - Cross-post best performing video so far to FB Group if you haven't yet
@@ -305,13 +396,29 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   ```
 
 - [ ] **Step 3: Start building landing page**
-  - Use spec 3K (English) for all copy
-  - Sections: Hero → Problem → Solution → How It Works → Demo Video (placeholder) → Proof (placeholder) → Pricing → FAQ → Final CTA
   - Mobile-responsive — most PH bookkeepers browse on phone
+  - **Landing page sections (English copy):**
+    - **Hero:** Eyebrow: "For bookkeepers and accountants in the Philippines" / Headline: "Stop Encoding Receipts. Start Running Your Practice." / Sub: "Upload any PH receipt — thermal, GCash, handwritten, blurry Viber photo. Resibo extracts the data in seconds. Review, export, done." / CTA: "Get Lifetime Access →" / Micro: "One-time payment. Access forever. No subscription."
+    - **Problem:** "How many hours are you wasting? Every day, your Excel is open. Your client sends receipts on Viber. Blurry. No labels. Faded thermal paper you can barely read. Then you type them in. One by one. 3-4 hours. Every day. And if one number is wrong — the total doesn't match. You start over. You're not doing accounting. You're just encoding. What if something else handled that for you?"
+    - **Solution:** "Resibo does the encoding. You do the accounting. Upload any PH receipt. Resibo reads it and extracts the data — vendor, amount, date, tax rate — in seconds. Review it. Fix anything with one click. Export to Excel, CSV, PDF, or JSON. Your 3-4 hours of encoding? Now it takes 5 minutes."
+    - **How It Works:** 1. Upload — Drag and drop. Single or batch. 2. Review — Check the data. Fix with one click. 3. Export — Excel, CSV, PDF, JSON, DOCX.
+    - **Demo Video:** [placeholder until Thursday]
+    - **Proof:** [placeholder until testimonials collected]
+    - **Pricing:** 3-tier cards (Starter ₱1,999 / Pro ₱4,999 / Business ₱9,999). Above: "One-time payment. Lifetime access." Below: "₱4,999 once vs ₱5,000+/mo on current tools."
+    - **FAQ:** "Is it accurate?" (85-90%) / "Why lifetime?" (you're early) / "₱4,999 is expensive" (pays for itself in 1 month) / "Is my data safe?" (encrypted, never shared) / "No refunds?" (wait for subscriptions if you want to try first)
+    - **Final CTA:** "Stop encoding. Let Resibo handle it." + "Get Lifetime Access →"
 
 - [ ] **Step 4: Collect proof from beta**
-  - Send feedback questions (spec 3E) to testers
-  - Include international client question (#6)
+  - Send feedback questions to testers:
+    > Hey [name]! Kumusta ang testing so far? Quick questions lang:
+    > 1. Ilang receipts na na-upload mo?
+    > 2. Gaano ka-accurate? (out of 10, ilan ang tama agad?)
+    > 3. May na-encounter ka bang error or confusing na part?
+    > 4. Anong feature ang pinaka-useful so far?
+    > 5. Honest question — babayaran mo ba to? Magkano ang fair sa tingin mo?
+    > 6. Do you handle international clients? Would Resibo be useful for those receipts too?
+    >
+    > No wrong answers. Need ko lang yung totoo para ma-improve namin.
   - Ask Glenn for screen recording of a clean extraction
 
 ---
@@ -322,8 +429,16 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Focus on review screen working. Include screenshot.
 
 - [ ] **Step 2: Request testimonials**
-  - For testers with positive feedback → send spec 3F
-  - Use THEIR words. Get permission for name + role.
+  - For testers with positive feedback, send:
+    > Salamat sa feedback [name]! Super helpful.
+    >
+    > Quick favor — pwede ba kita i-quote sa page namin? Something like:
+    >
+    > "[Their own words, cleaned up slightly]"
+    > — [Name], [Role]
+    >
+    > I can also use just your first name if you prefer. Okay lang ba?
+  - Use THEIR words, not yours. Get permission for name + role.
   - Target: 3+ quotes by Thursday
 
 - [ ] **Step 3: Compile accuracy stats**
@@ -429,10 +544,39 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   **ALL YES:** Week 3 = launch. Draft launch post + Messenger blast tonight.
   **ANY NO:** Identify gap. 1-week fix. Launch → Week 4.
 
-- [ ] **Step 4: Draft launch post and blast**
-  - Fill in spec 3L with real quotes + numbers
-  - Fill in spec 3M
-  - Glenn reviews both
+- [ ] **Step 4: Draft launch post and Messenger blast**
+  - **Launch post (fill in [Quotes] and [URL]):**
+    > It's here.
+    >
+    > For the past 3 weeks, pinapanood nyo yung progress. Binigay nyo yung feedback. Ni-shape nyo kung ano yung binuild namin.
+    >
+    > Today, Resibo is officially open.
+    >
+    > **What it does:** Upload any PH receipt. Resibo extracts the data. You review. You export. Tapos.
+    >
+    > **The deal:** Lifetime access. One-time payment.
+    > → Starter: ₱1,999 (100 receipts/mo, basic exports)
+    > → Pro: ₱4,999 (500 receipts/mo, all features) ← most choose this
+    > → Business: ₱9,999 (unlimited + future features forever)
+    >
+    > **Why lifetime:** Kasi early kayo. First 50 people. After that, subscriptions na.
+    >
+    > **What beta testers said:** [Quotes]
+    >
+    > **What's real:** 85-90% accuracy. Hindi 100%. Pero 80% less typing. Improving every week.
+    >
+    > Link: [URL]
+    >
+    > — Gab
+  - **Messenger blast:**
+    > Hey! Resibo is live.
+    >
+    > Lifetime access starts at ₱1,999. One-time payment. No subscription.
+    >
+    > First 50 lang to. After that, subscriptions na.
+    >
+    > Link: [URL]
+  - Glenn reviews both before posting
 
 ---
 
@@ -478,8 +622,8 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Final prep checklist:
     - [ ] Landing page tested
     - [ ] Stripe working for all 3 tiers
-    - [ ] Launch post written with real quotes (spec 3L)
-    - [ ] Messenger blast ready (spec 3M)
+    - [ ] Launch post written with real quotes (from Task 14)
+    - [ ] Messenger blast ready (from Task 14)
     - [ ] Beta users notified: "You're getting Pro for free on launch day"
     - [ ] Glenn briefed for launch day tech support
 
@@ -488,17 +632,17 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 ### Task 17: LAUNCH DAY (Saturday Apr 26 or Sunday Apr 27)
 
 - [ ] **Step 1: Post launch announcement in FB Group**
-  - Use spec 3L with real testimonials. Pin it.
+  - Use the launch post from Task 14 Step 4 (with real testimonials filled in). Pin it.
 
 - [ ] **Step 2: Send Messenger launch blast**
-  - Use spec 3M. Send to entire list.
+  - Use the Messenger blast from Task 14 Step 4. Send to entire list.
 
 - [ ] **Step 3: Cross-post demo video to TikTok with launch caption**
 
 - [ ] **Step 4: Go LIVE in engagement mode**
   - Reply to every comment within 30 minutes (first 4 hours)
   - DM anyone with questions
-  - Use Script 4 (price objection) from spec 3G if needed
+  - Price objection script: "Magkano monthly spend mo ngayon? ₱5K? In 1 month even ka na. Every month after = libre." / "Or sa oras — 80 hrs/mo. ₱4,999 = ₱62/hr recovered. Forever." / "If not ready, subscriptions later at ₱1,500-2,000/month."
   - Track: Name | Tier | Paid Y/N | Amount
 
 - [ ] **Step 5: Monitor all day**
@@ -525,7 +669,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Urgency: "First 50 lang. [X] spots left."
 
 - [ ] **Step 3: Handle objections**
-  - Script 4 from spec 3G for price objections
+  - Price objection: "Magkano monthly spend mo? ₱5K? 1 month even ka na. Every month after = libre."
   - Post FAQ answers publicly if same question repeats 3+ times
 
 - [ ] **Step 4: Close the window**
