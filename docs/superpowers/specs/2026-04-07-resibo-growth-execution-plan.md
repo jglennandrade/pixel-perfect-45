@@ -8,7 +8,7 @@
 ## Context
 
 **Product:** Resibo — AI-powered receipt/invoice data extraction for PH bookkeepers
-**Team:** Glenn (founder, marketing, ops) + Webbs (dev)
+**Team:** Gab (co-founder, marketing, ops) + Glenn (founder, dev)
 **Stage:** Core loop works (upload → extract → review → export). MVP done Friday April 11.
 **Goal:** 10 paying lifetime deal buyers at launch. Build warm audience of 50-100 bookkeepers first.
 **Frameworks:** Hormozi's 9 Growth Levers + Million Dollar Business Framework + CLOSER Sales Framework
@@ -54,18 +54,18 @@
 ## Section 2: First 2-Week Execution Plan
 
 ### Team Structure
-- **Glenn:** Marketing (content, outreach, DMs, community), product coordination, beta management, business ops
-- **Webbs:** Development, bug fixes, screen recordings for demo content
+- **Gab:** Co-founder. Marketing (content, outreach, DMs, community), product coordination, beta management, business ops
+- **Glenn:** Founder + dev. Development, bug fixes, screen recordings for demo content
 
 ### Daily Time Budget (1 person)
 - **Morning (4 hrs):** Content creation, posting, engaging, DMs — "nobody knows you exist" block
-- **Afternoon (2-3 hrs):** Beta check-ins, Webbs coordination, landing page/assets/ops
+- **Afternoon (2-3 hrs):** Beta check-ins, Glenn coordination, landing page/assets/ops
 
 ### Week 1: Setup + Beta Prep + Problem Content (Apr 8-13)
 
 | Day | Morning (Content) | Afternoon (Product) |
 |-----|-------------------|---------------------|
-| **Tue Apr 8** | SETUP: Create FB Page, Group, TikTok. Join 5 groups. Set up Messenger list. | Beta outreach: Message Webbs re: readiness. Message Kevin, Noel, Charmee for beta. |
+| **Tue Apr 8** | SETUP: Create FB Page, Group, TikTok. Join 5 groups. Set up Messenger list. | Beta outreach: Message Glenn re: readiness. Message Kevin, Noel, Charmee for beta. |
 | **Wed Apr 9** | RECORD: Batch record Videos 1-5. Publish Video 1. | Post in 2 external groups. Prep beta onboarding message. |
 | **Thu Apr 10** | Publish Video 2. Post in groups. DM commenters. | Check beta interest. Prep access links for Friday. |
 | **Fri Apr 11** | Publish Video 3. Dev Update in group. DM conversions. | **MVP DONE → Send beta access to testers immediately.** |
@@ -90,7 +90,7 @@
 
 ### Contingency: If Beta Is Delayed
 - Week 1 content is ALL problem awareness — no product needed. Goes out regardless.
-- If Webbs says "not ready": beta shifts to Week 2 Monday, landing page to end of Week 2, launch to Week 4.
+- If Glenn says "not ready": beta shifts to Week 2 Monday, landing page to end of Week 2, launch to Week 4.
 - Calendar sequence stays the same, just slides 1 week. Content machine doesn't stop.
 
 ---
@@ -139,7 +139,7 @@
 > Introduce yourself sa comments —
 > Ano ang role mo, ilang clients mo, at ano ang pinaka-masakit na part ng encoding workflow mo?
 >
-> — Glenn & Webbs
+> — Gab & Glenn
 
 ### 3C: TikTok Profile
 - **Username:** @resibo.ph
@@ -336,7 +336,7 @@
 >
 > Link: [URL]
 >
-> — Glenn
+> — Gab
 
 ### 3M: Messenger Launch Broadcast
 > Hey! Resibo is live.
