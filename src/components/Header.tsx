@@ -3,15 +3,17 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import darwinLogo from "@/assets/darwin-logo.png";
-
-const menuLinks = [
-  { id: "quiz-section", label: "Workers' Compensation" },
-  { id: "quiz-section", label: "Personal Injury" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const menuLinks = [
+    { id: "quiz-section", label: t("header.workersComp") },
+    { id: "quiz-section", label: t("header.personalInjury") },
+  ];
 
   const [hidden, setHidden] = useState(false);
   const [lastY, setLastY] = useState(0);
@@ -91,7 +93,16 @@ const Header = () => {
         </a>
 
         {/* CENTER — Logo */}
-        <Link to="/" className="absolute left-1/2 -translate-x-1/2 z-50">
+        <Link
+          to="/"
+          className="absolute left-1/2 -translate-x-1/2 z-50"
+          onClick={(e) => {
+            if (window.location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           <img
             src={darwinLogo}
             alt="Darwin F. Johnson"
@@ -99,14 +110,39 @@ const Header = () => {
           />
         </Link>
 
-        {/* RIGHT — "menu" text + hamburger */}
+        {/* RIGHT — Language toggle + "menu" text + hamburger */}
+        <div className="relative z-50 flex items-center gap-3">
+          {/* EN/ES pill toggle */}
+          <div className="flex bg-white/[0.12] rounded-full p-[3px] gap-[2px]">
+            <button
+              onClick={() => setLanguage("en")}
+              className={`font-dm text-[11px] font-bold px-2.5 py-1 rounded-full transition-all duration-200 ${
+                language === "en"
+                  ? "bg-cta text-white"
+                  : "text-white/60 hover:text-white/80"
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage("es")}
+              className={`font-dm text-[11px] font-bold px-2.5 py-1 rounded-full transition-all duration-200 ${
+                language === "es"
+                  ? "bg-cta text-white"
+                  : "text-white/60 hover:text-white/80"
+              }`}
+            >
+              ES
+            </button>
+          </div>
+
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="relative z-50 flex items-center gap-3"
+          className="flex items-center gap-3"
           aria-label="Toggle menu"
         >
           <span className="hidden sm:block font-dm text-sm text-white/70 tracking-wide">
-            {menuOpen ? "close" : "menu"}
+            {menuOpen ? t("header.close") : t("header.menu")}
           </span>
           <div className="w-7 h-7 flex flex-col items-end justify-center gap-[5px]">
             <motion.span
@@ -125,6 +161,7 @@ const Header = () => {
             />
           </div>
         </button>
+        </div>
       </header>
 
       {/* Full-Screen Menu Overlay */}
@@ -167,7 +204,7 @@ const Header = () => {
                   onClick={() => scrollToSection("form-section")}
                   className="cta-btn-primary !text-lg !px-10 !py-5"
                 >
-                  FREE CASE REVIEW →
+                  {t("header.freeCaseReview")}
                 </button>
               </motion.div>
 
