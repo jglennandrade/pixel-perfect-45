@@ -672,7 +672,8 @@ const UnifiedQuiz = () => {
             </span>
           </div>
           <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
-            {t("index.quiz.headline")}
+            {t("index.quiz.headline1")}<br />
+            {t("index.quiz.headline2")}
           </h2>
           <p className="font-dm text-lg md:text-xl text-text-body text-center max-w-2xl mx-auto mb-14">
             {t("index.quiz.subtitle1")}<br />
@@ -1180,7 +1181,8 @@ const StatsSection = () => {
             </span>
           </div>
           <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] mb-6">
-            {t("index.stats.headline")}
+            {t("index.stats.headline1")}<br />
+            {t("index.stats.headline2")}
           </h2>
           <p className="font-dm text-lg md:text-xl text-white/70 max-w-4xl mx-auto leading-relaxed">
             {t("index.stats.subtitle1")}<br className="hidden md:block" />

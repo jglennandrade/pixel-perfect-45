@@ -120,6 +120,8 @@ export const translations: Record<string, { en: string; es: string }> = {
   // INDEX — QUIZ
   "index.quiz.badge": { en: "60-SECOND CASE CHECK", es: "REVISIÓN DE CASO EN 60 SEGUNDOS" },
   "index.quiz.headline": { en: "Let's See What You're Owed.", es: "Veamos Cuánto Le Deben." },
+  "index.quiz.headline1": { en: "Let's See What", es: "Veamos Cuánto" },
+  "index.quiz.headline2": { en: "You're Owed.", es: "Le Deben." },
   "index.quiz.subtitle1": { en: "Answer 3 questions.", es: "Responda 3 preguntas." },
   "index.quiz.subtitle2": { en: "I will tell you if you have a case and what it's worth.", es: "Le diré si tiene un caso y cuánto vale." },
   "index.quiz.empty.greeting": { en: "Before you sign anything,", es: "Antes de firmar nada," },
@@ -208,6 +210,8 @@ export const translations: Record<string, { en: string; es: string }> = {
   // INDEX — STATS
   "index.stats.badge": { en: "YOUR RECOVERY STARTS HERE", es: "SU RECUPERACIÓN EMPIEZA AQUÍ" },
   "index.stats.headline": { en: "RECOVER 10X BIGGER, FASTER, FULLY.", es: "RECUPERE 10X MÁS, MÁS RÁPIDO, COMPLETAMENTE." },
+  "index.stats.headline1": { en: "RECOVER 10X BIGGER,", es: "RECUPERE 10X MÁS," },
+  "index.stats.headline2": { en: "FASTER, FULLY.", es: "MÁS RÁPIDO, COMPLETAMENTE." },
   "index.stats.subtitle1": { en: "Darwin's clients typically settle for 5-10x more than insurance's first offer.", es: "Los clientes de Darwin típicamente reciben 5-10x más que la primera oferta del seguro." },
   "index.stats.subtitle2": { en: "Skip the runaround, the denied claims, and the sleepless nights.", es: "Olvídese de las vueltas, las reclamaciones negadas, y las noches sin dormir." },
   "index.stats.subtitle3": { en: "Your only job is to recover.", es: "Su único trabajo es recuperarse." },
