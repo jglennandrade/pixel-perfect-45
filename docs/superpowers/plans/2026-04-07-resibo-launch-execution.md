@@ -117,7 +117,9 @@
 
 ---
 
-### Task 3: Batch Record Videos 1-5 (Wednesday Apr 9 — Morning)
+### Task 3: Record + Publish 1 High-Quality Video (Wednesday Apr 9 — Morning)
+
+Focus on ONE valuable video. Quality over quantity. The remaining video ideas (Viber Photo, Math Doesn't Math, Day in Life, Receipt Types) stay in the bank — record them when you're ready, not on a forced schedule.
 
 **Equipment needed:**
 - Phone with decent camera
@@ -139,60 +141,28 @@
   - End text: "How many hours have you lost?"
   - Duration: 15-20 seconds
   - No CTA. Pure relatability.
+  - Record 2-3 takes. Pick the best one.
 
-- [ ] **Step 3: Record Video 2 — "The Viber Photo"**
-  - Hook: "Client sent 47 receipts sa Viber. Lahat blurry."
-  - Visual: phone notification, open blurry photos, zoom in
-  - VO: "Lahat blurry. Lahat walang label. Tapos ikaw, i-type mo lahat sa Excel."
-  - End text: "Bookkeeper struggles. Tag someone who gets it."
-  - Duration: 20-25 seconds
-  - CTA: "Comment kung naka-experience ka nito."
-
-- [ ] **Step 4: Record Video 3 — "The Math Doesn't Math"**
-  - Hook: "3 hours na encoding. Isang number mali. Ulit."
-  - Visual: Excel spreadsheet, scroll down rows
-  - VO: "Tatlong oras na encoding. Isang number lang mali. Ulit ulit."
-  - End text: "If you know, you know."
-  - Duration: 15-20 seconds
-  - CTA: "Follow for more bookkeeper content."
-
-- [ ] **Step 5: Record Video 4 — "A Day in the Life"**
-  - Hook: "A day in the life ng PH bookkeeper"
-  - Visual: montage — open laptop, Viber messages, typing, clock 9am→12pm→3pm
-  - VO: "Encode. Categorize. Check. Ulit. Buong araw."
-  - End text: "Tapos bukas ganun din ulit. Bookkeeper life."
-  - Duration: 30-45 seconds
-  - CTA: "Relate ka ba? Join our group — link in bio."
-
-- [ ] **Step 6: Record Video 5 — "Receipt Types"**
-  - Hook: "Receipt types na kinakatakutan ng bookkeeper"
-  - Visual: show each receipt type with reactions (2-3 sec each)
-  - 1. Clear printed → thumbs up. 2. Faded thermal → squint. 3. GCash cropped → confused. 4. Handwritten → dead stare. 5. Blurry Viber → "..."
-  - End text: "Tapos lahat to, isa-isa sa Excel."
-  - Duration: 20-30 seconds
-  - CTA: "Anong receipt type ang pinaka-ayaw mo? Comment."
-
-- [ ] **Step 7: Edit all 5 videos in CapCut**
-  - Add text overlays (hook text on first frame)
+- [ ] **Step 3: Edit in CapCut**
+  - Add text overlay on first frame (the hook)
   - Add captions/subtitles (many watch on mute)
-  - Consistent font and style across all 5
-  - Trim any dead air at start — first frame = hook
-  - Export all 5
+  - Trim ANY dead air before the hook — first frame = hook
+  - Keep it tight. If it's 20 seconds, don't stretch to 30.
+  - Export
 
-- [ ] **Step 8: Publish Video 1 on TikTok**
-  - Upload Video 1 ("180 Receipts")
+- [ ] **Step 4: Publish on TikTok**
   - Caption: "180 receipts. Manually. Every. Single. Day. #bookkeeper #bookkeepersofph #accountingph #cpaph #freelancebookkeeper #excelph #resiboapp"
   - Pin comment with bio link
   - Post between 7-9 PM PHT
 
-- [ ] **Step 9: Cross-post Video 1 to FB Group**
-  - Upload natively to FB Group (NOT share TikTok link)
+- [ ] **Step 5: Cross-post to FB Group**
+  - Upload natively (NOT share TikTok link — native gets more reach)
   - Caption: "180 receipts. Mano-mano. Araw-araw. Sino dito ganun din? 😅"
 
-- [ ] **Step 10: Milestone check**
-  - ✅ 5 videos recorded and edited
-  - ✅ Video 1 published on TikTok + FB Group
-  - ✅ Videos 2-5 ready to publish on schedule
+- [ ] **Step 6: Milestone check**
+  - ✅ 1 high-quality video recorded, edited, and published
+  - ✅ Live on TikTok + FB Group
+  - ✅ Video bank: 4 more ideas ready to record when time allows (Viber Photo, Math Doesn't Math, Day in Life, Receipt Types)
 
 ---
 
