@@ -118,7 +118,7 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           className="w-full h-full object-cover"
           onLoadedData={(e) => {
             const v = e.currentTarget;
@@ -129,7 +129,7 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
             if (v.currentTime > 15) v.currentTime = 0;
           }}
         >
-          <source src="/brand-story.mp4" type="video/mp4" />
+          <source src="/brand-story-preview.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500" />
 
@@ -228,19 +228,19 @@ const HeroAndVideo = () => {
         {/* Video bg with parallax zoom */}
         <motion.div className="absolute inset-0" style={{ scale: bgScale }}>
           <video
-            autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             className="w-full h-full object-cover"
-            ref={(el) => {
-              if (el) {
-                el.currentTime = 10;
-              }
+            onLoadedMetadata={(e) => {
+              e.currentTarget.currentTime = 10;
+            }}
+            onSeeked={(e) => {
+              e.currentTarget.play().catch(() => {});
             }}
           >
-            <source src="/mainstage-hero-bg.mp4" type="video/mp4" />
+            <source src="/mainstage-hero-bg-optimized.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/65" />
         </motion.div>
@@ -1201,10 +1201,10 @@ const StatsSection = () => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         className="w-full h-auto block"
       >
-        <source src="/justice-scale-bg.mp4" type="video/mp4" />
+        <source src="/justice-scale-bg-optimized.mp4" type="video/mp4" />
       </video>
 
       {/* Top gradient — deep fade from solid navy into video, tall enough to be invisible */}
