@@ -183,10 +183,10 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
                 controls
                 autoPlay
                 playsInline
-                preload="metadata"
+                preload="none"
                 className="w-full h-full object-contain bg-black"
               >
-                <source src="/brand-story.mp4" type="video/mp4" />
+                <source src="/brand-story-optimized.mp4" type="video/mp4" />
               </video>
             </motion.div>
           </motion.div>
