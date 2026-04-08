@@ -25,7 +25,7 @@
 
 - **Agrees with pain:** "Totoo yan! Ilang clients hina-handle mo? May group kami — DM mo ko."
 - **Shares volume:** "200 per day? Grabe. We're building something for that — DM me."
-- **Asks for solutions:** "May ginagawa kami for PH receipts. DM me — may community kami."
+- **Asks for solutions:** "May ginagawa kami for receipt encoding — PH and international. DM me — may community kami."
 - **Tags a friend:** "Salamat sa tag. Both welcome sa group namin — DM lang."
 
 ## DM Script: When Someone Says "Interested"
@@ -49,7 +49,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 1. "180 Receipts" — "180 receipts. Mano-mano. Araw-araw."
 2. "Viber Photo" — "Client sent 47 receipts sa Viber. Lahat blurry."
 3. "Math Doesn't Math" — "3 hours na encoding. Isang number mali. Ulit."
-4. "Day in Life" — "A day in the life ng PH bookkeeper"
+4. "Day in Life" — "A day in the life ng bookkeeper"
 5. "Receipt Types" — "Receipt types na kinakatakutan ng bookkeeper"
 
 **Teaser (something is coming):**
@@ -60,7 +60,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 10. "The Question" — "Kung may extra 3 hours ka per day, ano gagawin mo?"
 
 **Demo + Launch (show the product):**
-11. "Full Demo" — "10 PH receipts. Under 1 minute. Watch." *(needs demo footage)*
+11. "Full Demo" — "10 receipts. Under 1 minute. Watch." *(needs demo footage)*
 12. "Thermal Challenge" — "Yung pinaka-faded na thermal receipt mo. Kaya ba?" *(needs demo footage)*
 13. "3 Hrs → 5 Min" — "A bookkeeper sent me 200 receipts. Ito nangyari." *(needs demo footage)*
 14. "The Upgrade" — "Buong araw mo nasa encoding. Hindi ka nag-a-account."
@@ -74,7 +74,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 **Assets to create:**
 - Facebook Page: "Resibo"
-- Facebook Group: "Resibo — Smart Bookkeepers PH"
+- Facebook Group: "Resibo — Smart Bookkeepers"
 - TikTok account: @resibo.ph
 - Messenger broadcast list
 - Canva brand template (placeholder logo)
@@ -85,11 +85,11 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Category: Software → Business Software
   - Bio: `Stop encoding receipts. Start running your practice.`
   - About section:
-    > Resibo turns any PH receipt — thermal paper, GCash screenshots, handwritten resibo, blurry Viber photos — into clean, export-ready data in seconds.
+    > Resibo turns any receipt or invoice — thermal paper, GCash screenshots, handwritten resibo, international invoices, blurry photos — into clean, export-ready data in seconds.
     >
     > Hindi ka na mag-e-encode. Upload mo lang, i-review, i-export. Tapos.
     >
-    > Built specifically for Filipino bookkeepers and accountants.
+    > Built for bookkeepers and accountants handling local and international clients.
     >
     > Launching soon. Join the community for first access.
   - Profile photo: placeholder "R" logo (dark navy background, gold letter)
@@ -101,15 +101,15 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Confirm: bio visible, CTA button works, cover photo loads
 
 - [ ] **Step 3: Create Facebook Group**
-  - Name: `Resibo — Smart Bookkeepers PH`
+  - Name: `Resibo — Smart Bookkeepers`
   - Privacy: Private group, visible
   - Link to Resibo FB Page
   - Group description:
-    > Para sa mga bookkeeper at accountant sa Pilipinas na gustong mag-level up ng practice nila.
+    > Para sa mga bookkeeper at accountant na gustong mag-level up ng practice nila — whether local or international clients.
     >
     > Dito makikita mo:
-    > • Tips para ma-speed up ang receipt encoding workflow mo
-    > • Behind-the-scenes updates sa Resibo — AI-powered encoding tool built for PH
+    > • Tips para ma-speed up ang receipt and invoice encoding workflow mo
+    > • Behind-the-scenes updates sa Resibo — AI-powered encoding tool for bookkeepers
     > • Direct access sa founding team
     > • Community ng mga bookkeeper na gets ang struggle
     >
@@ -119,7 +119,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
     1. Ano ang role mo? (Bookkeeper, Accountant, CPA, Student, Other)
     2. Ilang clients hina-handle mo ngayon?
     3. Paano mo nalaman ang group na ito?
-  - Upload cover photo: 1640x856px, dark navy, "Your AI-powered encoding team. Built for PH bookkeepers."
+  - Upload cover photo: 1640x856px, dark navy, "Your AI-powered encoding team. Built for bookkeepers."
 
 - [ ] **Step 4: Pin welcome post in FB Group**
   - Post this and pin to top:
@@ -127,11 +127,11 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
     >
     > Kung bago ka, here's what this group is about:
     >
-    > We're a small team building a tool specifically for PH bookkeepers — yung receipt encoding na ginagawa mo manually every day? We're working on making that way faster.
+    > We're a small team building a tool for bookkeepers — yung receipt and invoice encoding na ginagawa mo manually every day? Whether local or international clients, we're working on making that way faster.
     >
     > Sa group na ito makikita mo:
     > → Real dev updates from our developer (hindi marketing, yung actual progress)
-    > → Tests on real PH receipts — thermal, GCash, handwritten
+    > → Tests on real receipts — thermal, GCash, international invoices, handwritten
     > → Your chance to shape what we build (we actually listen)
     > → Tips and discussions about bookkeeping workflows
     >
@@ -144,7 +144,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 - [ ] **Step 5: Create TikTok account**
   - Username: `@resibo.ph` (fallback: `@resiboapp`)
-  - Display name: `Resibo — PH Bookkeeper Tool`
+  - Display name: `Resibo — Bookkeeper Tool`
   - Bio: `Stop encoding receipts. Start running your practice. 🇵🇭 ⬇ Join the community`
   - Link in bio: FB Group link (until landing page is live)
 
@@ -244,10 +244,10 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Send this to each confirmed tester (personalize with name):
     > Hey [name]! Remember yung tool na pinag-usapan natin for receipt encoding?
     >
-    > Ready na siya for testing. Gusto ko ikaw maging isa sa unang mga bookkeeper na mag-try.
+    > Ready na siya for testing. Gusto ko ikaw maging isa sa unang mag-try.
     >
     > Free lang — walang bayad, walang catch. Ang need ko lang:
-    > 1. Upload 10-20 real receipts mo (thermal, GCash, PDF, kahit ano)
+    > 1. Upload 10-20 real receipts or invoices mo (local, international, kahit ano)
     > 2. Check kung tama yung na-extract
     > 3. Sabihin mo sa akin kung ano ang maganda at ano ang kailangan i-fix
     >
@@ -312,7 +312,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   ```
   Dev update from Glenn:
   
-  Started testing extraction on real PH receipts this week.
+  Started testing extraction on real receipts this week — local and international.
   Early results: amount and vendor consistent.
   Date extraction still needs work on faded receipts.
   
@@ -355,6 +355,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   This week we tested on [X] receipt types:
   → Thermal — [status]
   → GCash screenshot — [status]
+  → International invoice — [status]
   → Handwritten — [status]
   
   Next week: more tests + a surprise.
@@ -400,11 +401,11 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   ```
 
 - [ ] **Step 3: Start building landing page**
-  - Mobile-responsive — most PH bookkeepers browse on phone
+  - Mobile-responsive
   - **Landing page sections (English copy):**
-    - **Hero:** Eyebrow: "For bookkeepers and accountants in the Philippines" / Headline: "Stop Encoding Receipts. Start Running Your Practice." / Sub: "Upload any PH receipt — thermal, GCash, handwritten, blurry Viber photo. Resibo extracts the data in seconds. Review, export, done." / CTA: "Get Lifetime Access →" / Micro: "One-time payment. Access forever. No subscription."
-    - **Problem:** "How many hours are you wasting? Every day, your Excel is open. Your client sends receipts on Viber. Blurry. No labels. Faded thermal paper you can barely read. Then you type them in. One by one. 3-4 hours. Every day. And if one number is wrong — the total doesn't match. You start over. You're not doing accounting. You're just encoding. What if something else handled that for you?"
-    - **Solution:** "Resibo does the encoding. You do the accounting. Upload any PH receipt. Resibo reads it and extracts the data — vendor, amount, date, tax rate — in seconds. Review it. Fix anything with one click. Export to Excel, CSV, PDF, or JSON. Your 3-4 hours of encoding? Now it takes 5 minutes."
+    - **Hero:** Eyebrow: "For bookkeepers and accountants handling local and international clients" / Headline: "Stop Encoding Receipts. Start Running Your Practice." / Sub: "Upload any receipt or invoice — thermal, GCash, international invoices, handwritten, blurry photos. Resibo extracts the data in seconds. Review, export, done." / CTA: "Get Lifetime Access →" / Micro: "One-time payment. Access forever. No subscription."
+    - **Problem:** "How many hours are you wasting? Every day, your Excel is open. Your client sends receipts on Viber — or invoices from overseas. Blurry. No labels. Faded thermal paper you can barely read. Then you type them in. One by one. 3-4 hours. Every day. And if one number is wrong — the total doesn't match. You start over. You're not doing accounting. You're just encoding. What if something else handled that for you?"
+    - **Solution:** "Resibo does the encoding. You do the accounting. Upload any receipt or invoice — local or international. Resibo reads it and extracts the data — vendor, amount, date, tax rate — in seconds. Review it. Fix anything with one click. Export to Excel, CSV, PDF, or JSON. Your 3-4 hours of encoding? Now it takes 5 minutes."
     - **How It Works:** 1. Upload — Drag and drop. Single or batch. 2. Review — Check the data. Fix with one click. 3. Export — Excel, CSV, PDF, JSON, DOCX.
     - **Demo Video:** [placeholder until Thursday]
     - **Proof:** [placeholder until testimonials collected]
@@ -420,7 +421,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
     > 3. May na-encounter ka bang error or confusing na part?
     > 4. Anong feature ang pinaka-useful so far?
     > 5. Honest question — babayaran mo ba to? Magkano ang fair sa tingin mo?
-    > 6. Do you handle international clients? Would Resibo be useful for those receipts too?
+    > 6. Na-try mo na ba for international receipts/invoices? Kumusta?
     >
     > No wrong answers. Need ko lang yung totoo para ma-improve namin.
   - Ask Glenn for screen recording of a clean extraction
@@ -507,7 +508,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   ```
   Hey! Quick update — nag-join ka sa Resibo community diba?
   
-  Malaki na progress namin. This week we tested on real PH receipts
+  Malaki na progress namin. This week we tested on real receipts — local and international —
   and [X]/[Y] ang na-extract correctly.
   
   If you haven't joined the group yet: [GROUP URL]
@@ -556,7 +557,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
     >
     > Today, Resibo is officially open.
     >
-    > **What it does:** Upload any PH receipt. Resibo extracts the data. You review. You export. Tapos.
+    > **What it does:** Upload any receipt or invoice — local or international. Resibo extracts the data. You review. You export. Tapos.
     >
     > **The deal:** Lifetime access. One-time payment.
     > → Starter: ₱1,999 (100 receipts/mo, basic exports)
@@ -751,9 +752,10 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Continue in external groups
   - Nurture community for Phase 2
 
-- [ ] **Step 4: Evaluate Phase 2 expansion**
-  - Review beta feedback on international clients
-  - If 3+ said yes → plan CoA/tax rate expansion
+- [ ] **Step 4: Evaluate Phase 2**
+  - Review beta feedback on international receipt accuracy
+  - Identify top feature requests from buyers
+  - Plan next development cycle with Glenn
 
 ---
 
