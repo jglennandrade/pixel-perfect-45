@@ -4,9 +4,20 @@
 
 **Goal:** Execute Resibo's 3-week pre-launch strategy — setup accounts, create content, run free beta, collect proof, build landing page, and open launch window with 10 paying lifetime deal buyers as the target.
 
-**Architecture:** Two-person team (Gab = co-founder, marketing/ops, Glenn = founder/dev). Gab executes morning content block (4 hrs) + afternoon product coordination (2-3 hrs). Calendar runs Apr 8-27 with checkpoints on Apr 13 (pricing lock) and Apr 20 (go/no-go).
+**Architecture:** Two-person team (Gab = co-founder, marketing/ops, Glenn = founder/dev). Gab executes morning content block (4 hrs) + afternoon product coordination (2-3 hrs).
+
+**Timeline:** EIN arrives ~April 28 (Stripe Atlas, 20-day processing). Can't charge until Stripe is active. This gives us 3 full weeks of audience building + beta + proof collection before the launch window opens.
+
+- **Week 1 (Apr 8-13):** Setup + MVP done (Apr 9) + beta starts + problem content
+- **Week 2 (Apr 14-20):** Teaser content + proof collection + landing page build
+- **Week 3 (Apr 21-27):** Demo content + more proof + launch prep + polish everything
+- **Week 4 (Apr 28+):** EIN arrives → Stripe activated → LAUNCH WINDOW (5 days)
+
+**Checkpoints:** Apr 13 (pricing lock), Apr 20 (mid-check), Apr 27 (go/no-go)
 
 **Content approach:** 1 quality video per session. No batch recording pressure. Video ideas stay in a bank — pick the best one for that day based on what's performing. Quality > quantity.
+
+**MVP done:** April 9 (tomorrow). Beta starts immediately.
 
 ---
 
@@ -164,9 +175,9 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ### Task 2: Beta Outreach (Tuesday Apr 8 — Afternoon)
 
-- [ ] **Step 1: Message Glenn about MVP readiness**
-  - Ask: "Is the core loop stable enough for 5 testers by Friday?"
-  - Note Glenn's answer
+- [ ] **Step 1: Message Glenn — MVP confirmed for tomorrow**
+  - Confirm: core loop will be stable enough for testers by Wednesday Apr 9
+  - Note any last-minute blockers
 
 - [ ] **Step 2: Message beta candidates**
   - Send warm messages to: Kevin, Noel, Charmee, Ems, Alex
@@ -175,26 +186,26 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   Hey [name]! Quick update — yung tool na pinag-usapan natin
   for receipt encoding, almost ready na for testing. 
   
-  We're opening it to a small group this Friday.
+  We're opening it tomorrow/this week.
   Interested ka ba maging one of the first to try?
   Free lang — need ko lang ng honest feedback.
   ```
   - Track: Name | Responded Y/N | Date
 
 - [ ] **Step 3: Prep beta onboarding materials**
-  - Beta invite message = Task 5 Step 2
+  - Beta invite message = Task 4 Step 2
   - Beta feedback questions = Task 8 Step 4
   - Testimonial request = Task 9 Step 2
-  - Save all three in one doc for quick access Friday
+  - Save all three in one doc for quick access tomorrow
 
 - [ ] **Step 4: Milestone check**
-  - ✅ Glenn confirmed MVP timeline
+  - ✅ Glenn confirmed MVP tomorrow
   - ✅ 3-5 beta candidates warmed up
   - ✅ Beta scripts ready
 
 ---
 
-### Task 3: First Video + First Group Post (Wednesday Apr 9)
+### Task 3: First Video + First Group Post (Wednesday Apr 9 — Morning)
 
 - [ ] **Step 1: Set up recording space**
   - Phone vertical (9:16), ring light or window, clean desk with receipts + laptop
@@ -203,24 +214,51 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 - [ ] **Step 2: Record Video 1 — "180 Receipts"**
   - Hook (text overlay): "180 receipts. Mano-mano. Araw-araw."
   - Visual: close-up hands typing in Excel, stack of receipts
-  - VO: "Sa mga bookkeeper na nag-e-encode araw-araw... ilang oras na ang nawala?"
-  - End text: "How many hours have you lost?"
+  - Text appears line by line: "180 receipts." → "Mano-mano." → "Araw-araw." → "3 hours na." → "Hindi pa tapos." → "Ilang oras na ang nawala?"
   - Duration: 15-20 seconds. No CTA. Pure relatability.
+  - Faceless: hands-only POV or text-on-screen with desk b-roll
   - Record 2-3 takes. Pick the best.
 
 - [ ] **Step 3: Edit in CapCut**
-  - Text overlay on first frame (the hook)
-  - Captions/subtitles
-  - Trim dead air — first frame = hook
+  - Bold white text, black outline, center screen
+  - Hard cuts between text lines (no fades, no transitions)
+  - Trending lo-fi beat or natural keyboard/paper sounds
+  - Trim dead air — first frame = hook text
 
 - [ ] **Step 4: Publish on TikTok (7-9 PM PHT)**
   - Caption + hashtags: #bookkeeper #bookkeepersofph #accountingph #cpaph #freelancebookkeeper #excelph #resiboapp
   - Pin comment with bio link
 
 - [ ] **Step 5: Cross-post to FB Group (native upload)**
-  - Caption: "180 receipts. Mano-mano. Araw-araw. Sino dito ganun din? 😅"
+  - Caption: "180 receipts. Mano-mano. Araw-araw. Sino dito ganun din?"
 
-- [ ] **Step 6: Post A1 (Discovery Question) in 2 external groups**
+---
+
+### Task 4: MVP Done + Beta Launch (Wednesday Apr 9 — Afternoon)
+
+- [ ] **Step 1: Confirm MVP is live with Glenn**
+  - Test the core loop yourself: upload → extract → review → export
+  - If critical issues: delay beta to Thursday
+
+- [ ] **Step 2: Send beta invites**
+  - Send this to each confirmed tester (personalize with name):
+    > Hey [name]! Remember yung tool na pinag-usapan natin for receipt encoding?
+    >
+    > Ready na siya for testing. Gusto ko ikaw maging isa sa unang mga bookkeeper na mag-try.
+    >
+    > Free lang — walang bayad, walang catch. Ang need ko lang:
+    > 1. Upload 10-20 real receipts mo (thermal, GCash, PDF, kahit ano)
+    > 2. Check kung tama yung na-extract
+    > 3. Sabihin mo sa akin kung ano ang maganda at ano ang kailangan i-fix
+    >
+    > Here's the link: [APP URL]
+    >
+    > Kapag may feedback ka, message mo lang ako directly. Lahat ng sinabi mo, babaguhin namin.
+    >
+    > Game?
+  - Track: Name | Invite Sent | Started Testing Y/N
+
+- [ ] **Step 3: Post A1 (Discovery Question) in 2 external groups**
   - No links. No Resibo mention. Reply to every comment within 2 hours.
   - Post this:
     > Curious lang — sa mga bookkeeper dito, gaano katagal kayo mag-encode ng receipts per client per month?
@@ -231,7 +269,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 4: Engage + Outreach (Thursday Apr 10)
+### Task 5: Engage + Outreach (Thursday Apr 10)
 
 - [ ] **Step 1: Post A2 (Relatable Story) in 2 new external groups**
   - Post this:
@@ -256,38 +294,21 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Pick from bank: Video 2, 3, 4, or 5
   - If you have energy and time, record 1 more. If not, skip — focus on DMs.
 
-- [ ] **Step 4: Check beta responses + prep Friday**
-  - Follow up with non-responders
-  - Get the app URL from Glenn
-  - Have beta invite message ready to send tomorrow
+- [ ] **Step 4: Check beta tester responses**
+  - Follow up with anyone who hasn't started testing
+  - "Na-try mo na? No rush — curious lang sa results."
 
 ---
 
-### Task 5: MVP Done + Beta Launch (Friday Apr 11)
+### Task 6: Beta Follow-Up + Dev Update (Friday Apr 11)
 
-- [ ] **Step 1: Confirm MVP is live with Glenn**
-  - Test the core loop yourself: upload → extract → review → export
-  - If critical issues: delay beta to Saturday
+- [ ] **Step 1: Beta tester check-in**
+  - Message each: "Kumusta? Na-try mo na mag-upload?"
+  - If yes: "How did it go? Anong na-extract?"
+  - If no: "No rush! Try 5-10 receipts pag may time ka."
+  - Screenshot any good results. Relay bugs to Glenn.
 
-- [ ] **Step 2: Send beta invites**
-  - Send this to each confirmed tester (personalize with name):
-    > Hey [name]! Remember yung tool na pinag-usapan natin for receipt encoding?
-    >
-    > Ready na siya for testing. Gusto ko ikaw maging isa sa unang mga bookkeeper na mag-try.
-    >
-    > Free lang — walang bayad, walang catch. Ang need ko lang:
-    > 1. Upload 10-20 real receipts mo (thermal, GCash, PDF, kahit ano)
-    > 2. Check kung tama yung na-extract
-    > 3. Sabihin mo sa akin kung ano ang maganda at ano ang kailangan i-fix
-    >
-    > Here's the link: [APP URL]
-    >
-    > Kapag may feedback ka, message mo lang ako directly. Lahat ng sinabi mo, babaguhin namin.
-    >
-    > Game?
-  - Track: Name | Invite Sent | Started Testing Y/N
-
-- [ ] **Step 3: Post Dev Update in FB Group**
+- [ ] **Step 2: Post Dev Update in FB Group**
   ```
   Dev update from Glenn:
   
@@ -300,23 +321,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   [Attach: screenshot of extraction result]
   ```
 
-- [ ] **Step 4: Continue DM outreach + engagement**
-  - DM new commenters. Follow up on yesterday's conversations.
-
-- [ ] **Step 5: Record + publish next video (optional)**
-  - Pick from bank based on what felt natural this week
-
----
-
-### Task 6: Beta Follow-Up + Engagement (Saturday Apr 12)
-
-- [ ] **Step 1: Beta tester check-in**
-  - Message each: "Kumusta? Na-try mo na mag-upload?"
-  - If yes: "How did it go? Anong na-extract?"
-  - If no: "No rush! Try 5-10 receipts pag may time ka."
-  - Screenshot any good results. Relay bugs to Glenn.
-
-- [ ] **Step 2: Post A3 (Poll) in 1-2 new external groups**
+- [ ] **Step 3: Post A3 (Poll) in 1-2 new external groups**
   - Post this:
     > Real talk: ano yung pinaka-ayaw nyo na part ng bookkeeping?
     >
@@ -327,8 +332,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
     >
     > Comment your answer.
 
-- [ ] **Step 3: Record + publish next video (optional)**
-  - Cross-post best performing video so far to FB Group if you haven't yet
+- [ ] **Step 4: Record + publish next video (optional)**
 
 ---
 
@@ -580,9 +584,11 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-## Phase 3: Week 3 — Demo Content + Launch (Apr 21-27)
+## Phase 3: Week 3 — Demo Content + Audience Growth (Apr 21-27)
 
-### Task 15: Demo Content Week (Mon-Wed Apr 21-23)
+*Extra week before launch. EIN not here yet. Use this to stack more proof, grow audience bigger, and polish everything.*
+
+### Task 15: Demo Content Push (Mon-Wed Apr 21-23)
 
 - [ ] **Step 1: Monday — Publish hero demo video**
   - The 90-sec demo from Task 11 → TikTok + FB Group + everywhere
@@ -598,9 +604,47 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 16: Pre-Launch Push (Thu-Fri Apr 24-25)
+### Task 16: Grow + Polish (Thu-Sun Apr 24-27)
 
-- [ ] **Step 1: Thursday — Publish transformation video**
+- [ ] **Step 1: Keep posting in external groups daily**
+  - You have an extra week — use it to grow the Messenger list and group
+  - Target by end of Week 3: 50-100 group members, 50-80 on Messenger
+  - More DM outreach. More conversations. More proof.
+
+- [ ] **Step 2: Collect more testimonials**
+  - Onboard 5+ more beta testers from DM conversations
+  - Get more quotes, more screenshots, more accuracy data
+  - The more proof you launch with, the easier the sale
+
+- [ ] **Step 3: Polish landing page**
+  - Add all testimonials collected
+  - Update accuracy stats with latest data
+  - Final mobile test
+  - Have 2-3 people review the page and give feedback
+
+- [ ] **Step 4: Sunday Apr 27 — Final GO/NO-GO**
+  - EIN arriving this week? Check email/Atlas status.
+  - [ ] Product: reliable?
+  - [ ] Proof: 5+ testimonials, accuracy data, demo video?
+  - [ ] Landing page: polished and tested?
+  - [ ] Audience: 50+ in group, 50+ on Messenger?
+  - [ ] Payment: EIN received? Stripe activated?
+  - If EIN not here yet: launch shifts to when it arrives. Content machine keeps running.
+
+---
+
+## Phase 4: Week 4 — Pre-Launch + LAUNCH (Apr 28 - May 3)
+
+*EIN arrives ~April 28. Stripe activates. Launch window opens.*
+
+### Task 17: Pre-Launch Push (Mon-Wed Apr 28-30)
+
+- [ ] **Step 1: Monday — Activate Stripe**
+  - EIN arrived → complete Stripe setup
+  - Test payment flow for all 3 tiers (test mode then live)
+  - Confirm: payment → confirmation → access works
+
+- [ ] **Step 2: Tuesday — Publish transformation video**
   - Video 14 ("The Upgrade"): "Buong araw mo nasa encoding. Hindi ka nag-a-account."
   - Messenger broadcast #2: "2 days."
   - FB Group: Pre-launch announcement
@@ -617,11 +661,11 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   This group shaped what we built. For real.
   ```
 
-- [ ] **Step 2: Friday — Countdown**
+- [ ] **Step 3: Wednesday — Countdown**
   - Video 15 ("2 araw na lang.") on TikTok
   - Final prep checklist:
-    - [ ] Landing page tested
-    - [ ] Stripe working for all 3 tiers
+    - [ ] Stripe live and tested for all 3 tiers
+    - [ ] Landing page final review
     - [ ] Launch post written with real quotes (from Task 14)
     - [ ] Messenger blast ready (from Task 14)
     - [ ] Beta users notified: "You're getting Pro for free on launch day"
@@ -629,7 +673,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 17: LAUNCH DAY (Saturday Apr 26 or Sunday Apr 27)
+### Task 18: LAUNCH DAY (Thursday May 1 or Friday May 2)
 
 - [ ] **Step 1: Post launch announcement in FB Group**
   - Use the launch post from Task 14 Step 4 (with real testimonials filled in). Pin it.
@@ -656,7 +700,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 18: Launch Window Days 2-5 (Apr 27-30)
+### Task 19: Launch Window Days 2-5 (May 2-6)
 
 - [ ] **Step 1: Daily — 1 video or post**
   - Reuse best performers with new hooks (70/20/10)
@@ -679,7 +723,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 19: Post-Launch (Week 4+)
+### Task 20: Post-Launch (Week 5+)
 
 - [ ] **Step 1: Tally final results**
   - Total buyers: ___ (target: 10)
@@ -718,14 +762,17 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 | Date | Milestone |
 |------|-----------|
 | Tue Apr 8 | Setup day — all accounts live |
-| Wed Apr 9 | First video + first group post |
-| Fri Apr 11 | MVP done → beta starts |
+| Wed Apr 9 | **MVP done → beta starts + first video** |
+| Fri Apr 11 | Beta follow-up + first dev update |
 | Sun Apr 13 | Pricing lock checkpoint |
 | Mon Apr 14 | Landing page build begins |
 | Thu Apr 17 | Demo video recorded |
 | Fri Apr 18 | Landing page live (soft) |
-| Sun Apr 20 | GO / NO-GO decision |
-| Mon-Fri Apr 21-25 | Demo content + launch prep |
-| Sat/Sun Apr 26-27 | LAUNCH DAY |
-| Apr 27-30 | Launch window (5 days) |
-| May 4+ | Post-launch feedback + Phase 2 eval |
+| Sun Apr 20 | Mid-check (audience + proof progress) |
+| Apr 21-27 | Week 3: demo content + grow audience + polish |
+| Sun Apr 27 | Final GO / NO-GO (depends on EIN) |
+| ~Apr 28 | **EIN arrives → Stripe activated** |
+| Apr 29-30 | Pre-launch push + countdown content |
+| **May 1-2** | **LAUNCH DAY** |
+| May 2-6 | Launch window (5 days) |
+| May 10+ | Post-launch feedback + Phase 2 eval |
