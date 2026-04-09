@@ -193,8 +193,8 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 - [ ] **Step 3: Prep beta onboarding materials**
   - Beta invite message = Task 5 Step 1
-  - Beta feedback questions = Task 8 Step 4
-  - Testimonial request = Task 9 Step 2
+  - Beta feedback questions = Task 7 Step 4
+  - Testimonial request = Task 8 Step 2
   - Save all three in one doc for quick access Sunday
 
 ---
@@ -332,7 +332,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ## Phase 2: Week 2 — Teaser + Proof + Landing Page (Apr 14-20)
 
-### Task 8: Landing Page + Teaser Content (Monday Apr 14)
+### Task 7: Landing Page + Teaser Content (Monday Apr 14)
 
 - [ ] **Step 1: Record + publish teaser video**
   - Pick from bank: Video 6 ("What If"), 8 ("Encoding Machine"), or 10 ("The Question")
@@ -378,7 +378,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 9: Proof Collection (Tuesday Apr 15)
+### Task 8: Proof Collection (Tuesday Apr 15)
 
 - [ ] **Step 1: Post Dev Update in FB Group**
   - Focus on review screen working. Include screenshot.
@@ -404,7 +404,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 10: Real Footage Video (Wednesday Apr 16)
+### Task 9: Real Footage Video (Wednesday Apr 16)
 
 - [ ] **Step 1: Record + publish video with real extraction footage**
   - Pick: Video 7 ("Manual vs AI") or Video 9 ("GCash Test")
@@ -417,7 +417,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 11: Demo Video Day (Thursday Apr 17)
+### Task 10: Demo Video Day (Thursday Apr 17)
 
 - [ ] **Step 1: Record 90-second demo video with Glenn**
   - Flow: real thermal receipt → upload → data appearing → review → fix one field → export
@@ -434,7 +434,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 12: Landing Page Live + Payment Test (Friday Apr 18)
+### Task 11: Landing Page Live + Payment Test (Friday Apr 18)
 
 - [ ] **Step 1: Landing page goes live (soft — not promoted)**
   - Final review of all copy, pricing, proof
@@ -452,7 +452,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 13: Messenger Broadcast + Final Beta Check (Saturday Apr 19)
+### Task 12: Messenger Broadcast + Final Beta Check (Saturday Apr 19)
 
 - [ ] **Step 1: Send Messenger broadcast #1**
   ```
@@ -475,7 +475,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 14: Go/No-Go Decision (Sunday Apr 20)
+### Task 13: Mid-Check (Sunday Apr 20)
 
 - [ ] **Step 1: Review Week 2 KPIs**
   - All Week 1 metrics + :
@@ -539,10 +539,10 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 *Extra week before launch. EIN not here yet. Use this to stack more proof, grow audience bigger, and polish everything.*
 
-### Task 15: Demo Content Push (Mon-Wed Apr 21-23)
+### Task 14: Demo Content Push (Mon-Wed Apr 21-23)
 
 - [ ] **Step 1: Monday — Publish hero demo video**
-  - The 90-sec demo from Task 11 → TikTok + FB Group + everywhere
+  - The 90-sec demo from Task 10 → TikTok + FB Group + everywhere
   - FB Group: Receipt Challenge post ("Send your WORST receipt. We'll run it.")
 
 - [ ] **Step 2: Tuesday — Dev Update in FB Group**
@@ -555,7 +555,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 16: Grow + Polish (Thu-Sun Apr 24-27)
+### Task 15: Grow + Polish (Thu-Sun Apr 24-27)
 
 - [ ] **Step 1: Keep posting in external groups daily**
   - You have an extra week — use it to grow the Messenger list and group
@@ -588,7 +588,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 *EIN arrives ~April 28. Stripe activates. Launch window opens.*
 
-### Task 17: Pre-Launch Push (Mon-Wed Apr 28-30)
+### Task 16: Pre-Launch Push (Mon-Wed Apr 28-30)
 
 - [ ] **Step 1: Monday — Activate Stripe**
   - EIN arrived → complete Stripe setup
@@ -617,20 +617,20 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
   - Final prep checklist:
     - [ ] Stripe live and tested for all 3 tiers
     - [ ] Landing page final review
-    - [ ] Launch post written with real quotes (from Task 14)
-    - [ ] Messenger blast ready (from Task 14)
+    - [ ] Launch post written with real quotes (from Task 13)
+    - [ ] Messenger blast ready (from Task 13)
     - [ ] Beta users notified: "You're getting Pro for free on launch day"
     - [ ] Glenn briefed for launch day tech support
 
 ---
 
-### Task 18: LAUNCH DAY (Thursday May 1 or Friday May 2)
+### Task 17: LAUNCH DAY (Thursday May 1 or Friday May 2)
 
 - [ ] **Step 1: Post launch announcement in FB Group**
-  - Use the launch post from Task 14 Step 4 (with real testimonials filled in). Pin it.
+  - Use the launch post from Task 13 Step 3 (with real testimonials filled in). Pin it.
 
 - [ ] **Step 2: Send Messenger launch blast**
-  - Use the Messenger blast from Task 14 Step 4. Send to entire list.
+  - Use the Messenger blast from Task 13 Step 3. Send to entire list.
 
 - [ ] **Step 3: Cross-post demo video to TikTok with launch caption**
 
@@ -651,7 +651,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 19: Launch Window Days 2-5 (May 2-6)
+### Task 18: Launch Window Days 2-5 (May 2-6)
 
 - [ ] **Step 1: Daily — 1 video or post**
   - Reuse best performers with new hooks (70/20/10)
@@ -674,7 +674,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 20: Post-Launch (Week 5+)
+### Task 19: Post-Launch (Week 5+)
 
 - [ ] **Step 1: Tally final results**
   - Total buyers: ___ (target: 10)
