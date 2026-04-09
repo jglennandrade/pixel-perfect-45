@@ -8,7 +8,7 @@
 
 **Timeline:** EIN arrives ~April 28 (Stripe Atlas, 20-day processing). Can't charge until Stripe is active. This gives us 3 full weeks of audience building + beta + proof collection before the launch window opens.
 
-- **Week 1 (Apr 8-13):** Setup + MVP done (Apr 9) + beta starts + problem content
+- **Week 1 (Apr 8-13):** Setup + content starts + beta starts Sunday Apr 13
 - **Week 2 (Apr 14-20):** Teaser content + proof collection + landing page build
 - **Week 3 (Apr 21-27):** Demo content + more proof + launch prep + polish everything
 - **Week 4 (Apr 28+):** EIN arrives → Stripe activated → LAUNCH WINDOW (5 days)
@@ -17,7 +17,7 @@
 
 **Content approach:** 1 quality video per session. No batch recording pressure. Video ideas stay in a bank — pick the best one for that day based on what's performing. Quality > quantity.
 
-**MVP done:** April 9 (tomorrow). Beta starts immediately.
+**MVP done:** April 9. Beta starts Sunday April 13 (when day job pending tasks clear).
 
 ---
 
@@ -173,35 +173,29 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 2: Beta Outreach (Tuesday Apr 8 — Afternoon)
+### Task 2: Beta Outreach (Anytime this week — when you have time)
 
-- [ ] **Step 1: Message Glenn — MVP confirmed for tomorrow**
-  - Confirm: core loop will be stable enough for testers by Wednesday Apr 9
-  - Note any last-minute blockers
+- [ ] **Step 1: Confirm MVP status with Glenn**
+  - Core loop should be ready by Sunday Apr 13
 
-- [ ] **Step 2: Message beta candidates**
+- [ ] **Step 2: Warm up beta candidates**
   - Send warm messages to: Kevin, Noel, Charmee, Ems, Alex
   - Message (NOT the beta invite yet — warming them up):
   ```
   Hey [name]! Quick update — yung tool na pinag-usapan natin
   for receipt encoding, almost ready na for testing. 
   
-  We're opening it tomorrow/this week.
+  We're opening it this Sunday.
   Interested ka ba maging one of the first to try?
   Free lang — need ko lang ng honest feedback.
   ```
   - Track: Name | Responded Y/N | Date
 
 - [ ] **Step 3: Prep beta onboarding materials**
-  - Beta invite message = Task 4 Step 2
+  - Beta invite message = Task 5 Step 1
   - Beta feedback questions = Task 8 Step 4
   - Testimonial request = Task 9 Step 2
-  - Save all three in one doc for quick access tomorrow
-
-- [ ] **Step 4: Milestone check**
-  - ✅ Glenn confirmed MVP tomorrow
-  - ✅ 3-5 beta candidates warmed up
-  - ✅ Beta scripts ready
+  - Save all three in one doc for quick access Sunday
 
 ---
 
@@ -234,11 +228,34 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 4: MVP Done + Beta Launch (Wednesday Apr 9 — Afternoon)
+### Task 4: Engage + Outreach (Thursday-Saturday Apr 10-12)
+
+- [ ] **Step 1: Post in external groups when you have time**
+  - Post A2 (Relatable Story) in 1-2 groups:
+    > Nag-encode ako kagabi ng 105 receipts for one client. 4 hours. Tapos pagkatapos, hindi nag-tally yung total.
+    >
+    > Isa lang pala na receipt yung mali yung amount ko. Isa.
+    >
+    > Sino dito na-experience na yung ganun?
+
+- [ ] **Step 2: DM any commenters from group posts**
+  - Use CLOSER script:
+    1. **Clarify:** "Hey! Bookkeeper ka ba or accountant? Ilang clients?"
+    2. **Label:** "So [X] clients, tapos manual encoding? Ilang oras per day?"
+    3. **Overview:** "Na-try mo na ibang tool? Or Excel lang?"
+    4. **Sell vacation:** "Imagine yung 3-4 hours, maging 5 minutes. More clients, more income."
+    5. **Invite:** "May community kami ng bookkeepers — real updates, not marketing. Gusto mo sumali?"
+
+- [ ] **Step 3: Record + publish next video (optional)**
+  - Only if you have time around your day job. No pressure.
+
+---
+
+### Task 5: Beta Launch (Sunday Apr 13)
 
 - [ ] **Step 1: Confirm MVP is live with Glenn**
   - Test the core loop yourself: upload → extract → review → export
-  - If critical issues: delay beta to Thursday
+  - If critical issues: delay beta to Monday
 
 - [ ] **Step 2: Send beta invites**
   - Send this to each confirmed tester (personalize with name):
@@ -269,74 +286,7 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 
 ---
 
-### Task 5: Engage + Outreach (Thursday Apr 10)
-
-- [ ] **Step 1: Post A2 (Relatable Story) in 2 new external groups**
-  - Post this:
-    > Nag-encode ako kagabi ng 105 receipts for one client. 4 hours. Tapos pagkatapos, hindi nag-tally yung total.
-    >
-    > Isa lang pala na receipt yung mali yung amount ko. Isa.
-    >
-    > Sino dito na-experience na yung ganun?
-
-- [ ] **Step 2: Start DM outreach**
-  - DM the top 5-10 commenters from yesterday
-  - Use CLOSER script:
-    1. **Clarify:** "Hey! Bookkeeper ka ba or accountant? Ilang clients?"
-    2. **Label:** "So [X] clients, tapos manual encoding? Ilang oras per day?"
-    3. **Overview:** "Na-try mo na ibang tool? Or Excel lang?"
-    4. **Sell vacation:** "Imagine yung 3-4 hours, maging 5 minutes. More clients, more income."
-    5. **Invite:** "May community kami ng PH bookkeepers — real updates, not marketing. Gusto mo sumali?"
-  - Goal: 2-3 real conversations → invite to group
-  - Add anyone who joins to Messenger list
-
-- [ ] **Step 3: Record + publish next video (optional)**
-  - Pick from bank: Video 2, 3, 4, or 5
-  - If you have energy and time, record 1 more. If not, skip — focus on DMs.
-
-- [ ] **Step 4: Check beta tester responses**
-  - Follow up with anyone who hasn't started testing
-  - "Na-try mo na? No rush — curious lang sa results."
-
----
-
-### Task 6: Beta Follow-Up + Dev Update (Friday Apr 11)
-
-- [ ] **Step 1: Beta tester check-in**
-  - Message each: "Kumusta? Na-try mo na mag-upload?"
-  - If yes: "How did it go? Anong na-extract?"
-  - If no: "No rush! Try 5-10 receipts pag may time ka."
-  - Screenshot any good results. Relay bugs to Glenn.
-
-- [ ] **Step 2: Post Dev Update in FB Group**
-  ```
-  Dev update from Glenn:
-  
-  Started testing extraction on real receipts this week — local and international.
-  Early results: amount and vendor consistent.
-  Date extraction still needs work on faded receipts.
-  
-  Working on improving. More updates next week.
-  
-  [Attach: screenshot of extraction result]
-  ```
-
-- [ ] **Step 3: Post A3 (Poll) in 1-2 new external groups**
-  - Post this:
-    > Real talk: ano yung pinaka-ayaw nyo na part ng bookkeeping?
-    >
-    > A) Encoding receipts manually
-    > B) Pag-habol ng BIR deadlines
-    > C) Pag-tally na hindi nag-match
-    > D) Lahat ng nasa taas haha
-    >
-    > Comment your answer.
-
-- [ ] **Step 4: Record + publish next video (optional)**
-
----
-
-### Task 7: Week 1 Review + Pricing Lock (Sunday Apr 13)
+### Task 6: Week 1 Review + Pricing Lock (Sunday Apr 13 — after beta invites sent)
 
 - [ ] **Step 1: Review Week 1 KPIs**
   - TikTok followers: ___ / Total views: ___ / Avg comments: ___
@@ -764,9 +714,9 @@ All 15 video concepts. Pick 1 per day based on what's relevant. No fixed order r
 | Date | Milestone |
 |------|-----------|
 | Tue Apr 8 | Setup day — all accounts live |
-| Wed Apr 9 | **MVP done → beta starts + first video** |
-| Fri Apr 11 | Beta follow-up + first dev update |
-| Sun Apr 13 | Pricing lock checkpoint |
+| Wed Apr 9 | MVP done + first video |
+| Thu-Sat Apr 10-12 | Engage + outreach (light — day job priority) |
+| **Sun Apr 13** | **Beta launch + pricing lock checkpoint** |
 | Mon Apr 14 | Landing page build begins |
 | Thu Apr 17 | Demo video recorded |
 | Fri Apr 18 | Landing page live (soft) |
