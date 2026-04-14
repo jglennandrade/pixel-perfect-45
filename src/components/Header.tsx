@@ -42,7 +42,7 @@ const Header = () => {
           setScrollUpStart(y);
         } else {
           // Show navbar once they've scrolled up 5% of viewport height
-          const threshold = window.innerHeight * 0.80;
+          const threshold = window.innerHeight * 0.15;
           if (scrollUpStart - y >= threshold) {
             setHidden(false);
           }
@@ -110,8 +110,20 @@ const Header = () => {
           />
         </Link>
 
-        {/* RIGHT — Language toggle + "menu" text + hamburger */}
+        {/* RIGHT — CTA + Language toggle + "menu" text + hamburger */}
         <div className="relative z-50 flex items-center gap-3">
+          {/* Free Case Review CTA — appears on scroll */}
+          <button
+            onClick={() => {
+              document.getElementById("form-section")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={`hidden sm:block font-dm text-[11px] font-bold px-4 py-2 rounded-full bg-cta text-white hover:bg-cta-hover transition-all duration-300 ${
+              scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+          >
+            {t("header.freeCaseReview")}
+          </button>
+
           {/* EN/ES pill toggle */}
           <div className="flex bg-white/[0.12] rounded-full p-[3px] gap-[2px]">
             <button

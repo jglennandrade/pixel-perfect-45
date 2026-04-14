@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white">
       <div className="max-w-6xl mx-auto px-6 py-14">
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
           {/* Brand */}
           <div>
             <img src={darwinLogo} alt="Darwin F. Johnson" className="h-7 w-auto mb-4" />
