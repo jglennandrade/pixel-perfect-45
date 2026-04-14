@@ -1887,8 +1887,7 @@ const FinalCTA = () => {
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         <ScrollReveal>
           <h2 className="font-bebas text-white text-5xl md:text-7xl lg:text-[110px] tracking-wide leading-[0.95] mb-14">
-            {t("index.final.headline1")}<br />
-            {t("index.final.headline2")}<br />
+            {t("index.final.headline1")} {t("index.final.headline2")}<br />
             <span className="text-cta">{t("index.final.headline3")}</span>
           </h2>
 
