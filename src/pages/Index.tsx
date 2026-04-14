@@ -1315,7 +1315,7 @@ const StatsSection = () => {
 
     {/* ── PART 3: White — stat cards + employer logos ── */}
     <section
-      className="relative pt-0 pb-24 md:pb-36 px-6 overflow-hidden -mt-16 md:-mt-24"
+      className="relative pt-0 pb-24 md:pb-36 px-6 overflow-hidden -mt-8 md:-mt-24"
       style={{ background: "transparent" }}
     >
       <div className="relative z-10 max-w-6xl mx-auto text-center">
