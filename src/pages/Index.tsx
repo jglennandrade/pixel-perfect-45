@@ -1595,7 +1595,7 @@ const DarwinGuarantee = () => {
         {/* CTA with urgency */}
         <ScrollReveal delay={0.3}>
           <div className="text-center">
-            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-6 !px-12 !text-xl">
+            <button onClick={scrollToForm} className="cta-btn-primary cta-pulse !py-6 !px-12 !text-base md:!text-xl max-w-sm md:max-w-none">
               {t("index.guarantee.cta")}
             </button>
             <div className="flex items-center justify-center gap-3 mt-6">
