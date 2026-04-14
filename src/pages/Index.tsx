@@ -115,7 +115,7 @@ const VideoPlayer = ({ videoScale, videoBR, videoOpacity, videoY }: { videoScale
       {/* Thumbnail — click to open modal */}
       <motion.div
         style={{ scale: videoScale, borderRadius: videoBR, opacity: videoOpacity, y: videoY }}
-        className="relative z-10 aspect-video bg-dark overflow-hidden cursor-pointer group mx-4 md:mx-16 lg:mx-auto lg:max-w-5xl shadow-[0_20px_80px_rgba(0,0,0,0.25)] rounded-xl"
+        className="relative z-10 aspect-video bg-dark overflow-hidden cursor-pointer group mx-2 md:mx-16 lg:mx-auto lg:max-w-5xl shadow-[0_20px_80px_rgba(0,0,0,0.25)] rounded-xl"
         onClick={openModal}
       >
         <video
@@ -403,17 +403,18 @@ const HeroAndVideo = () => {
             </a>
           </div>
 
-          {/* Actual review cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-            {[
-              { quote: "He was always available to answer my questions, address my concerns, and provide emotional support during what was an incredibly stressful time. His compassionate nature made me feel valued as a person, not just a client.", name: "Connie C.", platform: "google" as const, rating: 5 },
+          {/* Actual review cards — show 2 on mobile, all 6 on desktop */}
+          {(() => {
+            const reviews = [
               { quote: "From the first call all the way to the settlement, Mr Johnson was always available to answer all my questions. This law firm is the BEST!", name: "David M.", platform: "google" as const, rating: 5 },
-              { quote: "This was my first worker's comp case and I know I made the right decision choosing Attorney Darwin Johnson. The firm was knowledgeable, professional, and understanding.", name: "Former Client", platform: "avvo" as const, rating: 5 },
               { quote: "He was very straight forward and got me the best offer for my settlement. You'll be in great hands.", name: "Adtresa M.", platform: "google" as const, rating: 5 },
+              { quote: "He was always available to answer my questions, address my concerns, and provide emotional support during what was an incredibly stressful time. His compassionate nature made me feel valued as a person, not just a client.", name: "Connie C.", platform: "google" as const, rating: 5 },
+              { quote: "This was my first worker's comp case and I know I made the right decision choosing Attorney Darwin Johnson. The firm was knowledgeable, professional, and understanding.", name: "Former Client", platform: "avvo" as const, rating: 5 },
               { quote: "Attorney Johnson has a heart. He and his staff nurtured me through a very difficult time and achieved a fair settlement expediently.", name: "Sonya W.", platform: "avvo" as const, rating: 5 },
               { quote: "Darwin Johnson is the best in the state of Georgia. He is always available whenever you need him. He responds to your calls immediately.", name: "Nicole F.", platform: "google" as const, rating: 5 },
-            ].map((review, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow">
+            ];
+            const ReviewCard = ({ review }: { review: typeof reviews[0] }) => (
+              <div className="bg-white border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-cta text-sm tracking-[2px]">{"★".repeat(review.rating)}</span>
                   {review.platform === "google" ? (
@@ -430,8 +431,20 @@ const HeroAndVideo = () => {
                 <p className="font-dm text-sm text-text-body leading-relaxed mb-3">"{review.quote}"</p>
                 <p className="font-dm text-xs font-bold text-text-dark">{review.name}</p>
               </div>
-            ))}
-          </div>
+            );
+            return (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                {reviews.slice(0, 2).map((review, i) => (
+                  <ReviewCard key={i} review={review} />
+                ))}
+                {reviews.slice(2).map((review, i) => (
+                  <div key={i + 2} className="hidden sm:block">
+                    <ReviewCard review={review} />
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
 
         </div>
       </section>
