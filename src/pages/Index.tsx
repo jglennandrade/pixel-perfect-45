@@ -1293,7 +1293,7 @@ const StatsSection = () => {
     </section>
 
     {/* ── PART 2: Video background — justice scale center stage ── */}
-    <section className="relative overflow-hidden -mt-20 md:-mt-28" style={{ background: "hsl(220 60% 12%)" }}>
+    <section className="relative overflow-hidden -mt-20 md:-mt-28 min-h-[50vh] md:min-h-0" style={{ background: "hsl(220 60% 12%)" }}>
       {/* Video fills this entire section */}
       <video
         autoPlay
@@ -1301,7 +1301,7 @@ const StatsSection = () => {
         loop
         playsInline
         preload="none"
-        className="w-full h-auto block"
+        className="w-full h-full md:h-auto object-cover md:object-contain absolute md:relative inset-0 block"
       >
         <source src="/justice-scale-bg-optimized.mp4" type="video/mp4" />
       </video>
