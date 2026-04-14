@@ -817,16 +817,16 @@ const UnifiedQuiz = () => {
 
                 <span className="font-dm text-xs text-text-muted tracking-[3px] uppercase mb-5">{t("index.quiz.empty.which")}</span>
 
-                <div className="flex flex-row gap-3 md:gap-4 w-full max-w-2xl">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full max-w-2xl">
                   <button
                     onClick={() => { setPath("wc"); setStep(1); scrollToContent(); }}
-                    className="cta-btn-primary !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1 whitespace-nowrap"
+                    className="cta-btn-primary !py-4 !px-6 md:!py-5 md:!px-6 !text-sm md:!text-sm flex-1 whitespace-nowrap"
                   >
                     {t("index.quiz.empty.wc")}
                   </button>
                   <button
                     onClick={() => { setPath("pi"); setStep(1); scrollToContent(); }}
-                    className="cta-btn-outline !py-4 !px-4 md:!py-5 md:!px-6 !text-xs md:!text-sm flex-1 whitespace-nowrap"
+                    className="cta-btn-outline !py-4 !px-6 md:!py-5 md:!px-6 !text-sm md:!text-sm flex-1 whitespace-nowrap"
                   >
                     {t("index.quiz.empty.pi")}
                   </button>
