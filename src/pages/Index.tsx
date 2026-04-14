@@ -1472,31 +1472,35 @@ const CaseResults = () => {
    ═══════════════════════════════════════════════ */
 const DarwinGuarantee = () => {
   const { t } = useLanguage();
+  const highlight = (text: string) => (
+    <span className="bg-cta/20 box-decoration-clone px-1 py-0.5 font-bold text-text-dark">{text}</span>
+  );
+
   const reasons = [
     {
       title: t("index.guarantee.reason1.title"),
       body: [
-        t("index.guarantee.reason1.p1"),
-        t("index.guarantee.reason1.p2"),
-        t("index.guarantee.reason1.p3"),
+        <>{t("index.guarantee.reason1.p1")}</>,
+        <>He's gone toe-to-toe with {highlight("FedEx, UPS, Delta, Walmart, Home Depot")} — and beaten them.</>,
+        <>{t("index.guarantee.reason1.p3")}</>,
       ],
     },
     {
       title: t("index.guarantee.reason2.title"),
       body: [
-        t("index.guarantee.reason2.p1"),
-        t("index.guarantee.reason2.p2"),
-        t("index.guarantee.reason2.p3"),
-        t("index.guarantee.reason2.p4"),
+        <>{highlight("No retainer. No hourly rate. No hidden fees.")}</>,
+        <>Darwin {highlight("only gets paid when you get paid.")}</>,
+        <>{t("index.guarantee.reason2.p3")}</>,
+        <>{t("index.guarantee.reason2.p4")}</>,
       ],
     },
     {
       title: t("index.guarantee.reason3.title"),
       body: [
-        t("index.guarantee.reason3.p1"),
-        t("index.guarantee.reason3.p2"),
-        t("index.guarantee.reason3.p3"),
-        t("index.guarantee.reason3.p4"),
+        <>{t("index.guarantee.reason3.p1")}</>,
+        <>Darwin {highlight("pays for it upfront")}, out of his own pocket.</>,
+        <>{t("index.guarantee.reason3.p3")}</>,
+        <>{highlight("Try finding another Georgia lawyer who'll do that.")}</>,
       ],
     },
   ];
