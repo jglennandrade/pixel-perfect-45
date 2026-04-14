@@ -1432,7 +1432,7 @@ const CaseResults = () => {
               {t("index.cases.badge")}
             </span>
           </div>
-          <h2 className="font-bebas text-white text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
+          <h2 className="font-bebas text-white text-5xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-4">
             {t("index.cases.headline1")}<br />{t("index.cases.headline2")}
           </h2>
           <p className="font-dm text-lg md:text-xl text-white/50 text-center max-w-2xl mx-auto mb-14">
