@@ -1749,7 +1749,7 @@ const FAQ = () => {
               {t("index.faq.badge")}
             </span>
           </div>
-          <h2 className="font-bebas text-text-dark text-6xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-6">
+          <h2 className="font-bebas text-text-dark text-5xl md:text-8xl lg:text-[110px] tracking-wide leading-[0.9] text-center mb-6">
             {t("index.faq.headline1")}<br />
             {t("index.faq.headline2")}{" "}
             <span className="relative inline-block">
