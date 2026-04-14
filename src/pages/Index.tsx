@@ -526,7 +526,7 @@ const Offerings = () => {
     <div className="max-w-6xl mx-auto">
       <ScrollReveal>
         <div className="text-center mb-4">
-          <span className="inline-block bg-navy/10 border-2 border-navy/30 rounded-full px-6 py-2.5 font-dm text-xs text-navy tracking-[3px] uppercase font-bold">
+          <span className="inline-block bg-navy/10 border-2 border-navy/30 rounded-full px-6 py-2.5 font-dm text-[10px] md:text-xs text-navy tracking-[2px] md:tracking-[3px] uppercase font-bold whitespace-nowrap">
             {t("index.offerings.badge")}
           </span>
         </div>
