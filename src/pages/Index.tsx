@@ -2008,7 +2008,7 @@ const FormSection = () => {
 
         {/* Subtitle */}
         <ScrollReveal delay={0.6}>
-          <p className="font-dm text-lg md:text-xl text-white/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-dm text-sm md:text-xl text-white/70 text-center mb-16 max-w-2xl mx-auto leading-relaxed whitespace-nowrap">
             {t("index.form.subtitle")}
           </p>
         </ScrollReveal>
